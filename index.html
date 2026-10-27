@@ -39,6 +39,7 @@
 
 
 
+
 <style>/* required styles */
 
 .leaflet-pane,
@@ -7640,6 +7641,390 @@ form > .button {
     grid-template-columns: 1fr;
   }
 }
+
+#family-progress {
+  margin: 0 0 52px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.family-space-heading {
+  padding: 30px 32px 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  background: radial-gradient(ellipse at top right, #7ea98e15, transparent 65%);
+}
+.family-space-heading .eyebrow,
+.report-photo-heading span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.family-space-heading h2 {
+  font-size: clamp(25px, 3vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  margin: 12px 0 8px;
+}
+.family-space-heading p:last-child,
+.family-update-panel > p:not(.eyebrow),
+.report-photo-note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.family-case-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 32px 22px;
+  overflow-x: auto;
+}
+.family-case-tabs button {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  min-height: 44px;
+  font-size: 12px;
+}
+.family-case-tabs [aria-pressed='true'] {
+  border-color: var(--accent);
+  background: #7ea98e17;
+  color: var(--accent);
+}
+.family-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.8fr);
+  border-top: 1px solid var(--line);
+}
+.family-case-panel,
+.family-update-panel {
+  padding: 28px 32px;
+  min-width: 0;
+}
+.family-update-panel {
+  border-left: 1px solid var(--line);
+  background: #7ea98e07;
+}
+.family-case-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+.family-stage-pill {
+  padding: 7px 10px;
+  border-radius: 20px;
+  color: var(--accent);
+  background: #7ea98e18;
+  border: 1px solid #7ea98e36;
+}
+.family-workspace h3 {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin: 20px 0;
+}
+.family-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 16px;
+  max-height: 360px;
+  overflow: auto;
+}
+.family-timeline li {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 14px;
+  position: relative;
+  padding-bottom: 26px;
+}
+.family-timeline li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 26px;
+  bottom: 0;
+  border-left: 1px solid var(--line);
+}
+.family-timeline i {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #7ea98e50;
+  border-radius: 50%;
+  color: var(--accent);
+}
+.family-timeline i svg {
+  width: 12px;
+}
+.family-timeline strong {
+  font-size: 13px;
+  font-weight: 500;
+}
+.family-timeline time {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 6px;
+}
+.family-timeline p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 10px 0 0;
+  overflow-wrap: anywhere;
+}
+.family-next-check {
+  display: flex;
+  gap: 12px;
+  padding: 17px;
+  background: #7ea98e0c;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  margin-bottom: 20px;
+}
+.family-next-check svg {
+  color: var(--accent);
+}
+.family-next-check strong,
+.family-next-check span {
+  display: block;
+  font-size: 12px;
+}
+.family-next-check span {
+  color: var(--muted);
+  margin-top: 6px;
+}
+.family-update-panel form {
+  display: grid;
+  gap: 16px;
+}
+.family-update-panel label,
+.report-private-fields > label {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.family-update-panel select,
+.family-update-panel textarea,
+.report-private-fields select {
+  width: 100%;
+  min-height: 44px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 12px;
+  font: inherit;
+}
+.family-update-panel textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+.family-update-panel .family-demo-note {
+  font-size: 10px;
+  margin: 16px 0 22px;
+}
+.family-private-gallery {
+  margin-top: 26px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.family-private-gallery h4 {
+  font-size: 12px;
+  font-weight: 500;
+}
+.family-private-gallery .section-line > span {
+  color: var(--muted);
+  font-size: 11px;
+}
+.report-private-fields {
+  margin: 22px 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.report-private-fields .report-family-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 24px;
+}
+.report-family-toggle input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+.report-photo-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+.report-photo-heading span {
+  color: var(--accent);
+  font-size: 10px;
+}
+.report-photo-heading svg {
+  width: 13px;
+}
+.report-private-fields .report-photo-picker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+}
+.report-photo-picker small {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.report-photo-picker input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.report-photo-picker:focus-within {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.report-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.report-photo-grid > p {
+  grid-column: 1 / -1;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.report-photo {
+  position: relative;
+  margin: 14px 0 0;
+  min-width: 0;
+}
+.report-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 7px;
+  border: 1px solid var(--line);
+}
+.report-photo figcaption {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.report-photo .icon-button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: var(--surface);
+  width: 32px;
+  height: 32px;
+}
+.family-notification {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+  margin: 0 0 24px;
+  background: var(--surface);
+  box-shadow: 0 15px 45px #00000018;
+}
+.family-notification-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+  font-size: 17px;
+}
+.family-notification-brand small {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--muted);
+}
+.family-notification > strong {
+  font-size: 16px;
+  font-weight: 500;
+}
+.family-notification p {
+  color: var(--muted);
+  font-size: 13px;
+}
+.family-notification > small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.family-delivery-preview {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.family-delivery-preview span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  #family-progress {
+    margin-bottom: 30px;
+  }
+  .family-space-heading {
+    padding: 22px 20px 18px;
+    display: block;
+  }
+  .family-space-heading > .sample-label {
+    display: inline-block;
+    margin-top: 12px;
+  }
+  .family-case-tabs {
+    padding: 0 20px 18px;
+  }
+  .family-workspace {
+    grid-template-columns: 1fr;
+  }
+  .family-case-panel,
+  .family-update-panel {
+    padding: 22px 20px;
+  }
+  .family-update-panel {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .family-case-top {
+    flex-wrap: wrap;
+  }
+  .family-update-panel select,
+  .family-update-panel textarea {
+    font-size: 16px;
+  }
+}
 </style></head>
   <body>
 <noscript>Amparo is an interactive product demo. Enable JavaScript to explore the
@@ -8691,7 +9076,6 @@ form > .button {
       <div class="community-reports-panel" data-community-panel="reports" hidden><div class="community-section-heading"><div><h2>${t("The reports behind the map", "Los reportes detr\xE1s del mapa")}</h2><p>${t("The same filters, the same records. Open any report for context.", "Los mismos filtros y registros. Abre un reporte para ver el contexto.")}</p></div><span id="community-table-count"></span></div><div id="community-report-table"></div></div>
       <div class="community-stats-panel" data-community-panel="stats" hidden id="community-stats"></div>
     </div>
-    <dialog id="community-dialog" aria-labelledby="community-dialog-title"><div id="community-dialog-content"></div></dialog>
   </section>`;
   }
   function reportCard(report, language, selected = false) {
@@ -8763,6 +9147,7 @@ form > .button {
   </section>
   <section class="product-screen padded-screen" data-screen="circle" hidden>
     ${title("03", t("YOUR FAMILY SPACE", "TU ESPACIO FAMILIAR"), t("Prepared, together.", "Preparados, juntos."), t("The right people, with a shared plan.", "Las personas adecuadas, con un plan compartido."), `<button class="button primary" type="button" data-dialog="contact">${icon("plus")}${t("Add a person", "A\xF1adir una persona")}</button>`)}
+    <div id="family-progress"></div>
     <div class="circle-layout"><div><div class="section-line"><h2>${t("Your trusted circle", "Tu c\xEDrculo de confianza")}</h2><span class="sample-label">${t("SAMPLE CONTACTS", "CONTACTOS DE EJEMPLO")}</span></div><div id="contact-cards" class="contact-cards"></div><div class="family-plan"><p class="eyebrow">${t("A PLAN WORTH SHARING", "UN PLAN PARA COMPARTIR")}</p><h2>${t("Know the next step.<br>Before you need it.", "Conoce el siguiente paso.<br>Antes de necesitarlo.")}</h2><p>${t("Choose who to contact, keep important records together, and talk through the plan as a family.", "Elige a qui\xE9n contactar, re\xFAne los registros importantes y repasa el plan en familia.")}</p><div class="family-plan-actions"><button class="button primary" type="button" data-dialog="alert">${icon("shield")}${t("Practice a family alert", "Practicar una alerta")}</button><button class="button quiet" type="button" data-action="download-plan">${icon("download")}${t("Download my plan", "Descargar mi plan")}</button></div></div></div><aside class="activity-aside"><div class="section-line"><h2>${t("Your next steps", "Tus siguientes pasos")}</h2>${icon("clock")}</div><div class="next-step"><span>01</span><div><strong>${t("Organize your records", "Organiza tus registros")}</strong><p>${t("Build your document space.", "Prepara tu espacio de documentos.")}</p>${route("documents", t("Open documents", "Abrir documentos"))}</div></div><div class="next-step"><span>02</span><div><strong>${t("Talk it through", "Hablen del plan")}</strong><p>${t("Make sure your circle knows the plan.", "Aseg\xFArate de que tu c\xEDrculo conozca el plan.")}</p><button type="button" class="text-action" data-dialog="share">${t("Share an introduction", "Compartir una introducci\xF3n")}${icon("arrow")}</button></div></div><div class="next-step"><span>03</span><div><strong>${t("Know who to ask", "Sabe a qui\xE9n preguntar")}</strong><p>${t("Understand your legal access options.", "Conoce tus opciones de acceso legal.")}</p>${route("network", t("Explore the network", "Explorar la red"))}</div></div><div class="section-line activity-heading"><h2>${t("Recent activity", "Actividad reciente")}</h2></div><ol id="activity-list" class="activity-list"></ol></aside></div>
   </section>
   <section class="product-screen padded-screen" data-screen="membership" hidden>
@@ -8890,6 +9275,7 @@ form > .button {
     <div class="dock-wrap"><nav id="product-dock" class="product-dock" aria-label="${t("Product navigation", "Navegaci\xF3n del producto")}"><span class="dock-indicator" aria-hidden="true"></span>${tabs.map(([name, label]) => `<button type="button" data-route="${name}" ${name === "home" ? 'aria-current="page"' : ""}>${icon(name)}<span>${label}</span></button>`).join("")}</nav></div>
     <button class="desktop-agent" type="button" data-route="assistant"><span class="agent-mini-orb">${icon("assistant")}</span><span>Amparo AI<small>${t("A clearer next step", "Un siguiente paso claro")}</small></span>${icon("diagonal")}</button>
     <dialog id="product-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
+    ${features.communityAlerts ? '<dialog id="community-dialog" aria-labelledby="community-dialog-title"><div id="community-dialog-content"></div></dialog>' : ""}
     <div id="product-toast" class="product-toast" role="status" aria-live="polite"></div>`;
   }
 
@@ -9757,6 +10143,8 @@ This is an illustrative document. No identity or legal claim is made.`,
 
   // public/product-actions.js
   var dataActions = {
+    familyCase: (app, button2) => app.family.select(button2.dataset.familyCase),
+    familyAction: (app, button2) => app.family.action(button2.dataset.familyAction, button2),
     communityAction: (app, button2) => app.community?.action(button2.dataset.communityAction),
     communityTab: (app, button2) => app.community?.setTab(button2.dataset.communityTab),
     communityReport: (app, button2) => app.community?.select(button2.dataset.communityReport),
@@ -9939,6 +10327,10 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       );
     };
     const onSubmit = (event) => {
+      if (event.target.id === "family-update-form") {
+        event.preventDefault();
+        app.family.submit(event.target);
+      }
       if (event.target.id === "community-report-form") {
         event.preventDefault();
         app.community.submit(event.target);
@@ -9953,6 +10345,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       }
     };
     const onInput = (event) => {
+      if (event.target.id === "report-photos") app.family.addPhotos(event.target);
       app.community?.input(event.target);
       if (event.target.id === "network-search") {
         app.filters.networkQuery = event.target.value;
@@ -10055,6 +10448,147 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     <div class="community-method-note">${icon("help")}<div><strong>${t("What these numbers mean", "Qu\xE9 significan estas cifras")}</strong><p>${t("This entire dataset is illustrative. Counts describe reports, not confirmed enforcement totals. People counts are reported estimates, may overlap, and exclude unknown counts. Filters apply to every number and to your export.", "Todos estos datos son ilustrativos. Los totales describen reportes, no cifras confirmadas de actividad migratoria. Las cantidades de personas son estimaciones reportadas, pueden solaparse y excluyen datos desconocidos. Los filtros se aplican a todas las cifras y a la exportaci\xF3n.")}</p></div></div>`;
   }
 
+  // public/family/service.js
+  var familyStages = {
+    reported: ["Report received", "Reporte recibido"],
+    contacted: ["Family in contact", "Familia en contacto"],
+    located: ["Location confirmed", "Ubicaci\xF3n confirmada"],
+    supported: ["Legal help connected", "Apoyo legal conectado"],
+    resolved: ["Follow-up complete", "Seguimiento completo"]
+  };
+  function createFamilyService({ now = () => /* @__PURE__ */ new Date() } = {}) {
+    let cases;
+    const reset = () => {
+      cases = [
+        {
+          id: "family-sample",
+          name: "Carlos \xB7 sample",
+          area: "Miami-Dade",
+          audience: "private-family",
+          stage: "contacted",
+          reportId: null,
+          nextCheckAt: new Date(now().getTime() + 36e5).toISOString(),
+          events: [
+            {
+              stage: "reported",
+              note: "Sample: Elena opened a private family check-in.",
+              at: new Date(now().getTime() - 36e5).toISOString()
+            },
+            {
+              stage: "contacted",
+              note: "Sample: family made contact. Confirm the next update together.",
+              at: new Date(now().getTime() - 18e5).toISOString()
+            }
+          ]
+        }
+      ];
+    };
+    reset();
+    return {
+      mode: "demo",
+      list: () => structuredClone(cases),
+      get: (id) => structuredClone(cases.find((item) => item.id === id)),
+      fromReport(report) {
+        const existing = cases.find((item2) => item2.reportId === report.id);
+        if (existing) return structuredClone(existing);
+        const item = {
+          id: "family-" + report.id,
+          reportId: report.id,
+          name: "Family report",
+          area: report.name,
+          audience: "private-family",
+          stage: "reported",
+          nextCheckAt: new Date(now().getTime() + 36e5).toISOString(),
+          events: [
+            {
+              stage: "reported",
+              note: "Your sample report was received. It is still unconfirmed.",
+              at: now().toISOString()
+            }
+          ]
+        };
+        cases.unshift(item);
+        return structuredClone(item);
+      },
+      update(id, { stage, note, checkInHours = 1 }) {
+        const item = cases.find((entry) => entry.id === id);
+        if (!item) throw new Error("Family case not found.");
+        if (!Object.hasOwn(familyStages, stage))
+          throw new Error("Choose a valid stage.");
+        const text = String(note ?? "").trim();
+        if (text.length < 8 || text.length > 800)
+          throw new Error("Use an update note of 8 to 800 characters.");
+        if (![1, 4, 24, 168].includes(Number(checkInHours)))
+          throw new Error("Choose a check-in interval.");
+        item.stage = stage;
+        item.events.push({ stage, note: text, at: now().toISOString() });
+        item.nextCheckAt = stage === "resolved" ? null : new Date(
+          now().getTime() + Number(checkInHours) * 36e5
+        ).toISOString();
+        return structuredClone(item);
+      },
+      reset
+    };
+  }
+
+  // public/family/views.js
+  function photoGallery(photos, language, removable = false) {
+    const t = textFor(language);
+    return photos.map(
+      (photo, i) => `<figure class="report-photo"><img src="${escapeHTML(photo.url)}" alt="${escapeHTML(photo.name)}"><figcaption>${escapeHTML(photo.name)}</figcaption>${removable ? `<button type="button" class="icon-button" data-family-action="remove-photo" data-photo-index="${i}" aria-label="${t("Remove photo", "Quitar foto")} ${i + 1}">${icon("close")}</button>` : ""}</figure>`
+    ).join("");
+  }
+  function privateEvidence(photos, language) {
+    if (!photos.length) return "";
+    const t = textFor(language);
+    return `<section class="family-private-gallery"><h3>${t("Your private evidence", "Tu evidencia privada")}</h3><p>${t("Only visible to you in this demo. These photos are not published with the report.", "Solo t\xFA puedes ver estas fotos en la demo. No se publican con el reporte.")}</p><div class="report-photo-grid">${photoGallery(photos, language)}</div></section>`;
+  }
+  function reportExtras(language, draft) {
+    const t = textFor(language);
+    return `<div class="report-private-fields"><label>${t("How are you connected?", "\xBFC\xF3mo te relacionas?")}<select name="reporterRelation">${[
+      ["witness", "I witnessed this", "Fui testigo"],
+      ["family", "I am reporting for family", "Reporto por mi familia"],
+      ["community", "Community / partner report", "Reporte comunitario"]
+    ].map(
+      ([id, en, es]) => `<option value="${id}" ${draft.reporterRelation === id ? "selected" : ""}>${t(en, es)}</option>`
+    ).join(
+      ""
+    )}</select></label><label class="report-family-toggle"><input type="checkbox" name="trackFamily" ${draft.trackFamily ? "checked" : ""}><span>${t("Add a private family follow-up", "A\xF1adir seguimiento familiar privado")}</span></label><div class="report-photo-heading"><strong>${t("Photos & evidence", "Fotos y evidencia")}</strong><span>${icon("lock")}${t("Private", "Privado")}</span></div><p class="report-photo-note">${t("Visible only to you in this demo. Photos are kept off the public map. A live upload will go to private storage for review.", "Solo t\xFA puedes verlas en esta demo. Las fotos no aparecen en el mapa p\xFAblico. En el servicio real ir\xE1n al almacenamiento privado para revisi\xF3n.")}</p><label class="report-photo-picker">${icon("upload")}<span>${t("Choose photos", "Elegir fotos")}<small>JPG, PNG, WebP \xB7 3 \xD7 5 MB</small></span><input id="report-photos" type="file" multiple accept="image/jpeg,image/png,image/webp" aria-label="${t("Add private photos", "A\xF1adir fotos privadas")}"></label><div id="report-photo-draft" class="report-photo-grid"></div><p id="report-photo-error" class="form-error" role="alert"></p></div>`;
+  }
+  function eventTime(value, language) {
+    return new Intl.DateTimeFormat(language, {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    }).format(new Date(value));
+  }
+  function familySpace(item, cases, photos, language, draft = {}) {
+    const t = textFor(language);
+    const column = language === "es" ? 1 : 0;
+    const stage = familyStages[item.stage][column];
+    return `<div class="family-space-heading"><div><p class="eyebrow">${icon("lock")}${t("PRIVATE FAMILY SPACE", "ESPACIO FAMILIAR PRIVADO")}</p><h2>${t("Stay close. Stay informed.", "Cerca de ti. Al tanto.")}</h2><p>${t("A shared picture of what is known, and what happens next.", "Lo que se sabe y el siguiente paso, en un mismo lugar.")}</p></div><span class="sample-label">${t("INTERACTIVE DEMO", "DEMO INTERACTIVA")}</span></div><div class="family-case-tabs" role="group" aria-label="${t("Family follow-ups", "Seguimientos familiares")}">${cases.map((entry) => `<button type="button" data-family-case="${escapeHTML(entry.id)}" aria-pressed="${entry.id === item.id}">${icon("people")}${escapeHTML(entry.name)}</button>`).join("")}</div><div class="family-workspace"><div class="family-case-panel"><div class="family-case-top"><span>${escapeHTML(item.area)}</span><span class="family-stage-pill">${stage}</span></div><h3>${t("Every update, in one place.", "Cada novedad, en un lugar.")}</h3><ol class="family-timeline">${item.events.map((event) => `<li><i>${icon("check")}</i><div><strong>${familyStages[event.stage][column]}</strong><time datetime="${event.at}">${eventTime(event.at, language)}</time><p>${escapeHTML(event.note)}</p></div></li>`).join("")}</ol><div class="family-next-check">${icon("clock")}<div><strong>${t("Next family check-in", "Pr\xF3ximo contacto familiar")}</strong><span>${item.nextCheckAt ? eventTime(item.nextCheckAt, language) : t("No check-in scheduled", "Sin contacto programado")}</span></div></div>${item.reportId ? `<button type="button" class="text-action" data-community-open="${escapeHTML(item.reportId)}">${t("View the community report", "Ver reporte comunitario")}${icon("arrow")}</button>` : ""}<div class="family-private-gallery"><div class="section-line"><h4>${t("Private evidence", "Evidencia privada")}</h4><span>${photos.length} ${t("photos", "fotos")}</span></div><div class="report-photo-grid">${photos.length ? photoGallery(photos, language) : `<p class="subtle">${t("Photos attached to your report appear here. They are not published to the map.", "Las fotos de tu reporte aparecen aqu\xED. No se publican en el mapa.")}</p>`}</div></div></div><aside class="family-update-panel"><p class="eyebrow">${t("KEEP YOUR PEOPLE CLOSE", "CERCA DE TU GENTE")}</p><h3>${t("Share the next update.", "Comparte la novedad.")}</h3><p>${t("Record what your family has confirmed. Updating this space does not verify a public report.", "Registra lo que tu familia confirm\xF3. Esto no verifica el reporte p\xFAblico.")}</p><form id="family-update-form"><label>${t("Current status", "Estado actual")}<select name="familyStage">${Object.entries(
+      familyStages
+    ).map(
+      ([key, labels]) => `<option value="${key}" ${key === (draft.familyStage || item.stage) ? "selected" : ""}>${labels[column]}</option>`
+    ).join(
+      ""
+    )}</select></label><label>${t("What has changed?", "\xBFQu\xE9 ha cambiado?")}<textarea name="familyNote" minlength="8" maxlength="800" rows="4" required placeholder="${t("Add a private update for your circle\u2026", "A\xF1ade una novedad privada\u2026")}">${escapeHTML(draft.familyNote || "")}</textarea></label><label>${t("Check in again", "Volver a contactar")}<select name="checkInHours">${[
+      [1, "In 1 hour", "En 1 hora"],
+      [4, "In 4 hours", "En 4 horas"],
+      [24, "Tomorrow", "Ma\xF1ana"],
+      [168, "In one week", "En una semana"]
+    ].map(
+      ([hours, en, es]) => `<option value="${hours}" ${String(hours) === String(draft.checkInHours || 1) ? "selected" : ""}>${t(en, es)}</option>`
+    ).join(
+      ""
+    )}</select></label><p id="family-error" class="form-error" role="alert"></p><button type="submit" class="button primary full">${t("Save private update", "Guardar novedad privada")}${icon("arrow")}</button></form><p class="family-demo-note">${t("Demo: stays in this tab. No message is sent. Refreshing clears your sample updates and photos.", "Demo: permanece en esta pesta\xF1a. No se env\xEDan mensajes. Recargar borra novedades y fotos de ejemplo.")}</p><button type="button" class="text-action" data-family-action="preview">${icon("bell")}${t("Preview the family notification", "Ver notificaci\xF3n familiar")}</button></aside></div>`;
+  }
+  function familyNotification(item, language) {
+    const t = textFor(language);
+    return `<button type="button" class="icon-button dialog-close" data-community-action="close-dialog" aria-label="${t("Close preview", "Cerrar vista previa")}">${icon("close")}</button><div class="family-notification"><span class="family-notification-brand">${icon("shield")} amparo <small>${t("now \xB7 preview", "ahora \xB7 ejemplo")}</small></span><strong>${t("Your family space has an update.", "Hay novedades en tu espacio familiar.")}</strong><p>${t("Open Amparo to view it privately.", "Abre Amparo para verlo en privado.")}</p><small>${t("Names, locations and photos stay off the lock screen.", "Nombres, ubicaciones y fotos no aparecen en la pantalla bloqueada.")}</small></div><div class="family-delivery-preview"><span>${icon("check")}${t("Saved in this demo", "Guardado en esta demo")}</span><span>${icon("bell")}${t("Push / SMS not sent", "Push / SMS no enviados")}</span></div><h2 id="community-dialog-title">${t("A quiet, private update.", "Una novedad privada.")}</h2><p>${t("Your circle opens the app to see the full update. This preview does not notify anyone.", "Tu c\xEDrculo abre la app para ver la novedad. Esta vista previa no avisa a nadie.")}</p><button class="button primary full" type="button" data-family-case="${escapeHTML(item.id)}">${t("Open family space", "Abrir espacio familiar")}${icon("arrow")}</button>`;
+  }
+
   // public/community/forms.js
   function reportForm(language, draft = {}) {
     const t = textFor(language);
@@ -10074,7 +10608,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       <label>${t("Date observed", "Fecha de observaci\xF3n")}<input name="date" type="date" min="2026-09-28" max="2026-10-27" value="${escapeHTML(draft.date || "2026-10-27")}" required><small>${t("Demo reference date: Oct 27, 2026", "Fecha de la demo: 27 oct. 2026")}</small></label>
       <label>${t("People reportedly detained", "Personas reportadas detenidas")}<input name="people" type="number" min="1" max="99" placeholder="${t("Unknown / not applicable", "Desconocido / no aplica")}" value="${escapeHTML(draft.people || "")}"><small>${t("Leave blank if not known", "D\xE9jalo vac\xEDo si no se sabe")}</small></label>
     </div><label class="community-description-label">${t("Describe the observation", "Describe la observaci\xF3n")}<textarea name="description" minlength="12" maxlength="800" rows="4" required placeholder="${t("What happened in the area? Leave out names and personal identifiers.", "\xBFQu\xE9 ocurri\xF3 en la zona? Omite nombres y datos personales.")}">${escapeHTML(draft.description || "")}</textarea></label>
-      <p id="community-form-error" class="form-error" role="alert"></p><div class="community-form-actions"><button class="button quiet" type="button" data-community-action="close-dialog">${t("Cancel", "Cancelar")}</button><button class="button community-primary" type="submit">${icon("send")}${t("Save sample report", "Guardar reporte de ejemplo")}</button></div>
+      ${reportExtras(language, draft)}<p id="community-form-error" class="form-error" role="alert"></p><div class="community-form-actions"><button class="button quiet" type="button" data-community-action="close-dialog">${t("Cancel", "Cancelar")}</button><button class="button community-primary" type="submit">${icon("send")}${t("Save sample report", "Guardar reporte de ejemplo")}</button></div>
     </form>`;
   }
   function watchForm(language, following) {
@@ -10382,7 +10916,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
           selected,
           this.language,
           this.following.has(selected.region)
-        );
+        ) + (this.app.family?.evidence(selected.id) || "");
     }
     renderHome() {
       const host = this.document.querySelector("#home-community-reports");
@@ -10470,6 +11004,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         else dialog.setAttribute("open", "");
       }
       dialog.querySelector("select, input, button")?.focus();
+      this.app.family?.renderDraftPhotos();
     }
     closeDialog() {
       const form2 = this.document.querySelector("#community-report-form");
@@ -10489,7 +11024,8 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.openDialog("watch", watchForm(this.language, this.following));
     }
     async submit(form2) {
-      if (this.sending || !form2.reportValidity()) return;
+      if (this.sending || this.app.family?.pending || !form2.reportValidity())
+        return;
       const generation = ++this.submissionGeneration;
       const lifecycle = this.lifecycle;
       this.sending = true;
@@ -10506,6 +11042,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
           idempotencyKey: this.requestId
         });
         if (lifecycle !== this.lifecycle) return;
+        this.app.family?.receive(report, this.draft);
         this.draft = {};
         this.requestId = null;
         await this.load();
@@ -10603,6 +11140,212 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     }
   };
 
+  // public/family/media.js
+  var maxBytes = 5 * 1024 * 1024;
+  async function readHeader(file, window2) {
+    const blob = file.slice(0, 12);
+    if (blob.arrayBuffer) return new Uint8Array(await blob.arrayBuffer());
+    return new Promise((resolve, reject) => {
+      const reader = new window2.FileReader();
+      reader.onload = () => resolve(new Uint8Array(reader.result));
+      reader.onerror = () => reject(new Error("Could not read the image."));
+      reader.readAsArrayBuffer(blob);
+    });
+  }
+  function signatureMatches(type, bytes) {
+    if (type === "image/png")
+      return [137, 80, 78, 71, 13, 10, 26, 10].every((b, i) => bytes[i] === b);
+    if (type === "image/jpeg")
+      return bytes[0] === 255 && bytes[1] === 216 && bytes[2] === 255;
+    return type === "image/webp" && String.fromCharCode(...bytes.slice(0, 4)) === "RIFF" && String.fromCharCode(...bytes.slice(8, 12)) === "WEBP";
+  }
+  var PrivateReportMedia = class {
+    constructor(window2) {
+      this.window = window2;
+      this.draft = [];
+      this.saved = /* @__PURE__ */ new Map();
+      this.generation = 0;
+    }
+    async add(files) {
+      const selected = Array.from(files);
+      if (selected.length + this.draft.length > 3)
+        throw new Error("Choose up to three photos.");
+      const generation = this.generation;
+      for (const file of selected) {
+        if (!file.size || file.size > maxBytes)
+          throw new Error("Each photo must be under 5 MB.");
+        if (!signatureMatches(file.type, await readHeader(file, this.window)))
+          throw new Error("Choose a valid JPG, PNG or WebP image.");
+      }
+      if (generation !== this.generation) return;
+      if (!this.window.URL.createObjectURL)
+        throw new Error("Image previews are unavailable in this browser.");
+      const added = [];
+      try {
+        for (const file of selected)
+          added.push({
+            name: file.name,
+            size: file.size,
+            type: file.type,
+            file,
+            url: this.window.URL.createObjectURL(file)
+          });
+        this.draft.push(...added);
+      } catch (error) {
+        for (const photo of added) this.window.URL.revokeObjectURL(photo.url);
+        throw error;
+      }
+    }
+    remove(index) {
+      const [photo] = this.draft.splice(index, 1);
+      if (photo) this.window.URL.revokeObjectURL(photo.url);
+    }
+    commit(reportId) {
+      for (const photo of this.saved.get(reportId) ?? [])
+        this.window.URL.revokeObjectURL(photo.url);
+      this.saved.set(reportId, this.draft);
+      this.draft = [];
+    }
+    forReport(reportId) {
+      return this.saved.get(reportId) ?? [];
+    }
+    reset() {
+      this.generation++;
+      for (const photo of [...this.draft, ...[...this.saved.values()].flat()])
+        this.window.URL.revokeObjectURL(photo.url);
+      this.draft = [];
+      this.saved.clear();
+    }
+  };
+
+  // public/family/controller.js
+  var FamilyController = class {
+    constructor(app) {
+      this.app = app;
+      this.service = app.services.family || createFamilyService();
+      this.media = new PrivateReportMedia(app.window);
+      this.selected = this.service.list()[0].id;
+      this.draft = {};
+    }
+    captureDraft() {
+      const form2 = this.app.document.querySelector("#family-update-form");
+      if (form2)
+        this.draft = Object.fromEntries(new this.app.window.FormData(form2));
+    }
+    render(capture = true) {
+      if (capture) this.captureDraft();
+      const host = this.app.document.querySelector("#family-progress");
+      if (!host) return;
+      const cases = this.service.list();
+      const item = this.service.get(this.selected) || cases[0];
+      host.innerHTML = familySpace(
+        item,
+        cases,
+        this.media.forReport(item.reportId),
+        this.app.store.get().language,
+        this.draft
+      );
+    }
+    select(id) {
+      if (!this.service.get(id)) return;
+      this.selected = id;
+      this.draft = {};
+      this.app.community?.closeDialog();
+      this.app.navigate("circle");
+      this.render(false);
+    }
+    receive(report, draft) {
+      this.media.commit(report.id);
+      if (draft.trackFamily) {
+        this.selected = this.service.fromReport(report).id;
+        this.draft = {};
+        this.render(false);
+      }
+    }
+    evidence(reportId) {
+      return privateEvidence(
+        this.media.forReport(reportId),
+        this.app.store.get().language
+      );
+    }
+    submit(form2) {
+      if (!form2.reportValidity()) return;
+      const values = Object.fromEntries(new this.app.window.FormData(form2));
+      try {
+        this.service.update(this.selected, {
+          stage: values.familyStage,
+          note: values.familyNote,
+          checkInHours: values.checkInHours
+        });
+        this.draft = {};
+        this.render(false);
+        this.app.toast(
+          this.app.text(
+            "Private sample update saved.",
+            "Novedad privada de ejemplo guardada."
+          )
+        );
+      } catch (error) {
+        this.app.document.querySelector("#family-error").textContent = error.message;
+      }
+    }
+    async addPhotos(input) {
+      if (this.pending) return;
+      this.pending = true;
+      const submit = input.form?.querySelector('[type="submit"]');
+      if (submit) submit.disabled = true;
+      const generation = this.media.generation;
+      try {
+        await this.media.add(input.files);
+        this.photoError = "";
+      } catch (error) {
+        this.photoError = error.message;
+      } finally {
+        this.pending = false;
+        if (generation === this.media.generation) {
+          input.value = "";
+          if (submit?.isConnected) submit.disabled = false;
+          this.renderDraftPhotos();
+        }
+      }
+    }
+    renderDraftPhotos() {
+      const host = this.app.document.querySelector("#report-photo-draft");
+      if (host)
+        host.innerHTML = photoGallery(
+          this.media.draft,
+          this.app.store.get().language,
+          true
+        );
+      const error = this.app.document.querySelector("#report-photo-error");
+      if (error) error.textContent = this.photoError || "";
+    }
+    action(action, button2) {
+      if (action === "remove-photo") {
+        this.media.remove(Number(button2.dataset.photoIndex));
+        this.renderDraftPhotos();
+      }
+      if (action === "preview")
+        this.app.community?.openDialog(
+          "family-preview",
+          familyNotification(
+            this.service.get(this.selected),
+            this.app.store.get().language
+          )
+        );
+    }
+    reset() {
+      this.media.reset();
+      this.service.reset();
+      this.selected = this.service.list()[0].id;
+      this.draft = {};
+      this.photoError = "";
+    }
+    destroy() {
+      this.media.reset();
+    }
+  };
+
   // public/product.js
   var ProductController = class {
     constructor(window2, options) {
@@ -10639,6 +11382,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.document.documentElement.dataset.theme = this.store.get().theme;
       renderLiveState(this.document, this.store.get(), this.filters);
       this.community?.render();
+      this.family?.render();
     }
     toast(message) {
       const box = this.document.querySelector("#product-toast");
@@ -10735,6 +11479,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       );
     }
     build() {
+      this.family?.captureDraft();
       this.community?.detach();
       this.maps?.destroy();
       this.dialogs?.cleanup();
@@ -10762,6 +11507,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         this.toast,
         options.animate !== false
       );
+      this.family ??= new FamilyController(this);
       if (this.features.communityAlerts) {
         this.community ??= new CommunityController(this);
         this.community.mount();
@@ -10781,6 +11527,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.dialogs.close();
       this.assistant.clear();
       this.community?.reset();
+      this.family.reset();
       this.store.reset();
       Object.assign(this.filters, {
         document: "all",
@@ -10800,6 +11547,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.assistant.destroy();
       this.dialogs.cleanup();
       this.community?.destroy();
+      this.family.destroy();
       this.window.clearTimeout(this.toastTimer);
       this.unbindEvents();
     }

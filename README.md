@@ -2,7 +2,7 @@
 
 [Open the interactive demo](https://philipgraffshapiro.github.io/amparo-demo/)
 
-A responsive English/Spanish product demonstration with community alerts, an interactive activity map, reports and statistics, document organization, family preparation, membership checkout and Amparo AI.
+A responsive English/Spanish product demonstration with community alerts, an interactive activity map, reports and statistics, document organization, family preparation, private family progress timelines, photo evidence, notification previews, membership checkout and Amparo AI.
 
 All incident reports, provider records, checkout and alert delivery are illustrative. The demo does not dispatch help, charge a card or create a live account. Uploaded files and conversations remain in the current browser session.
 
