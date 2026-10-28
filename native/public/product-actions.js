@@ -148,6 +148,13 @@ const namedActions = {
   },
   'close-dialog': (app) => app.dialogs.close(),
   'close-location': (app) => app.closeLocation(),
+  'clear-document-search'(app) {
+    app.filters.documentQuery = '';
+    const search = app.document.querySelector('#document-search');
+    search.value = '';
+    app.renderState();
+    search.focus({ preventScroll: true });
+  },
   'clear-network'(app) {
     app.filters.network = 'all';
     app.filters.networkQuery = '';

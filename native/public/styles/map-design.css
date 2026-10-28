@@ -4,6 +4,27 @@
 .community-marker-ring {
   display: none;
 }
+.community-map-layers button,
+.community-map-summary button {
+  min-height: 44px;
+  font-size: 14px;
+}
+.community-map-summary {
+  top: 80px;
+  font-size: 14px;
+}
+.community-map-legend {
+  flex-wrap: wrap;
+  right: 70px;
+  width: fit-content;
+}
+.community-map-legend span {
+  font-size: 14px;
+}
+.community-map-error {
+  top: 144px;
+  font-size: 14px;
+}
 body[data-screen='home'] .map-credit,
 body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   .map-credit {
@@ -233,12 +254,18 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   html[data-mobile-surfaces='true']
     .community-screen:has([data-community-panel='map']:not([hidden])) {
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 6px 12px;
     padding-top: 4px;
   }
   html[data-mobile-surfaces='true']
     .community-screen:has([data-community-panel='map']:not([hidden]))
     > .community-heading {
-    margin: 0 12px 6px;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0 12px 0 0;
     height: 48px;
     display: flex;
     justify-content: flex-end;
@@ -268,11 +295,29 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   html[data-mobile-surfaces='true']
     .community-screen:has([data-community-panel='map']:not([hidden]))
     > .community-toolbar {
-    position: absolute;
-    top: 4px;
-    left: 12px;
-    margin: 0;
-    width: calc(100% - 300px);
+    position: static;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 0 0 12px;
+    min-width: 0;
+    width: auto;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-tabs {
+    min-width: 0;
+    gap: 12px;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-tabs
+    button {
+    flex-shrink: 0;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-workspace {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
   .community-map-canvas > .community-filters {
     left: calc(45% + 12px);

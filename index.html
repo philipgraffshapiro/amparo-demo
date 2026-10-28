@@ -9258,6 +9258,27 @@ form > .button {
 .community-marker-ring {
   display: none;
 }
+.community-map-layers button,
+.community-map-summary button {
+  min-height: 44px;
+  font-size: 14px;
+}
+.community-map-summary {
+  top: 80px;
+  font-size: 14px;
+}
+.community-map-legend {
+  flex-wrap: wrap;
+  right: 70px;
+  width: fit-content;
+}
+.community-map-legend span {
+  font-size: 14px;
+}
+.community-map-error {
+  top: 144px;
+  font-size: 14px;
+}
 body[data-screen='home'] .map-credit,
 body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   .map-credit {
@@ -9487,12 +9508,18 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   html[data-mobile-surfaces='true']
     .community-screen:has([data-community-panel='map']:not([hidden])) {
     position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 6px 12px;
     padding-top: 4px;
   }
   html[data-mobile-surfaces='true']
     .community-screen:has([data-community-panel='map']:not([hidden]))
     > .community-heading {
-    margin: 0 12px 6px;
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0 12px 0 0;
     height: 48px;
     display: flex;
     justify-content: flex-end;
@@ -9522,11 +9549,29 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   html[data-mobile-surfaces='true']
     .community-screen:has([data-community-panel='map']:not([hidden]))
     > .community-toolbar {
-    position: absolute;
-    top: 4px;
-    left: 12px;
-    margin: 0;
-    width: calc(100% - 300px);
+    position: static;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 0 0 12px;
+    min-width: 0;
+    width: auto;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-tabs {
+    min-width: 0;
+    gap: 12px;
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-tabs
+    button {
+    flex-shrink: 0;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-workspace {
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
   .community-map-canvas > .community-filters {
     left: calc(45% + 12px);
@@ -10798,7 +10843,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
       ([label2, glyph]) => `<button type="button" data-prompt="${escapeHTML(label2)}">${icon(glyph)}<span>${label2}</span>${icon("diagonal")}</button>`
     ).join(
       ""
-    )}</div></div></div><div class="composer-wrap"><p id="voice-status" role="status"></p><form id="assistant-form" class="assistant-composer"><button type="button" class="icon-button" data-dialog="upload" aria-label="${t("Add a document", "A\xF1adir un documento")}">${icon("plus")}</button><textarea rows="1" maxlength="1200" id="assistant-input" placeholder="${t("Ask about your next step\u2026", "Pregunta sobre tu siguiente paso\u2026")}" aria-label="${t("Message Amparo AI", "Mensaje para Amparo AI")}"></textarea><button type="button" class="icon-button" id="voice-demo" aria-label="${t("Preview voice input", "Probar entrada de voz")}">${icon("mic")}</button><button type="submit" class="send-button" id="assistant-send" aria-label="${t("Send message", "Enviar mensaje")}">${icon("send")}</button></form><p class="composer-note">${t("Interactive AI demo \xB7 No message leaves this device.", "Demo interactiva de IA \xB7 Ning\xFAn mensaje sale de este dispositivo.")}</p></div></div>
+    )}</div></div></div><div class="composer-wrap"><p id="voice-status" role="status"></p><form id="assistant-form" class="assistant-composer"><button type="button" class="icon-button" data-dialog="upload" aria-label="${t("Add a document", "A\xF1adir un documento")}">${icon("plus")}</button><textarea rows="1" maxlength="1200" id="assistant-input" placeholder="${t("Your question", "Tu pregunta")}" aria-label="${t("Message Amparo AI", "Mensaje para Amparo AI")}"></textarea><button type="button" class="icon-button" id="voice-demo" aria-label="${t("Preview voice input", "Probar entrada de voz")}">${icon("mic")}</button><button type="submit" class="send-button" id="assistant-send" aria-label="${t("Send message", "Enviar mensaje")}">${icon("send")}</button></form><p class="composer-note">${t("Interactive AI demo \xB7 No message leaves this device.", "Demo interactiva de IA \xB7 Ning\xFAn mensaje sale de este dispositivo.")}</p></div></div>
   </section>
   <section class="product-screen padded-screen" data-screen="circle" hidden>
     ${title("03", t("YOUR FAMILY SPACE", "TU ESPACIO FAMILIAR"), t("Your family plan", "Tu plan familiar"), t("Choose your contacts and prepare for an emergency together.", "Elige tus contactos y preparen juntos un plan de emergencia."), `<button class="button primary" type="button" data-dialog="contact">${icon("plus")}${t("Add a person", "A\xF1adir una persona")}</button>`)}
@@ -11017,7 +11062,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
     );
     document2.querySelector("#document-rows").innerHTML = docs.length ? docs.map(
       (item) => `<button type="button" class="document-row" data-preview="${item.id}"><span class="file-name"><span class="file-icon">${icon("file")}</span><span><strong>${escapeHTML(state.language === "es" && item.nameEs ? item.nameEs : item.name)}</strong><small>${item.sample ? t("Sample document", "Documento de ejemplo") : t("On this device", "En este dispositivo")}</small></span></span><span class="file-category">${t(documentCategories.find((cat) => cat.id === item.category).en, documentCategories.find((cat) => cat.id === item.category).es)}</span><span class="file-size">${Math.max(1, Math.round(item.size / 1024))} KB</span>${icon("diagonal")}</button>`
-    ).join("") : `<div class="empty-state">${icon("documents")}<h3>${t("A clear space to start.", "Un espacio para empezar.")}</h3><p>${t("Add a document here or choose another category.", "A\xF1ade un documento o elige otra categor\xEDa.")}</p><button type="button" class="text-action" data-dialog="upload">${t("Add a document", "A\xF1adir un documento")}${icon("plus")}</button></div>`;
+    ).join("") : filters.documentQuery ? `<div class="empty-state">${icon("search")}<h3>${t("No matching documents", "No hay documentos que coincidan")}</h3><p>${t("Try another name or clear your search.", "Prueba otro nombre o borra la b\xFAsqueda.")}</p><button type="button" class="button quiet" data-action="clear-document-search">${t("Clear search", "Borrar b\xFAsqueda")}</button></div>` : `<div class="empty-state">${icon("documents")}<h3>${category ? t("No documents in this category", "No hay documentos en esta categor\xEDa") : t("No documents yet", "A\xFAn no hay documentos")}</h3><p>${t("Add a document to keep it here.", "A\xF1ade un documento para guardarlo aqu\xED.")}</p><button type="button" class="text-action" data-dialog="upload">${t("Add a document", "A\xF1adir un documento")}${icon("plus")}</button></div>`;
     document2.querySelector("#contact-cards").innerHTML = state.contacts.map(
       (person) => `<article class="contact-card"><span class="avatar">${escapeHTML(person.initials)}</span><button type="button" class="icon-button contact-remove" data-remove-contact="${person.id}" aria-label="${t("Remove", "Eliminar")} ${escapeHTML(person.name)}">${icon("close")}</button><h3>${escapeHTML(person.name)}</h3><p>${escapeHTML(state.language === "es" && person.relationEs ? person.relationEs : person.relation || "")}</p><span class="contact-phone">${escapeHTML(person.phone || t("No phone added", "Sin tel\xE9fono"))}</span><small><i></i>${t("In your circle", "En tu c\xEDrculo")}</small></article>`
     ).join("") + `<button type="button" class="contact-card add-contact" data-dialog="contact">${icon("plus")}<strong>${t("Make room for someone.", "Un lugar para alguien m\xE1s.")}</strong><span>${t("Add a trusted person", "A\xF1ade una persona de confianza")}</span></button>`;
@@ -11941,6 +11986,13 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     },
     "close-dialog": (app) => app.dialogs.close(),
     "close-location": (app) => app.closeLocation(),
+    "clear-document-search"(app) {
+      app.filters.documentQuery = "";
+      const search = app.document.querySelector("#document-search");
+      search.value = "";
+      app.renderState();
+      search.focus({ preventScroll: true });
+    },
     "clear-network"(app) {
       app.filters.network = "all";
       app.filters.networkQuery = "";

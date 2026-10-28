@@ -118,7 +118,9 @@ export function renderLiveState(document, state, filters = {}) {
             `<button type="button" class="document-row" data-preview="${item.id}"><span class="file-name"><span class="file-icon">${icon('file')}</span><span><strong>${escapeHTML(state.language === 'es' && item.nameEs ? item.nameEs : item.name)}</strong><small>${item.sample ? t('Sample document', 'Documento de ejemplo') : t('On this device', 'En este dispositivo')}</small></span></span><span class="file-category">${t(documentCategories.find((cat) => cat.id === item.category).en, documentCategories.find((cat) => cat.id === item.category).es)}</span><span class="file-size">${Math.max(1, Math.round(item.size / 1024))} KB</span>${icon('diagonal')}</button>`,
         )
         .join('')
-    : `<div class="empty-state">${icon('documents')}<h3>${t('A clear space to start.', 'Un espacio para empezar.')}</h3><p>${t('Add a document here or choose another category.', 'Añade un documento o elige otra categoría.')}</p><button type="button" class="text-action" data-dialog="upload">${t('Add a document', 'Añadir un documento')}${icon('plus')}</button></div>`;
+    : filters.documentQuery
+      ? `<div class="empty-state">${icon('search')}<h3>${t('No matching documents', 'No hay documentos que coincidan')}</h3><p>${t('Try another name or clear your search.', 'Prueba otro nombre o borra la búsqueda.')}</p><button type="button" class="button quiet" data-action="clear-document-search">${t('Clear search', 'Borrar búsqueda')}</button></div>`
+      : `<div class="empty-state">${icon('documents')}<h3>${category ? t('No documents in this category', 'No hay documentos en esta categoría') : t('No documents yet', 'Aún no hay documentos')}</h3><p>${t('Add a document to keep it here.', 'Añade un documento para guardarlo aquí.')}</p><button type="button" class="text-action" data-dialog="upload">${t('Add a document', 'Añadir un documento')}${icon('plus')}</button></div>`;
   document.querySelector('#contact-cards').innerHTML =
     state.contacts
       .map(
