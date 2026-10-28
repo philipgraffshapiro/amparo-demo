@@ -5514,8 +5514,10 @@ form > .button {
   .network-note {
     display: none;
   }
+  .search-field input,
   .network-sidebar .search-field input {
-    font-size: 12px;
+    /* Smaller editable text makes iOS zoom the entire page on focus. */
+    font-size: 16px;
   }
   .filter-tabs {
     margin: 10px 0 12px;
@@ -5623,7 +5625,7 @@ form > .button {
     font-size: 8px;
   }
   .assistant-composer textarea {
-    font-size: 12px;
+    font-size: 16px;
   }
   .prompt-grid button span {
     font-size: 11px;
@@ -8157,6 +8159,12 @@ form > .button {
 .community-home-feed {
   max-height: 680px;
   overflow: auto;
+}
+@media (min-width: 701px) {
+  .community-home-feed {
+    bottom: 24px;
+    max-height: none;
+  }
 }
 @media (max-width: 700px) {
   .news-view {
