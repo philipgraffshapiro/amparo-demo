@@ -40,7 +40,7 @@ export class NativeKit {
     app.document.addEventListener('click', this.listener);
   }
   mount() {
-    const host = this.app.document.querySelector('[data-screen="more"]');
+    const host = this.app.document.querySelector('section[data-screen="more"]');
     if (!host) return;
     const t = this.app.text.bind(this.app);
     const section = this.app.document.createElement('section');
