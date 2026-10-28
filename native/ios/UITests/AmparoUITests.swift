@@ -51,11 +51,26 @@ final class AmparoUITests: XCTestCase {
         screenshot("native-share")
         XCTAssertTrue(app.otherElements["ActivityListView"].waitForExistence(timeout: 10) || app.buttons["Copy"].exists)
     }
+    func testReminderSchedulesAndCancels() {
+        openAccountScreen()
+        let reminder = app.buttons["Remind me tomorrow"]
+        for _ in 0..<6 where !reminder.isHittable { app.swipeUp() }
+        XCTAssertTrue(reminder.waitForExistence(timeout: 10))
+        reminder.tap()
+        let allow = app.alerts.buttons["Allow"]
+        if allow.waitForExistence(timeout: 10) { allow.tap() }
+        XCTAssertTrue(app.staticTexts["Reminder set for tomorrow."].waitForExistence(timeout: 15))
+        screenshot("iphone-reminder")
+        app.buttons["Cancel reminder"].tap()
+        XCTAssertTrue(app.staticTexts["Reminder cancelled."].waitForExistence(timeout: 10))
+    }
     func testAccountHasAppleAndGoogleOptions() {
         openAccountScreen()
         app.buttons["Account & payment status"].firstMatch.tap()
         XCTAssertTrue(app.buttons["Sign in with Apple"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.buttons["Continue with Google"].exists)
+        XCTAssertFalse(app.buttons["Sign in with Apple"].isEnabled)
+        XCTAssertFalse(app.buttons["Continue with Google"].isEnabled)
         screenshot("iphone-sign-in")
     }
     func testHomeAndLanguage() {

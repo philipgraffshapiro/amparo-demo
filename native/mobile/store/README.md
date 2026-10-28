@@ -4,7 +4,7 @@ This is a native development preview, not a signed App Store release. It keeps
 the existing bilingual app and adds native secure storage, system sign-in
 adapters, an offline checklist, sharing and an optional local reminder.
 
-On a Mac with Xcode 26 and Node 22 or later:
+Requires iOS 16 or later. On a Mac with Xcode 26 and Node 22 or later:
 
 ```text
 npm ci
@@ -26,3 +26,22 @@ Apple identifiers and server-side key configuration.
 An unsigned archive is suitable for developer inspection. Sign and test the
 finished app through TestFlight before requesting App Store review. The remaining
 family, assistant, appointment and dispatch demo services need production work.
+
+
+The supported npm commands in the source package are `test` and `ios:*`.
+`npm run ios:release-check` currently exits with the missing business inputs;
+this is intentional. Do not mark a declaration verified before its acceptance
+check actually passes.
+
+Permanent service setup must use the business's ownership, billing, recovery,
+and Apple team. Replace the temporary news endpoint in `public/bootstrap.js`,
+its origin in `tools/build-ios.mjs`, and the account URL/key/origin in
+`public/account/config.js`; match `AmparoAuthHost` in `tools/configure-ios.mjs`
+to that final account service. The existing Google Cloud and Supabase projects
+must be transferred or replaced with verified access before launch. A custom
+website domain alone does not remove the temporary personal-account dependency.
+
+The current version deliberately disables native Apple/Google sign-in and
+account deletion until their service configuration and acceptance checks pass.
+The controls remain visible with an explanation. Do not enable those flags just
+to make the App Store screenshots look complete.

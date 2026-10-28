@@ -99,7 +99,7 @@ for (const value of Object.values(configs)) {
   value.buildSettings.CODE_SIGN_ENTITLEMENTS = 'App/Amparo.entitlements';
   value.buildSettings.MARKETING_VERSION = '"1.0.0"';
   value.buildSettings.CURRENT_PROJECT_VERSION = '1';
-  value.buildSettings.IPHONEOS_DEPLOYMENT_TARGET = '15.0';
+  value.buildSettings.IPHONEOS_DEPLOYMENT_TARGET = '16.0';
   value.buildSettings.TARGETED_DEVICE_FAMILY = '"1,2"';
 }
 writeFileSync('ios/App/App.xcodeproj/project.pbxproj', project.writeSync());

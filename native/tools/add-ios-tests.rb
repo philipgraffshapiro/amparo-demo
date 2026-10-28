@@ -3,7 +3,7 @@ project = Xcodeproj::Project.open('ios/App/App.xcodeproj')
 app = project.targets.find { |target| target.name == 'App' }
 target = project.targets.find { |entry| entry.name == 'AmparoUITests' }
 unless target
-  target = project.new_target(:ui_test_bundle, 'AmparoUITests', :ios, '15.0')
+  target = project.new_target(:ui_test_bundle, 'AmparoUITests', :ios, '16.0')
   group = project.main_group.new_group('AmparoUITests', '../UITests')
   target.add_file_references([group.new_file('AmparoUITests.swift')])
   target.add_dependency(app)
@@ -18,7 +18,7 @@ target.build_configurations.each do |config|
 end
 unit = project.targets.find { |entry| entry.name == 'AmparoNativeTests' }
 unless unit
-  unit = project.new_target(:unit_test_bundle, 'AmparoNativeTests', :ios, '15.0')
+  unit = project.new_target(:unit_test_bundle, 'AmparoNativeTests', :ios, '16.0')
   group = project.main_group.new_group('AmparoNativeTests', '../NativeTests')
   unit.add_file_references([group.new_file('AmparoNativeTests.swift')])
   unit.add_dependency(app)
