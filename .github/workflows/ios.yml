@@ -1,0 +1,39 @@
+name: iPhone app build and tests
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - native/**
+      - .github/workflows/ios.yml
+permissions:
+  contents: read
+concurrency:
+  group: amparo-ios-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  ios:
+    runs-on: macos-26
+    timeout-minutes: 35
+    defaults:
+      run:
+        working-directory: native
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '26'
+          cache: npm
+          cache-dependency-path: native/package-lock.json
+      - run: npm ci
+      - run: node --test tests/native-account.test.mjs
+      - run: npm run ios:prepare
+      - run: gem install xcodeproj -v 1.27.0 --no-document
+      - run: ruby tools/add-ios-tests.rb
+      - run: node tools/run-ios-checks.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amparo-iphone-build-${{ github.sha }}
+          path: native/artifacts/
+          retention-days: 14
+          if-no-files-found: error

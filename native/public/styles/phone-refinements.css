@@ -1,0 +1,230 @@
+@media (max-width: 650px) {
+  .network-screen {
+    position: relative;
+    overflow: hidden;
+  }
+  .network-sidebar {
+    padding-top: 20px;
+    padding-bottom: 7px;
+  }
+  .network-sidebar > .eyebrow {
+    margin-bottom: 9px;
+    font-size: 8px;
+  }
+  .network-sidebar > h1 {
+    font-size: 28px;
+    margin-bottom: 17px;
+  }
+  .network-sidebar > .page-description,
+  .network-note {
+    display: none;
+  }
+  .search-field input,
+  .network-sidebar .search-field input {
+    /* Smaller editable text makes iOS zoom the entire page on focus. */
+    font-size: 16px;
+  }
+  .filter-tabs {
+    margin: 10px 0 12px;
+  }
+  .filter-tabs button {
+    font-size: 10px;
+  }
+  .results-caption {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+  .results-caption .sample-label {
+    font-size: 7px;
+  }
+  .network-results {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 18px;
+    z-index: 650;
+  }
+  .location-row {
+    min-width: 278px;
+    max-width: 278px;
+    padding: 16px;
+    background: color-mix(in srgb, var(--surface) 96%, transparent);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 7px 22px #0003;
+  }
+  .location-row strong {
+    font-size: 12px;
+  }
+  .location-row small {
+    font-size: 9px;
+  }
+  .location-row > span > span {
+    font-size: 10px;
+  }
+  .location-row em {
+    font-size: 8px;
+  }
+  .network-canvas {
+    min-height: 0;
+    isolation: auto;
+    overflow: visible;
+  }
+  .map-legend {
+    display: none;
+  }
+  .map-top-controls {
+    top: 12px;
+    left: 15px;
+    right: 15px;
+  }
+  .map-fit {
+    font-size: 9px;
+  }
+  .map-style-control button {
+    font-size: 9px;
+  }
+  .location-detail {
+    z-index: 700;
+    bottom: 14px;
+    max-height: calc(100% - 24px);
+    overflow: auto;
+  }
+  .network-canvas .leaflet-bottom.leaflet-right {
+    top: 64px;
+    bottom: auto;
+  }
+  .leaflet-control-zoom {
+    display: flex;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  .leaflet-control-zoom a:first-child {
+    border-bottom: 0 !important;
+    border-right: 1px solid #495342 !important;
+  }
+  .network-results .empty-state {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  .home-copy > p:not(.eyebrow) {
+    font-size: 13px;
+  }
+  .home-summary strong {
+    font-size: 10px;
+  }
+  .home-summary small {
+    font-size: 7px;
+  }
+  .home-greeting {
+    font-size: 10px;
+  }
+  .home-greeting small {
+    font-size: 9px;
+  }
+  .product-dock button {
+    font-size: 9px;
+  }
+  .composer-note {
+    font-size: 8px;
+  }
+  .assistant-composer textarea {
+    font-size: 16px;
+  }
+  .prompt-grid button span {
+    font-size: 11px;
+  }
+  .chat-message p {
+    font-size: 13px;
+  }
+  .chat-action {
+    font-size: 11px;
+  }
+  .page-description {
+    font-size: 12px;
+  }
+  .file-name strong {
+    font-size: 12px;
+  }
+  .file-name small {
+    font-size: 9px;
+  }
+  .file-size {
+    font-size: 9px;
+  }
+  .folder-button strong {
+    font-size: 11px;
+  }
+  .folder-button small {
+    font-size: 8px;
+  }
+  .contact-card h3 {
+    font-size: 13px;
+  }
+  .contact-card p {
+    font-size: 11px;
+  }
+  .contact-phone {
+    font-size: 10px;
+  }
+  .settings-row strong {
+    font-size: 13px;
+  }
+  .settings-row small {
+    font-size: 11px;
+  }
+  .family-plan > p:not(.eyebrow) {
+    font-size: 12px;
+  }
+  .included-row p {
+    font-size: 12px;
+  }
+  .included-row strong {
+    font-size: 13px;
+  }
+  .session-note {
+    font-size: 11px;
+  }
+  .checkbox-field {
+    font-size: 11px;
+  }
+  .help-questions summary {
+    font-size: 13px;
+  }
+  .help-questions p,
+  .privacy-copy p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 650px) and (max-height: 700px) {
+  .network-sidebar {
+    padding-top: 13px;
+    padding-bottom: 5px;
+  }
+  .network-sidebar > .eyebrow {
+    margin-bottom: 6px;
+  }
+  .network-sidebar > h1 {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+  .network-sidebar > .search-field {
+    min-height: 38px;
+  }
+  .filter-tabs {
+    margin: 8px 0;
+  }
+  .results-caption {
+    margin-bottom: 4px;
+  }
+  .network-results {
+    bottom: 12px;
+  }
+  .location-row {
+    padding: 12px;
+  }
+  .location-row em {
+    display: none;
+  }
+}

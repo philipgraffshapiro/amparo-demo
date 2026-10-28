@@ -1,0 +1,54 @@
+#account-access-dialog {
+  width: min(500px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  padding: 32px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+}
+#account-access-dialog::backdrop {
+  background: #080d0ac9;
+  backdrop-filter: blur(8px);
+}
+#account-access-dialog h2 {
+  font-size: 28px;
+  margin: 12px 0;
+}
+#account-access-dialog .dialog-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+}
+.account-access-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.account-access-actions button {
+  min-height: 44px;
+}
+.account-verification {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+}
+.account-verification p,
+#account-access-status {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.account-access-open {
+  margin: 0 0 24px;
+}
+#account-access-dialog button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+@media (max-width: 600px) {
+  #account-access-dialog {
+    padding: 24px;
+  }
+}

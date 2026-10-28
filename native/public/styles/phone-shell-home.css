@@ -1,0 +1,260 @@
+@media (max-width: 650px) {
+  :root {
+    --header: 70px;
+    --dock-space: 94px;
+    --gutter: 23px;
+  }
+  .product-header {
+    padding: 0 21px;
+    gap: 12px;
+  }
+  .product-brand {
+    font-size: 26px;
+    gap: 8px;
+  }
+  .brand-symbol {
+    width: 25px;
+    height: 28px;
+  }
+  .brand-symbol svg {
+    width: 25px;
+    height: 28px;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .header-alert {
+    padding: 9px;
+    width: 35px;
+    height: 35px;
+    min-height: 35px;
+    justify-content: center;
+  }
+  .header-alert span {
+    display: none;
+  }
+  .header-alert svg {
+    width: 16px;
+    height: 16px;
+  }
+  .theme-control {
+    width: 28px;
+    height: 35px;
+  }
+  .theme-control svg {
+    width: 16px;
+  }
+  .language-control {
+    width: 32px;
+    height: 35px;
+    font-size: 10px;
+  }
+  .header-avatar {
+    display: none;
+  }
+  #app-main {
+    height: calc(
+      100dvh - var(--header) - var(--dock-space) - env(safe-area-inset-bottom)
+    );
+  }
+  .padded-screen {
+    padding: 28px 23px 30px;
+  }
+  .page-heading {
+    display: block;
+    margin-bottom: 27px;
+  }
+  .page-heading .eyebrow {
+    font-size: 8px;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  .page-heading h1 {
+    font-size: 35px;
+    letter-spacing: -0.055em;
+    margin-bottom: 14px;
+  }
+  .page-description {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  .page-heading > .button {
+    margin: 22px 0 0;
+    min-height: 44px;
+    font-size: 11px;
+  }
+  .section-line h2 {
+    font-size: 14px;
+  }
+  .section-line .sample-label {
+    font-size: 6px;
+  }
+  .button {
+    min-height: 46px;
+  }
+  .home-screen {
+    display: block;
+    overflow: auto;
+  }
+  .home-stage {
+    min-height: 540px;
+    height: calc(100% - 90px);
+    max-height: 680px;
+  }
+  .home-copy {
+    width: 100%;
+    max-width: 100%;
+    padding: 37px 23px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .home-copy > .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    margin-bottom: 23px;
+  }
+  .home-copy h1 {
+    font-size: clamp(44px, 12.7vw, 70px);
+    line-height: 1.04;
+    letter-spacing: -0.063em;
+    max-width: 510px;
+    margin-bottom: 22px;
+  }
+  .home-copy > p:not(.eyebrow) {
+    max-width: 295px;
+    font-size: 12px;
+    line-height: 1.85;
+    margin-bottom: 25px;
+  }
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .hero-actions .button {
+    min-height: 45px;
+    font-size: 10px;
+    padding: 12px 16px;
+    gap: 13px;
+  }
+  .hero-actions .button.quiet {
+    background: color-mix(in srgb, var(--bg) 65%, transparent);
+  }
+  .home-greeting {
+    margin-top: 27px;
+    font-size: 9px;
+  }
+  .home-greeting small {
+    font-size: 8px;
+  }
+  .home-greeting > .avatar {
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+    border-width: 2px;
+  }
+  .home-map {
+    inset: 0 -110% 0 -55%;
+    opacity: 0.75;
+  }
+  .home-map-veil {
+    background:
+      linear-gradient(
+        90deg,
+        var(--bg) 3%,
+        color-mix(in srgb, var(--bg) 92%, transparent) 35%,
+        color-mix(in srgb, var(--bg) 55%, transparent) 75%,
+        color-mix(in srgb, var(--bg) 35%, transparent)
+      ),
+      linear-gradient(0deg, var(--bg), transparent 28%);
+  }
+  .home-coordinates {
+    top: auto;
+    bottom: 17px;
+    right: 23px;
+    font-size: 6px;
+    opacity: 0.9;
+  }
+  .home-circle-card {
+    display: none;
+  }
+  .home-scene-caption {
+    display: none;
+  }
+  .home-map-label {
+    display: none;
+  }
+  .home-bottom {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 23px;
+    height: 90px;
+  }
+  .home-summary {
+    padding: 14px 0;
+    gap: 10px;
+  }
+  .home-summary:nth-child(2) {
+    border: 0;
+    padding-left: 16px;
+  }
+  .home-summary.assistant-summary {
+    display: none;
+  }
+  .home-summary strong {
+    font-size: 9px;
+    line-height: 1.7;
+  }
+  .home-summary small {
+    font-size: 6px;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .summary-icon {
+    width: 30px;
+    height: 34px;
+    border-radius: 7px;
+    flex-shrink: 0;
+  }
+  .summary-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+  .home-map .leaflet-control-attribution {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    font-size: 5px !important;
+    max-width: 95px;
+    line-height: 1.3;
+  }
+  .dock-wrap {
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    width: calc(100% - 32px);
+    max-width: 460px;
+  }
+  .product-dock {
+    width: 100%;
+    border-radius: 21px;
+    padding: 5px;
+  }
+  .product-dock button {
+    min-height: 57px;
+    gap: 5px;
+    font-size: 8px;
+  }
+  .product-dock button svg {
+    width: 20px;
+    height: 20px;
+  }
+  .dock-indicator {
+    left: 5px;
+    top: 5px;
+    width: calc((100% - 10px) / 5);
+    height: 57px;
+    border-radius: 16px;
+  }
+  .desktop-agent {
+    display: none;
+  }
+}

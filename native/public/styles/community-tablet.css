@@ -1,0 +1,129 @@
+@media (max-width: 1200px) {
+  .product-header {
+    gap: 20px;
+    padding-inline: 28px;
+  }
+  .desktop-links {
+    display: none;
+  }
+  .site-menu {
+    display: block;
+  }
+  .community-home-copy {
+    width: 59%;
+  }
+  .community-home-copy h1 {
+    font-size: clamp(58px, 7.2vw, 79px);
+  }
+  .community-home-feed {
+    width: 315px;
+    right: 28px;
+  }
+  .community-home-copy .hero-actions .button {
+    padding-inline: 13px;
+    font-size: 11px;
+  }
+  .community-home-proof > span {
+    padding-inline: 17px;
+  }
+  .community-screen {
+    padding: 24px 24px 8px;
+  }
+  .community-heading h1 {
+    font-size: 30px;
+  }
+  .community-map-layout {
+    grid-template-columns: 290px minmax(0, 1fr);
+  }
+  .community-filters {
+    grid-template-columns: minmax(140px, 1.4fr) repeat(4, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  .community-dataset-note {
+    font-size: 9px;
+  }
+}
+@media (max-width: 1000px) {
+  .community-home-copy {
+    width: 56%;
+    padding-top: 54px;
+  }
+  .community-home-copy h1 {
+    font-size: 61px;
+  }
+  .community-home-copy > p:not(.eyebrow) {
+    max-width: 295px;
+    font-size: 12px;
+  }
+  .community-home-feed {
+    width: 295px;
+    right: 24px;
+  }
+  .community-home-copy .hero-actions {
+    max-width: 310px;
+  }
+  .community-home-map-label {
+    right: 24px;
+  }
+  .community-heading {
+    gap: 15px;
+  }
+  .community-heading h1 {
+    font-size: 27px;
+  }
+  .community-heading-actions .button {
+    padding: 10px;
+    gap: 6px;
+  }
+  .community-heading-actions .button:first-child > span {
+    display: none;
+  }
+  .community-heading p:not(.eyebrow) {
+    max-width: 330px;
+  }
+  .community-filters {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .community-search {
+    grid-column: 1 / -1;
+  }
+  .community-tabs {
+    gap: 16px;
+  }
+  .community-dataset-note {
+    max-width: 200px;
+    line-height: 1.5;
+  }
+  .community-map-layout {
+    grid-template-columns: 270px minmax(0, 1fr);
+  }
+  .community-feed-heading {
+    padding-inline: 16px;
+  }
+  .community-report-card {
+    gap: 9px;
+  }
+  .community-feed-footer {
+    padding-inline: 15px;
+  }
+  .community-map-layers button {
+    padding-inline: 8px;
+  }
+  .community-map-layers button svg {
+    display: none;
+  }
+  .community-map-legend {
+    gap: 9px;
+    padding: 8px;
+    font-size: 8px;
+  }
+  .community-map-legend span {
+    font-size: 8px;
+  }
+  .community-metric-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .community-charts {
+    grid-template-columns: 1fr;
+  }
+}

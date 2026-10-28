@@ -1,0 +1,114 @@
+.product-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(112px + env(safe-area-inset-bottom));
+  z-index: 3000;
+  transform: translate(-50%, 15px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: 8px;
+  padding: 13px 19px;
+  box-shadow: var(--shadow);
+  font-size: 11px;
+  max-width: calc(100% - 40px);
+  text-align: center;
+}
+.product-toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+@keyframes screen-in {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes locator-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.94);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+@keyframes marker-ripple {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  85%,
+  100% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+}
+@keyframes path-flow {
+  to {
+    stroke-dashoffset: -260;
+  }
+}
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+@keyframes orb-turn {
+  to {
+    transform: rotate(330deg) scaleX(0.63);
+  }
+}
+@keyframes think {
+  0%,
+  70%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *:before,
+  *:after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .marker-pulse {
+    display: none;
+  }
+}

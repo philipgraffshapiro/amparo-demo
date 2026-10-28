@@ -1,0 +1,296 @@
+@media (max-width: 370px) {
+  :root {
+    --gutter: 18px;
+  }
+  .product-header {
+    padding: 0 18px;
+  }
+  .header-actions {
+    gap: 5px;
+  }
+  .product-brand {
+    font-size: 24px;
+  }
+  .theme-control {
+    display: none;
+  }
+  .home-copy {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .home-copy h1 {
+    font-size: 44px;
+  }
+  .home-copy > p:not(.eyebrow) {
+    font-size: 11px;
+    max-width: 265px;
+  }
+  .home-stage {
+    min-height: 520px;
+  }
+  .home-bottom {
+    padding: 0 18px;
+  }
+  .summary-icon {
+    display: none;
+  }
+  .home-summary:nth-child(2) {
+    padding-left: 16px;
+  }
+  .home-summary strong {
+    font-size: 9px;
+  }
+  .padded-screen {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .page-heading h1 {
+    font-size: 32px;
+  }
+  .page-heading .eyebrow {
+    font-size: 7px;
+  }
+  .contact-card {
+    padding: 20px 12px;
+  }
+  .contact-card h3 {
+    font-size: 11px;
+  }
+  .network-sidebar {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .assistant-thread {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .assistant-empty h1 {
+    font-size: 32px;
+  }
+  .prompt-grid button {
+    padding: 11px 9px;
+    gap: 6px;
+  }
+  .prompt-grid button span {
+    font-size: 8px;
+    min-width: 69px;
+  }
+  .composer-wrap {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .assistant-composer #voice-demo {
+    width: 23px;
+  }
+  .dock-wrap {
+    width: calc(100% - 22px);
+  }
+  .product-dock button {
+    font-size: 7px;
+  }
+  .product-dock button svg {
+    width: 19px;
+    height: 19px;
+  }
+  .preparation-aside {
+    gap: 0 15px;
+    grid-template-columns: 85px minmax(0, 1fr);
+  }
+  .readiness-ring {
+    width: 80px;
+    height: 80px;
+  }
+  .preparation-aside h2 {
+    font-size: 18px;
+  }
+  .file-name strong {
+    font-size: 9px;
+  }
+  #dialog-content {
+    padding: 29px 22px;
+  }
+  #dialog-title {
+    font-size: 27px;
+  }
+  .sample-card-input {
+    font-size: 10px;
+    gap: 9px;
+  }
+  .sample-card-input svg {
+    width: 17px;
+  }
+  .member-card-bottom strong {
+    max-width: 170px;
+  }
+  .membership-card {
+    padding: 21px;
+  }
+  .member-card-bottom {
+    left: 21px;
+    right: 21px;
+  }
+}
+@media (max-height: 760px) and (min-width: 651px) {
+  :root {
+    --header: 74px;
+    --dock-space: 98px;
+  }
+  .home-stage {
+    min-height: 350px;
+  }
+  .home-copy {
+    padding-top: 32px;
+  }
+  .home-copy h1 {
+    font-size: clamp(48px, 5vw, 70px);
+    margin-bottom: 17px;
+  }
+  .home-copy > .eyebrow {
+    margin-bottom: 18px;
+  }
+  .home-copy > p:not(.eyebrow) {
+    font-size: 11px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    max-width: 370px;
+  }
+  .home-greeting {
+    margin-top: 20px;
+  }
+  .hero-actions .button {
+    min-height: 42px;
+    font-size: 10px;
+    padding: 10px 15px;
+  }
+  .home-circle-card {
+    bottom: 45px;
+    padding: 18px;
+    width: 240px;
+  }
+  .home-circle-card > .eyebrow {
+    margin-bottom: 12px;
+  }
+  .circle-avatars {
+    margin-bottom: 12px;
+  }
+  .home-circle-card > strong {
+    font-size: 13px;
+  }
+  .home-coordinates {
+    top: 23px;
+  }
+  .home-screen {
+    grid-template-rows: minmax(0, 1fr) 85px;
+  }
+  .home-map-label {
+    top: 25%;
+    padding: 12px;
+  }
+  .home-scene-caption {
+    bottom: 15px;
+  }
+  .home-summary {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .dock-wrap {
+    bottom: 13px;
+  }
+  .product-dock button,
+  .dock-indicator {
+    height: 55px;
+    min-height: 55px;
+  }
+  .desktop-agent {
+    bottom: 25px;
+  }
+  .padded-screen {
+    padding-top: 30px;
+  }
+  .page-heading {
+    margin-bottom: 27px;
+  }
+  .page-heading h1 {
+    font-size: 38px;
+  }
+  .page-heading .eyebrow {
+    margin-bottom: 10px;
+  }
+  .assistant-empty h1 {
+    font-size: 37px;
+  }
+  .ai-orb {
+    width: 82px;
+    height: 82px;
+    margin: 0 auto 15px;
+  }
+  .ai-orb > span {
+    width: 57px;
+    height: 57px;
+  }
+  .ai-orb svg {
+    width: 23px;
+    height: 23px;
+  }
+  .assistant-empty > .eyebrow {
+    margin-bottom: 10px;
+  }
+  .assistant-empty > p:not(.eyebrow) {
+    margin-bottom: 20px;
+  }
+  .assistant-empty {
+    padding-top: 0;
+  }
+  .prompt-grid button {
+    min-height: 48px;
+    padding: 12px;
+  }
+  .assistant-thread {
+    padding-top: 20px;
+  }
+  .network-sidebar {
+    padding-top: 23px;
+  }
+  .network-sidebar > .page-description {
+    margin-bottom: 14px;
+  }
+  .network-sidebar > h1 {
+    font-size: 29px;
+  }
+  .location-row {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+}
+@media (max-height: 650px) and (max-width: 650px) {
+  .home-stage {
+    min-height: 520px;
+  }
+  .ai-orb {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+  .ai-orb > span {
+    width: 49px;
+    height: 49px;
+  }
+  .assistant-empty h1 {
+    font-size: 30px;
+  }
+  .assistant-empty > .eyebrow {
+    font-size: 6px;
+  }
+  .assistant-empty > p:not(.eyebrow) {
+    margin-bottom: 20px;
+  }
+  .prompt-grid button {
+    min-height: 60px;
+  }
+  .composer-note {
+    font-size: 6px;
+  }
+  .assistant-thread {
+    padding-top: 8px;
+  }
+}

@@ -1,0 +1,189 @@
+.circle-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 295px;
+  gap: 55px;
+}
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+.contact-card {
+  position: relative;
+  padding: 21px 18px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 10px;
+  min-width: 0;
+}
+.contact-card > .avatar {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 19px;
+  border: 0;
+}
+.contact-card h3 {
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+.contact-card p {
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.contact-phone {
+  font-size: 9px;
+  color: var(--muted);
+  display: block;
+  overflow-wrap: anywhere;
+}
+.contact-card > small {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 8px;
+  color: var(--muted);
+  margin-top: 11px;
+}
+.contact-card > small i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.contact-remove {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 28px;
+  height: 28px;
+  color: var(--faint);
+}
+.contact-remove svg {
+  width: 13px;
+  height: 13px;
+}
+.add-contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: none;
+  border-style: dashed;
+}
+.add-contact > svg {
+  width: 26px;
+  height: 26px;
+  margin-bottom: 24px;
+  color: var(--muted);
+}
+.add-contact strong {
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+.add-contact span {
+  font-size: 8px;
+  color: var(--muted);
+}
+.add-contact:hover {
+  background: var(--surface);
+}
+.family-plan {
+  padding: 30px 0 10px;
+  border-top: 1px solid var(--line);
+  margin-top: 30px;
+}
+.family-plan h2 {
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.14;
+  margin-bottom: 17px;
+}
+.family-plan > .eyebrow {
+  font-size: 8px;
+}
+.family-plan > p:not(.eyebrow) {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 450px;
+}
+.family-plan-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+.family-plan-actions .button {
+  font-size: 10px;
+}
+.activity-aside {
+  border-left: 1px solid var(--line);
+  padding-left: 32px;
+}
+.next-step {
+  display: flex;
+  gap: 17px;
+  margin-top: 22px;
+}
+.next-step > span {
+  font-size: 9px;
+  color: var(--accent);
+  font-weight: 600;
+  padding-top: 2px;
+}
+.next-step strong {
+  font-size: 11px;
+  font-weight: 600;
+}
+.next-step p {
+  font-size: 9px;
+  color: var(--muted);
+  margin: 6px 0 0;
+  line-height: 1.7;
+}
+.next-step .text-action {
+  font-size: 9px;
+  min-height: 32px;
+  padding: 7px 0;
+}
+.next-step .text-action svg {
+  width: 12px;
+  height: 12px;
+}
+.activity-heading {
+  margin-top: 30px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.activity-list li {
+  display: flex;
+  gap: 11px;
+  font-size: 9px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.activity-list i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--faint);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.activity-list small {
+  display: block;
+  font-size: 8px;
+  color: var(--faint);
+  margin-top: 5px;
+}

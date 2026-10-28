@@ -1,0 +1,320 @@
+@media (max-width: 650px) {
+  .network-screen {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  .network-sidebar {
+    padding: 23px 23px 15px;
+    flex-shrink: 0;
+    border-right: 0;
+    overflow: visible;
+  }
+  .network-sidebar > .eyebrow {
+    font-size: 7px;
+    margin-bottom: 13px;
+  }
+  .network-sidebar > h1 {
+    font-size: 32px;
+    margin-bottom: 11px;
+  }
+  .network-sidebar > .page-description {
+    font-size: 10px;
+    margin-bottom: 17px;
+    max-width: 300px;
+  }
+  .network-sidebar > .search-field {
+    min-height: 41px;
+  }
+  .filter-tabs {
+    margin: 12px 0 11px;
+    gap: 7px;
+  }
+  .filter-tabs button {
+    font-size: 9px;
+    padding: 8px;
+    min-height: 36px;
+  }
+  .results-caption {
+    margin: 0 0 12px;
+    font-size: 9px;
+  }
+  .results-caption .sample-label {
+    font-size: 6px;
+  }
+  .network-results {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding: 0 0 3px;
+    margin: 0;
+    min-height: 0;
+  }
+  .location-row {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 13px;
+    min-width: 260px;
+    max-width: 260px;
+    scroll-snap-align: start;
+    gap: 10px;
+    background: var(--surface);
+  }
+  .location-row strong {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+  .location-row small {
+    font-size: 7px;
+  }
+  .location-row > span > span {
+    font-size: 8px;
+  }
+  .location-row em {
+    font-size: 7px;
+    margin-top: 4px;
+  }
+  .location-row .location-initial {
+    width: 31px;
+    height: 35px;
+  }
+  .location-row > .icon {
+    width: 12px;
+  }
+  .network-note {
+    font-size: 7px;
+    margin: 11px 0 0;
+    max-width: none;
+  }
+  .network-canvas {
+    min-height: 360px;
+    flex: 1;
+    flex-shrink: 0;
+    border-top: 1px solid var(--line);
+  }
+  .map-top-controls {
+    left: 15px;
+    right: 15px;
+    top: 15px;
+    gap: 9px;
+  }
+  .map-style-control {
+    padding: 3px;
+    border-radius: 6px;
+  }
+  .map-style-control button {
+    font-size: 8px;
+    min-height: 31px;
+    padding: 7px 12px;
+  }
+  .map-fit {
+    font-size: 8px;
+    padding: 8px 11px;
+    min-height: 39px;
+    gap: 7px;
+  }
+  .map-fit svg {
+    width: 13px;
+    height: 13px;
+  }
+  .map-legend {
+    left: 15px;
+    bottom: 18px;
+    font-size: 7px;
+    gap: 6px;
+    padding: 7px 9px;
+  }
+  .map-legend .community-dot {
+    margin-left: 5px;
+  }
+  .leaflet-control-zoom {
+    margin-right: 14px !important;
+    margin-bottom: 25px !important;
+  }
+  .leaflet-control-zoom a {
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+  }
+  .location-detail {
+    position: absolute;
+    left: 15px;
+    right: 15px;
+    bottom: 20px;
+    width: auto;
+    padding: 22px;
+    border-radius: 10px;
+  }
+  .detail-title h2 {
+    font-size: 20px;
+  }
+  .location-detail > .eyebrow {
+    font-size: 6px;
+  }
+  .location-detail > p:not(.eyebrow) {
+    font-size: 10px;
+  }
+  .detail-facts {
+    font-size: 8px;
+    margin: 15px 0;
+  }
+  .location-detail .button {
+    font-size: 10px;
+    min-height: 43px;
+  }
+  .network-results .empty-state {
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+  }
+  .network-results .empty-state > svg {
+    display: none;
+  }
+  .network-results .empty-state h2 {
+    font-size: 15px;
+  }
+  .network-results .empty-state p {
+    font-size: 10px;
+  }
+  .network-results .empty-state .text-action {
+    font-size: 10px;
+  }
+  .document-layout {
+    gap: 28px;
+  }
+  .folder-strip {
+    gap: 7px;
+    margin-bottom: 24px;
+  }
+  .folder-button {
+    padding: 4px 3px 10px;
+  }
+  .folder-art {
+    height: 60px;
+    margin-bottom: 11px;
+  }
+  .folder-art > b {
+    inset: 20px 0 0;
+    border-radius: 3px 4px 5px 5px;
+    padding-left: 10px;
+  }
+  .folder-art > b > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .folder-art > i:first-child {
+    inset: 12px 0 2px;
+  }
+  .folder-art > i:first-child:before {
+    height: 11px;
+    top: -5px;
+  }
+  .folder-art > i:nth-child(2) {
+    inset: 19px 5px 0;
+  }
+  .folder-button strong {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+  .folder-button small {
+    font-size: 7px;
+  }
+  .document-search {
+    margin-bottom: 18px;
+  }
+  .file-table-head,
+  .document-row {
+    grid-template-columns: minmax(0, 1fr) 42px 14px;
+    gap: 7px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .file-table-head > span:nth-child(2),
+  .file-category {
+    display: none;
+  }
+  .file-table-head {
+    font-size: 6px;
+  }
+  .document-row {
+    padding-top: 14px;
+    padding-bottom: 14px;
+  }
+  .file-name {
+    gap: 9px;
+  }
+  .file-name strong {
+    font-size: 10px;
+  }
+  .file-name small {
+    font-size: 7px;
+  }
+  .file-icon {
+    width: 27px;
+    height: 32px;
+  }
+  .file-icon svg {
+    width: 15px;
+    height: 15px;
+  }
+  .file-size {
+    font-size: 7px;
+  }
+  .document-row > svg {
+    width: 12px;
+  }
+  .drop-area {
+    font-size: 9px;
+    padding: 20px 12px;
+    gap: 5px;
+  }
+  .drop-area small {
+    font-size: 7px;
+  }
+  .preparation-aside {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 0 20px;
+  }
+  .preparation-aside > .eyebrow {
+    margin-bottom: 25px;
+  }
+  .readiness-ring {
+    width: 90px;
+    height: 90px;
+    margin-top: 5px;
+  }
+  .readiness-ring strong {
+    font-size: 28px;
+  }
+  .readiness-ring strong span {
+    font-size: 11px;
+  }
+  .preparation-aside h2 {
+    font-size: 19px;
+  }
+  .preparation-aside > p:not(.eyebrow) {
+    font-size: 9px;
+  }
+  .preparation-row {
+    font-size: 9px;
+    padding: 8px 0;
+  }
+  .preparation-row small {
+    font-size: 7px;
+  }
+  #preparation-list {
+    display: block;
+    margin-bottom: 18px;
+  }
+  .preparation-aside .session-note {
+    font-size: 8px;
+  }
+  .preparation-aside .button {
+    font-size: 9px;
+    gap: 7px;
+    min-height: 42px;
+    padding: 10px;
+  }
+}

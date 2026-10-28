@@ -1,0 +1,81 @@
+@media (max-width: 650px) {
+  #product-dialog {
+    max-height: calc(100dvh - 26px);
+    width: calc(100% - 24px);
+    border-radius: 14px;
+  }
+  #dialog-content {
+    padding: 29px 25px;
+  }
+  #dialog-title {
+    font-size: 29px;
+    margin-bottom: 23px;
+  }
+  #dialog-content > .eyebrow {
+    font-size: 7px;
+    line-height: 1.7;
+  }
+  #dialog-content > p:not(.eyebrow):not(.session-note) {
+    font-size: 11px;
+  }
+  .form-field {
+    font-size: 10px;
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-size: 16px;
+    padding: 10px 12px;
+  }
+  .sample-card-input {
+    font-size: 11px;
+    gap: 12px;
+  }
+  .checkbox-field {
+    font-size: 9px;
+  }
+  .checkout-summary {
+    font-size: 11px;
+  }
+  .checkout-summary > strong {
+    font-size: 22px;
+  }
+  .dialog-actions .button {
+    font-size: 10px;
+    padding: 12px 14px;
+  }
+  .product-toast {
+    font-size: 10px;
+    bottom: calc(91px + env(safe-area-inset-bottom));
+    width: max-content;
+    max-width: calc(100% - 40px);
+  }
+  .sample-document {
+    padding: 20px;
+  }
+  .document-letterhead {
+    font-size: 16px;
+  }
+  .document-letterhead span {
+    font-size: 5px;
+  }
+  .sample-document h3 {
+    font-size: 17px;
+  }
+  .help-questions summary {
+    font-size: 11px;
+  }
+  .help-questions p,
+  .privacy-copy p {
+    font-size: 10px;
+  }
+  .appointment-ticket strong {
+    font-size: 15px;
+  }
+  .appointment-ticket span {
+    font-size: 11px;
+  }
+  .appointment-ticket small {
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,320 @@
+.community-map-canvas {
+  position: relative;
+  min-width: 0;
+  min-height: 390px;
+  background: #2b352e;
+  isolation: isolate;
+}
+#community-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: #2b352e;
+}
+.community-map-controls {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 600;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: none;
+}
+.community-map-controls > * {
+  pointer-events: auto;
+}
+.community-map-layers {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 15px #0002;
+  border-radius: 8px;
+  padding: 3px;
+}
+.community-map-layers button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 10px;
+  min-height: 38px;
+  font-size: 10px;
+  color: var(--muted);
+  border-radius: 5px;
+}
+.community-map-layers button svg {
+  width: 14px;
+  height: 14px;
+}
+.community-map-layers button.selected {
+  color: var(--text);
+  background: var(--surface-3);
+}
+.community-map-fit {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 3px 15px #0002;
+}
+.community-map-fit svg {
+  width: 19px;
+  height: 19px;
+}
+.community-map-summary {
+  position: absolute;
+  top: 76px;
+  left: 16px;
+  z-index: 600;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 4px 10px;
+  font-size: 10px;
+  box-shadow: 0 3px 15px #0001;
+}
+.community-map-summary strong {
+  font-variant-numeric: tabular-nums;
+}
+.community-map-summary > span:not(.community-signal) {
+  color: var(--muted);
+}
+.community-map-summary .community-signal {
+  width: 5px;
+  height: 5px;
+  margin-right: 2px;
+}
+.community-map-summary button {
+  color: var(--accent);
+  border-left: 1px solid var(--line);
+  padding: 0 0 0 10px;
+  margin-left: 4px;
+  min-height: 30px;
+  font-size: 10px;
+}
+.community-map-legend {
+  position: absolute;
+  bottom: 15px;
+  left: 16px;
+  z-index: 600;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  box-shadow: 0 3px 15px #0002;
+}
+.community-map-legend span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+}
+.community-map-legend i,
+.community-type i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--accent);
+}
+.community-map-legend .detention,
+.community-type.detention i {
+  background: var(--alert-coral);
+}
+.community-map-legend .advisory,
+.community-type.advisory i {
+  background: var(--alert-green);
+}
+.community-marker {
+  color: #ef9b83;
+}
+.community-marker.presence {
+  color: #edc182;
+}
+.community-marker.advisory {
+  color: #a7cabb;
+}
+.community-marker-core {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: #1c2822ed;
+  box-shadow: 0 3px 12px #0005;
+  position: absolute;
+}
+.community-marker-core svg {
+  width: 19px;
+  height: 19px;
+}
+.community-marker-core b {
+  font-size: 13px;
+  font-family: Manrope, Arial, sans-serif;
+}
+.community-marker-ring {
+  position: absolute;
+  inset: -7px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: 0.25;
+  animation: community-pulse 4s ease-out infinite;
+}
+.community-marker.active .community-marker-core {
+  background: #37493d;
+  transform: scale(1.15);
+  border-width: 2px;
+}
+.community-marker:hover .community-marker-core {
+  transform: scale(1.1);
+}
+.community-map-canvas .leaflet-bottom.leaflet-right {
+  bottom: 50px;
+  right: 9px;
+}
+.community-map-canvas .leaflet-control-attribution {
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: max-content;
+}
+.community-map-error {
+  position: absolute;
+  top: 118px;
+  left: 16px;
+  right: 70px;
+  z-index: 600;
+  font-size: 11px;
+  color: #f9dcc1;
+  background: #49382a;
+  border-radius: 6px;
+}
+.community-map-error:not(:empty) {
+  padding: 10px 12px;
+}
+.community-detail {
+  position: absolute;
+  z-index: 650;
+  left: 16px;
+  bottom: 66px;
+  width: min(370px, calc(100% - 95px));
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 17px 20px;
+  box-shadow: 0 14px 45px #0005;
+  max-height: calc(100% - 125px);
+  overflow: auto;
+}
+.community-detail-top {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+}
+.community-detail-top .icon-button {
+  margin: -8px -8px -8px auto;
+  width: 34px;
+  height: 34px;
+}
+.community-detail-top .icon-button svg {
+  width: 17px;
+}
+.community-detail h2 {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+.community-detail-location {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  margin-bottom: 15px;
+}
+.community-detail-location svg {
+  width: 14px;
+  height: 14px;
+  color: var(--accent);
+}
+.community-detail-location span {
+  color: var(--muted);
+}
+.community-detail > p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.community-detail dl {
+  margin: 15px 0;
+  padding: 11px 0;
+  border-block: 1px solid var(--line);
+  font-size: 10px;
+}
+.community-detail dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+}
+.community-detail dt {
+  color: var(--muted);
+}
+.community-detail dd {
+  margin: 0;
+  text-align: right;
+}
+.community-detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  justify-content: space-between;
+}
+.community-detail-actions .button {
+  font-size: 10px;
+  padding: 9px 12px;
+  min-height: 40px;
+  gap: 5px;
+}
+.community-detail-actions .button svg {
+  width: 14px;
+}
+.community-detail-actions .text-action {
+  font-size: 10px;
+}
+.community-detail > small {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin-top: 12px;
+  line-height: 1.6;
+}
+@keyframes community-pulse {
+  0% {
+    transform: scale(0.75);
+    opacity: 0.4;
+  }
+  80%,
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .community-marker-ring {
+    animation: none;
+    opacity: 0.18;
+  }
+}

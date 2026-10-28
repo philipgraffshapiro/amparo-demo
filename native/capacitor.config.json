@@ -1,0 +1,12 @@
+{
+  "appId": "com.amparoaccess.app",
+  "appName": "Amparo",
+  "webDir": "mobile/www",
+  "server": { "iosScheme": "capacitor", "hostname": "localhost" },
+  "ios": {
+    "contentInset": "never",
+    "allowsLinkPreview": false,
+    "scrollEnabled": true
+  },
+  "loggingBehavior": "none"
+}
