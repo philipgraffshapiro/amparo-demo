@@ -60,13 +60,7 @@ export function accountView(controller) {
   };
   const updating = controller.mode === 'update-password';
   if (controller.mode === 'delete' && session)
-    return `<h2 id="account-access-title">${t('Delete your account?', '¿Eliminar tu cuenta?')}</h2>
-    <p>${t('This permanently deletes your account, profile, subscriptions, submitted reports, uploaded photos and family cases you own, including shared access to those cases. This cannot be undone.', 'Esto elimina permanentemente tu cuenta, perfil, suscripciones, reportes, fotos y los casos familiares que te pertenecen, incluido el acceso compartido. No se puede deshacer.')}</p>
-    <form id="account-delete-form"><label class="form-field">${t('Type DELETE to confirm', 'Escribe DELETE para confirmar')}<input name="confirmation" required pattern="DELETE" autocomplete="off" autocapitalize="characters"></label>
-    <button type="submit" class="button quiet" id="account-delete-confirm" ${busy ? 'disabled' : ''}>${t('Delete account permanently', 'Eliminar cuenta permanentemente')}</button></form>
-    ${button('signin', t('Keep my account', 'Conservar mi cuenta'))}
-    <p role="status">${busy ? t('Deleting…', 'Eliminando…') : notices[status] || ''}</p>`;
-
+    return deletionView(controller, t, button, notices);
   const heading = updating
     ? t('Choose a new password.', 'Elige una contraseña nueva.')
     : controller.mode === 'recover'
@@ -88,4 +82,14 @@ export function accountView(controller) {
     ${!service?.signupEnabled && !session ? `<p class="session-note">${service?.googleEnabled ? t(service?.appleEnabled ? 'Create your account with Apple or Google.' : 'New here? Continue with Google to create your account.', '¿Primera visita? Continúa con Google para crear tu cuenta.') : t('New-account registration is not open yet.', 'El registro de cuentas nuevas aún no está abierto.')}</p>` : ''}
     <p class="session-note"><a href="https://philipgraffshapiro.github.io/amparo-demo/privacy.html" target="_blank" rel="noopener">${t('Privacy', 'Privacidad')}</a> · <a href="https://philipgraffshapiro.github.io/amparo-demo/terms.html" target="_blank" rel="noopener">${t('Demo terms', 'Condiciones de la demo')}</a></p>
     <p id="account-access-status" role="status" aria-live="polite">${busy ? t('Working…', 'Procesando…') : notices[status] || ''}</p>`;
+}
+
+function deletionView(controller, t, button, notices) {
+  const { busy, status } = controller;
+  return `<h2 id="account-access-title">${t('Delete your account?', '¿Eliminar tu cuenta?')}</h2>
+    <p>${t('This permanently deletes your account, profile, subscriptions, submitted reports, uploaded photos and family cases you own, including shared access to those cases. This cannot be undone.', 'Esto elimina permanentemente tu cuenta, perfil, suscripciones, reportes, fotos y los casos familiares que te pertenecen, incluido el acceso compartido. No se puede deshacer.')}</p>
+    <form id="account-delete-form"><label class="form-field">${t('Type DELETE to confirm', 'Escribe DELETE para confirmar')}<input name="confirmation" required pattern="DELETE" autocomplete="off" autocapitalize="characters"></label>
+    <button type="submit" class="button quiet" id="account-delete-confirm" ${busy ? 'disabled' : ''}>${t('Delete account permanently', 'Eliminar cuenta permanentemente')}</button></form>
+    ${button('signin', t('Keep my account', 'Conservar mi cuenta'))}
+    <p role="status">${busy ? t('Deleting…', 'Eliminando…') : notices[status] || ''}</p>`;
 }

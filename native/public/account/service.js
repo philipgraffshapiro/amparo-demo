@@ -91,34 +91,7 @@ export function createAccountService(window, config = accountConfig) {
       if (!native) throw new Error('Apple sign-in requires the iPhone app');
       return native.apple();
     },
-    async deleteAccount() {
-      if (!config.deletionEnabled)
-        throw new Error('Account deletion is unavailable');
-      const { session } = unwrap(await client.auth.getSession());
-      if (!session) throw new Error('Sign in required');
-      const appleCode = native?.takeAppleCode();
-      const response = await window.fetch(
-        config.url + '/functions/v1/delete-account',
-        {
-          method: 'POST',
-          headers: {
-            Authorization: 'Bearer ' + session.access_token,
-            apikey: config.publishableKey,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            confirmation: 'DELETE',
-            ...(appleCode ? { appleCode } : {}),
-          }),
-          signal: AbortSignal.timeout(30000),
-        },
-      );
-      if (!response.ok) {
-        const result = await response.json().catch(() => ({}));
-        throw new Error(result.code || 'Deletion failed');
-      }
-      unwrap(await client.auth.signOut({ scope: 'local' }));
-    },
+    deleteAccount: () => deleteAccount(window, config, client, native, unwrap),
     async signInGoogle() {
       if (native) return native.google();
       if (!config.googleEnabled)
@@ -142,4 +115,33 @@ export function createAccountService(window, config = accountConfig) {
     checkout: (requestKey) => api('checkout', { requestKey }),
     portal: () => api('portal', {}),
   };
+}
+
+async function deleteAccount(window, config, client, native, unwrap) {
+  if (!config.deletionEnabled)
+    throw new Error('Account deletion is unavailable');
+  const { session } = unwrap(await client.auth.getSession());
+  if (!session) throw new Error('Sign in required');
+  const appleCode = native?.takeAppleCode();
+  const response = await window.fetch(
+    config.url + '/functions/v1/delete-account',
+    {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer ' + session.access_token,
+        apikey: config.publishableKey,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        confirmation: 'DELETE',
+        ...(appleCode ? { appleCode } : {}),
+      }),
+      signal: AbortSignal.timeout(30000),
+    },
+  );
+  if (!response.ok) {
+    const result = await response.json().catch(() => ({}));
+    throw new Error(result.code || 'Deletion failed');
+  }
+  unwrap(await client.auth.signOut({ scope: 'local' }));
 }

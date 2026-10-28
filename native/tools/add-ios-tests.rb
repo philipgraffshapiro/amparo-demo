@@ -11,6 +11,7 @@ end
 target.build_configurations.each do |config|
   config.build_settings['PRODUCT_BUNDLE_IDENTIFIER'] = 'com.amparoaccess.app.uitests'
   config.build_settings['SWIFT_VERSION'] = '5.0'
+  config.build_settings['PRODUCT_NAME'] = 'AmparoUITests'
   config.build_settings['GENERATE_INFOPLIST_FILE'] = 'YES'
   config.build_settings['TEST_TARGET_NAME'] = 'App'
   config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
