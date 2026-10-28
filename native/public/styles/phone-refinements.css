@@ -10,7 +10,7 @@
   .network-sidebar > .eyebrow,
   .network-sidebar > .sheet-wrap > .eyebrow {
     margin-bottom: 9px;
-    font-size: 8px;
+    font-size: 14px;
   }
   .network-sidebar > h1,
   .network-sidebar > .sheet-wrap > h1 {
@@ -31,14 +31,14 @@
     margin: 10px 0 12px;
   }
   .filter-tabs button {
-    font-size: 10px;
+    font-size: 16px;
   }
   .results-caption {
-    font-size: 10px;
+    font-size: 14px;
     margin-bottom: 8px;
   }
   .results-caption .sample-label {
-    font-size: 7px;
+    font-size: 14px;
   }
   .network-results {
     position: absolute;
@@ -56,16 +56,16 @@
     box-shadow: 0 7px 22px #0003;
   }
   .location-row strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .location-row small {
-    font-size: 9px;
+    font-size: 14px;
   }
   .location-row > span > span {
-    font-size: 10px;
+    font-size: 14px;
   }
   .location-row em {
-    font-size: 8px;
+    font-size: 14px;
   }
   .network-canvas {
     min-height: 0;
@@ -81,10 +81,10 @@
     right: 15px;
   }
   .map-fit {
-    font-size: 9px;
+    font-size: 16px;
   }
   .map-style-control button {
-    font-size: 9px;
+    font-size: 16px;
   }
   .location-detail {
     z-index: 700;
@@ -112,92 +112,92 @@
     padding: 20px;
   }
   .home-copy > p:not(.eyebrow) {
-    font-size: 13px;
+    font-size: 16px;
   }
   .home-summary strong {
-    font-size: 10px;
+    font-size: 14px;
   }
   .home-summary small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .home-greeting {
-    font-size: 10px;
+    font-size: 14px;
   }
   .home-greeting small {
-    font-size: 9px;
+    font-size: 14px;
   }
   .product-dock button {
-    font-size: 9px;
+    font-size: 12px;
   }
   .composer-note {
-    font-size: 8px;
+    font-size: 14px;
   }
   .assistant-composer textarea {
     font-size: 16px;
   }
   .prompt-grid button span {
-    font-size: 11px;
+    font-size: 16px;
   }
   .chat-message p {
-    font-size: 13px;
+    font-size: 16px;
   }
   .chat-action {
-    font-size: 11px;
+    font-size: 16px;
   }
   .page-description {
-    font-size: 12px;
+    font-size: 16px;
   }
   .file-name strong {
-    font-size: 12px;
+    font-size: 16px;
   }
   .file-name small {
-    font-size: 9px;
+    font-size: 14px;
   }
   .file-size {
-    font-size: 9px;
+    font-size: 14px;
   }
   .folder-button strong {
-    font-size: 11px;
+    font-size: 16px;
   }
   .folder-button small {
-    font-size: 8px;
+    font-size: 14px;
   }
   .contact-card h3 {
-    font-size: 13px;
+    font-size: 20px;
   }
   .contact-card p {
-    font-size: 11px;
+    font-size: 16px;
   }
   .contact-phone {
-    font-size: 10px;
+    font-size: 14px;
   }
   .settings-row strong {
-    font-size: 13px;
+    font-size: 16px;
   }
   .settings-row small {
-    font-size: 11px;
+    font-size: 14px;
   }
   .family-plan > p:not(.eyebrow) {
-    font-size: 12px;
+    font-size: 16px;
   }
   .included-row p {
-    font-size: 12px;
+    font-size: 16px;
   }
   .included-row strong {
-    font-size: 13px;
+    font-size: 16px;
   }
   .session-note {
-    font-size: 11px;
+    font-size: 14px;
   }
   .checkbox-field {
-    font-size: 11px;
+    font-size: 14px;
   }
   .help-questions summary {
-    font-size: 13px;
+    font-size: 16px;
   }
   .help-questions p,
   .privacy-copy p {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 @media (max-width: 650px) and (max-height: 700px) {

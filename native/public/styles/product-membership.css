@@ -8,7 +8,10 @@
 .membership-card {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1.63;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   border-radius: 17px;
   background: linear-gradient(135deg, #b2b7a0, #798871 75%);
   color: #243020;
@@ -28,7 +31,7 @@
   font-weight: 700;
 }
 .member-card-top > strong > span {
-  font-size: 9px;
+  font-size: 14px;
   vertical-align: top;
   margin-left: 3px;
 }
@@ -38,29 +41,29 @@
   stroke-width: 1.2;
 }
 .membership-card > p {
-  font-size: 7px;
-  letter-spacing: 0.17em;
-  margin: 23px 0 0;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  margin: 0;
   position: relative;
   z-index: 1;
 }
 .member-card-bottom {
-  position: absolute;
-  bottom: 24px;
-  left: 27px;
-  right: 27px;
+  position: relative;
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .member-card-bottom small {
   display: block;
-  font-size: 6px;
-  letter-spacing: 0.15em;
+  font-size: 14px;
+  letter-spacing: 0.06em;
   margin-bottom: 6px;
 }
 .member-card-bottom strong {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   display: block;
   max-width: 220px;
@@ -68,7 +71,7 @@
 }
 .member-card-bottom > .sample-label {
   color: #293624;
-  font-size: 7px;
+  font-size: 14px;
 }
 .card-contours {
   position: absolute;
@@ -93,13 +96,13 @@
   gap: 15px;
   margin: 23px 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .membership-price strong {
   color: var(--text);
   font-size: 36px;
   font-weight: 500;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.04em;
   margin-right: 5px;
 }
 .membership-details > h2 {
@@ -120,11 +123,11 @@
   margin-top: 2px;
 }
 .included-row strong {
-  font-size: 11px;
+  font-size: 16px;
   font-weight: 600;
 }
 .included-row p {
-  font-size: 10px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.8;
   margin: 5px 0 0;
@@ -135,14 +138,14 @@
   margin-top: 25px;
 }
 .separate-costs h3 {
-  font-size: 11px;
+  font-size: 20px;
   margin-bottom: 10px;
 }
 .separate-costs p {
-  font-size: 10px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.8;
 }
 .membership-details > .text-action {
-  font-size: 10px;
+  font-size: 16px;
 }

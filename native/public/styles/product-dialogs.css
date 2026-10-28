@@ -1,5 +1,5 @@
 #product-dialog {
-  width: min(500px, calc(100% - 32px));
+  width: min(560px, calc(100% - 32px));
   max-height: calc(100dvh - 60px);
   border: 1px solid var(--line);
   padding: 0;
@@ -19,36 +19,37 @@
   animation: dialog-in 0.25s ease both;
 }
 #dialog-content {
-  padding: 37px;
+  padding: 40px 32px 32px;
   position: relative;
 }
 .dialog-close {
   position: absolute;
   right: 12px;
   top: 12px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   color: var(--muted);
 }
 .dialog-close svg {
-  width: 17px;
-  height: 17px;
+  width: 22px;
+  height: 22px;
 }
 #dialog-content > .eyebrow {
-  font-size: 8px;
-  padding-right: 18px;
+  font-size: 14px;
+  padding-right: 40px;
   margin-bottom: 17px;
 }
 #dialog-title {
   font-size: 32px;
   line-height: 1.13;
   font-weight: 500;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.04em;
   margin: 0 0 25px;
   overflow-wrap: anywhere;
+  padding-right: 28px;
 }
 #dialog-content > p:not(.eyebrow):not(.session-note) {
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.85;
   color: var(--muted);
 }
@@ -56,21 +57,25 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 10px;
-  margin-bottom: 17px;
+  font-size: 14px;
+  margin-bottom: 24px;
   color: var(--muted);
 }
 .form-field input,
 .form-field select,
 .form-field textarea {
   background: var(--bg);
-  font-size: 12px;
+  font-size: 16px;
   min-height: 44px;
   color: var(--text);
   line-height: 1.6;
 }
 .form-field textarea {
   resize: vertical;
+}
+.form-field input,
+.form-field select {
+  min-height: 48px;
 }
 .file-upload-control {
   display: flex;
@@ -84,7 +89,7 @@
   padding: 22px 15px;
   margin: 10px 0 20px;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
 }
 .file-upload-control svg {
   color: var(--accent);
@@ -92,10 +97,10 @@
   height: 25px;
 }
 .file-upload-control small {
-  font-size: 8px;
+  font-size: 14px;
 }
 .file-upload-control input {
-  font-size: 9px;
+  font-size: 16px;
   width: 100%;
   padding: 6px;
   border: 0;
@@ -112,12 +117,15 @@
   cursor: pointer;
 }
 .form-error {
-  font-size: 11px;
+  font-size: 14px;
   color: #f0ac92;
   margin: 15px 0 0;
 }
 .form-error:empty {
   display: none;
+}
+:root[data-theme='light'] .form-error {
+  color: #994326;
 }
 .form-field + .session-note {
   margin-top: 0;
@@ -130,7 +138,7 @@ form > .button {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--muted);
   margin: 22px 0 0;
@@ -146,7 +154,7 @@ form > .button {
   padding: 18px 0 22px;
   border-bottom: 1px solid var(--line);
   margin-bottom: 23px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .checkout-summary > span {
   display: flex;
@@ -164,7 +172,7 @@ form > .button {
   letter-spacing: -0.04em;
 }
 .checkout-summary small {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   font-weight: 400;
 }
@@ -176,7 +184,7 @@ form > .button {
   border-radius: 9px;
   padding: 15px;
   margin: 20px 0;
-  font-size: 12px;
+  font-size: 16px;
 }
 .sample-card-input > svg {
   color: var(--accent);
@@ -188,8 +196,8 @@ form > .button {
   margin-left: auto;
 }
 .sample-card-input small {
-  font-size: 7px;
-  letter-spacing: 0.12em;
+  font-size: 16px;
+  letter-spacing: 0.06em;
   color: var(--muted);
   display: block;
   margin-bottom: 6px;
@@ -200,7 +208,7 @@ form > .button {
   gap: 20px;
   margin: 20px 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .receipt-line strong {
   color: var(--text);
@@ -247,7 +255,7 @@ form > .button {
   margin-bottom: 15px;
 }
 .appointment-ticket span {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 15px;
 }
 .appointment-ticket small {
@@ -258,9 +266,10 @@ form > .button {
   display: flex;
   gap: 10px;
   margin-top: 22px;
+  flex-wrap: wrap;
 }
 .dialog-actions .button {
-  flex: 1;
+  flex: 1 1 160px;
 }
 .file-preview-body {
   max-height: 340px;

@@ -12,9 +12,9 @@ export function renderProductShell(
       features.communityAlerts ? 'alerts' : 'network',
       features.communityAlerts ? t('Alerts', 'Alertas') : t('Network', 'Red'),
     ],
-    ['documents', t('Documents', 'Documentos')],
+    ['documents', t('Files', 'Archivos')],
     ['home', t('Home', 'Inicio')],
-    ['assistant', 'Amparo AI'],
+    ['assistant', t('AI', 'IA')],
     ['more', t('Menu', 'Menú')],
   ];
   const links = [
@@ -34,6 +34,12 @@ export function renderProductShell(
   ];
   const link = ([name, label]) =>
     `<a href="#${name}" data-route="${name}">${label}</a>`;
+  const dockLabel = (name, label) =>
+    name === 'documents'
+      ? t('Files and documents', 'Archivos y documentos')
+      : name === 'assistant'
+        ? 'Amparo AI'
+        : label;
   return `<a href="#app-main" class="skip-link">${t('Skip to content', 'Saltar al contenido')}</a>
     <header class="product-header"><a href="#home" class="product-brand" data-route="home" aria-label="${t('Amparo home', 'Inicio de Amparo')}"><span class="brand-symbol">${icon('shield')}</span><span>amparo<span class="brand-period">.</span></span></a>
       <nav class="desktop-links" aria-label="${t('Main navigation', 'Navegación principal')}">${links.map(link).join('')}</nav>
@@ -42,8 +48,8 @@ export function renderProductShell(
       </div>
     </header>
     <main id="app-main" tabindex="-1">${renderProductViews(state, features)}<div class="map-credit"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap ${t('contributors', 'colaboradores')}</a></div></main>
-    <div class="dock-wrap"><nav id="product-dock" class="product-dock" aria-label="${t('Product navigation', 'Navegación del producto')}"><span class="dock-indicator" aria-hidden="true"></span>${tabs.map(([name, label]) => `<button type="button" data-route="${name}" ${name === 'home' ? 'aria-current="page"' : ''}>${icon(name)}<span>${label}</span></button>`).join('')}</nav></div>
-    <button class="desktop-agent" type="button" data-route="assistant"><span class="agent-mini-orb">${icon('assistant')}</span><span>Amparo AI<small>${t('A clearer next step', 'Un siguiente paso claro')}</small></span>${icon('diagonal')}</button>
+    <div class="dock-wrap"><nav id="product-dock" class="product-dock" aria-label="${t('Product navigation', 'Navegación del producto')}"><span class="dock-indicator" aria-hidden="true"></span>${tabs.map(([name, label]) => `<button type="button" data-route="${name}" aria-label="${dockLabel(name, label)}" ${name === 'home' ? 'aria-current="page"' : ''}>${icon(name)}<span>${label}</span></button>`).join('')}</nav></div>
+    <button class="desktop-agent" type="button" data-route="assistant"><span class="agent-mini-orb">${icon('assistant')}</span><span>Amparo AI<small>${t('Ask a question', 'Haz una pregunta')}</small></span>${icon('diagonal')}</button>
     <dialog id="product-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
     ${features.communityAlerts ? '<dialog id="community-dialog" aria-labelledby="community-dialog-title"><div id="community-dialog-content"></div></dialog>' : ''}
     <div id="product-toast" class="product-toast" role="status" aria-live="polite"></div>`;

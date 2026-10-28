@@ -12,7 +12,7 @@
   }
   .network-sidebar > .eyebrow,
   .network-sidebar > .sheet-wrap > .eyebrow {
-    font-size: 7px;
+    font-size: 14px;
     margin-bottom: 13px;
   }
   .network-sidebar > h1,
@@ -22,7 +22,7 @@
   }
   .network-sidebar > .page-description,
   .network-sidebar > .sheet-wrap > .page-description {
-    font-size: 10px;
+    font-size: 16px;
     margin-bottom: 17px;
     max-width: 300px;
   }
@@ -35,16 +35,16 @@
     gap: 7px;
   }
   .filter-tabs button {
-    font-size: 9px;
+    font-size: 16px;
     padding: 8px;
-    min-height: 36px;
+    min-height: 48px;
   }
   .results-caption {
     margin: 0 0 12px;
-    font-size: 9px;
+    font-size: 14px;
   }
   .results-caption .sample-label {
-    font-size: 6px;
+    font-size: 14px;
   }
   .network-results {
     display: flex;
@@ -67,17 +67,17 @@
     background: var(--surface);
   }
   .location-row strong {
-    font-size: 10px;
+    font-size: 14px;
     margin-bottom: 4px;
   }
   .location-row small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .location-row > span > span {
-    font-size: 8px;
+    font-size: 14px;
   }
   .location-row em {
-    font-size: 7px;
+    font-size: 14px;
     margin-top: 4px;
   }
   .location-row .location-initial {
@@ -88,7 +88,7 @@
     width: 12px;
   }
   .network-note {
-    font-size: 7px;
+    font-size: 14px;
     margin: 11px 0 0;
     max-width: none;
   }
@@ -109,14 +109,14 @@
     border-radius: 6px;
   }
   .map-style-control button {
-    font-size: 8px;
-    min-height: 31px;
+    font-size: 16px;
+    min-height: 48px;
     padding: 7px 12px;
   }
   .map-fit {
-    font-size: 8px;
+    font-size: 16px;
     padding: 8px 11px;
-    min-height: 39px;
+    min-height: 48px;
     gap: 7px;
   }
   .map-fit svg {
@@ -126,7 +126,7 @@
   .map-legend {
     left: 15px;
     bottom: 18px;
-    font-size: 7px;
+    font-size: 14px;
     gap: 6px;
     padding: 7px 9px;
   }
@@ -138,9 +138,9 @@
     margin-bottom: 25px !important;
   }
   .leaflet-control-zoom a {
-    width: 32px !important;
-    height: 32px !important;
-    line-height: 32px !important;
+    width: 44px !important;
+    height: 44px !important;
+    line-height: 44px !important;
   }
   .location-detail {
     position: absolute;
@@ -156,19 +156,19 @@
   }
   .location-detail > .eyebrow,
   .location-detail > .sheet-wrap > .eyebrow {
-    font-size: 6px;
+    font-size: 14px;
   }
   .location-detail > p:not(.eyebrow),
   .location-detail > .sheet-wrap > p:not(.eyebrow) {
-    font-size: 10px;
+    font-size: 14px;
   }
   .detail-facts {
-    font-size: 8px;
+    font-size: 14px;
     margin: 15px 0;
   }
   .location-detail .button {
-    font-size: 10px;
-    min-height: 43px;
+    font-size: 16px;
+    min-height: 48px;
   }
   .network-results .empty-state {
     padding: 15px;
@@ -179,26 +179,27 @@
     display: none;
   }
   .network-results .empty-state h2 {
-    font-size: 15px;
+    font-size: 20px;
   }
   .network-results .empty-state p {
-    font-size: 10px;
+    font-size: 16px;
   }
   .network-results .empty-state .text-action {
-    font-size: 10px;
+    font-size: 16px;
   }
   .document-layout {
     gap: 28px;
   }
   .folder-strip {
-    gap: 7px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
   }
   .folder-button {
-    padding: 4px 3px 10px;
+    padding: 8px 10px 14px;
   }
   .folder-art {
-    height: 60px;
+    height: 70px;
     margin-bottom: 11px;
   }
   .folder-art > b {
@@ -221,19 +222,19 @@
     inset: 19px 5px 0;
   }
   .folder-button strong {
-    font-size: 9px;
+    font-size: 16px;
     margin-bottom: 4px;
   }
   .folder-button small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .document-search {
     margin-bottom: 18px;
   }
   .file-table-head,
   .document-row {
-    grid-template-columns: minmax(0, 1fr) 42px 14px;
-    gap: 7px;
+    grid-template-columns: minmax(0, 1fr) 64px 16px;
+    gap: 12px;
     padding-left: 4px;
     padding-right: 4px;
   }
@@ -242,7 +243,7 @@
     display: none;
   }
   .file-table-head {
-    font-size: 6px;
+    font-size: 14px;
   }
   .document-row {
     padding-top: 14px;
@@ -252,10 +253,10 @@
     gap: 9px;
   }
   .file-name strong {
-    font-size: 10px;
+    font-size: 16px;
   }
   .file-name small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .file-icon {
     width: 27px;
@@ -266,61 +267,63 @@
     height: 15px;
   }
   .file-size {
-    font-size: 7px;
+    font-size: 14px;
   }
   .document-row > svg {
     width: 12px;
   }
   .drop-area {
-    font-size: 9px;
+    font-size: 14px;
     padding: 20px 12px;
     gap: 5px;
   }
   .drop-area small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .preparation-aside {
-    grid-template-columns: 100px minmax(0, 1fr);
-    gap: 0 20px;
+    display: block;
+    padding-top: 32px;
   }
   .preparation-aside > .eyebrow {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
   }
   .readiness-ring {
-    width: 90px;
-    height: 90px;
-    margin-top: 5px;
+    width: 112px;
+    height: 112px;
+    margin: 24px 0;
   }
   .readiness-ring strong {
     font-size: 28px;
   }
   .readiness-ring strong span {
-    font-size: 11px;
+    font-size: 14px;
   }
   .preparation-aside h2 {
-    font-size: 19px;
+    font-size: 20px;
   }
   .preparation-aside > p:not(.eyebrow) {
-    font-size: 9px;
+    font-size: 16px;
   }
   .preparation-row {
-    font-size: 9px;
+    font-size: 16px;
     padding: 8px 0;
   }
   .preparation-row small {
-    font-size: 7px;
+    font-size: 14px;
   }
   #preparation-list {
     display: block;
     margin-bottom: 18px;
   }
   .preparation-aside .session-note {
-    font-size: 8px;
+    font-size: 14px;
   }
   .preparation-aside .button {
-    font-size: 9px;
+    font-size: 16px;
     gap: 7px;
-    min-height: 42px;
+    min-height: 48px;
     padding: 10px;
+    width: 100%;
+    max-width: none;
   }
 }

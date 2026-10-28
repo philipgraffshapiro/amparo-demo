@@ -14,7 +14,7 @@
   border-radius: 8px;
   padding: 13px 19px;
   box-shadow: var(--shadow);
-  font-size: 11px;
+  font-size: 14px;
   max-width: calc(100% - 40px);
   text-align: center;
 }

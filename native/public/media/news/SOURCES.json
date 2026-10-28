@@ -1,0 +1,39 @@
+{
+  "retrievedAt": "2026-10-28T09:01:56.802Z",
+  "usage": "Locally resized publisher-selected article thumbnails for this review demo. Copyright remains with the publisher and/or photographer. A redistribution license has not been established; obtain permission or replace with licensed assets before public distribution.",
+  "records": [
+    {
+      "file": "wsvn-fiu-poll.webp",
+      "articleUrl": "https://wsvn.com/news/politics/cuban-americans-support-gop-poll/",
+      "publisher": "WSVN 7News",
+      "metadata": "og:image",
+      "imageUrl": "https://wsvn.com/wp-content/uploads/sites/2/2026/10/102726-fiu-cuba-poll-2026-midterm-7n-bg.png",
+      "dimensions": {
+        "width": 1100,
+        "height": 609
+      }
+    },
+    {
+      "file": "telemundo-ice-badge.webp",
+      "articleUrl": "https://www.telemundo51.com/noticias/inmigracion/documentos-respaldan-que-ice-retiene-ciudadano-eeuu-enfermo-desde-enero-ap/2841189/",
+      "publisher": "Telemundo 51",
+      "metadata": "og:image",
+      "imageUrl": "https://media.telemundo51.com/2026/10/ice-badge-officer-getty-e1791853927699.jpg?quality=85&strip=all&resize=1200%2C675",
+      "dimensions": {
+        "width": 1100,
+        "height": 619
+      }
+    },
+    {
+      "file": "telemundo-cuban-deportees.webp",
+      "articleUrl": "https://www.telemundo51.com/noticias/local/es-como-si-estuvieramos-muertas-cubanas-deportadas-a-africa-denuncian-maltratos-y-condiciones-precarias/2841161/",
+      "publisher": "Telemundo 51",
+      "metadata": "og:image",
+      "imageUrl": "https://media.telemundo51.com/2026/10/52245779401-1080pnbcstations.jpg?quality=85&strip=all&resize=1200%2C675",
+      "dimensions": {
+        "width": 1100,
+        "height": 619
+      }
+    }
+  ]
+}

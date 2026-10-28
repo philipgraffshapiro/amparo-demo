@@ -6,7 +6,7 @@
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 16px;
 }
 #account-access-dialog::backdrop {
   background: #080d0ac9;
@@ -15,11 +15,14 @@
 #account-access-dialog h2 {
   font-size: 28px;
   margin: 12px 0;
+  padding-right: 36px;
 }
 #account-access-dialog .dialog-close {
   position: absolute;
   right: 18px;
   top: 18px;
+  width: 44px;
+  height: 44px;
 }
 .account-access-actions {
   display: flex;
@@ -28,7 +31,8 @@
   margin: 20px 0;
 }
 .account-access-actions button {
-  min-height: 44px;
+  min-height: 48px;
+  font-size: 16px;
 }
 .account-verification {
   border: 1px solid var(--line);
@@ -37,7 +41,7 @@
 }
 .account-verification p,
 #account-access-status {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.6;
 }
 .account-access-open {
@@ -50,5 +54,6 @@
 @media (max-width: 600px) {
   #account-access-dialog {
     padding: 24px;
+    border-radius: 16px;
   }
 }

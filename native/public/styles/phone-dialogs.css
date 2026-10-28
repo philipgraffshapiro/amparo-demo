@@ -12,14 +12,14 @@
     margin-bottom: 23px;
   }
   #dialog-content > .eyebrow {
-    font-size: 7px;
+    font-size: 14px;
     line-height: 1.7;
   }
   #dialog-content > p:not(.eyebrow):not(.session-note) {
-    font-size: 11px;
+    font-size: 16px;
   }
   .form-field {
-    font-size: 10px;
+    font-size: 14px;
   }
   .form-field input,
   .form-field select,
@@ -28,24 +28,24 @@
     padding: 10px 12px;
   }
   .sample-card-input {
-    font-size: 11px;
+    font-size: 16px;
     gap: 12px;
   }
   .checkbox-field {
-    font-size: 9px;
+    font-size: 14px;
   }
   .checkout-summary {
-    font-size: 11px;
+    font-size: 14px;
   }
   .checkout-summary > strong {
     font-size: 22px;
   }
   .dialog-actions .button {
-    font-size: 10px;
+    font-size: 16px;
     padding: 12px 14px;
   }
   .product-toast {
-    font-size: 10px;
+    font-size: 14px;
     bottom: calc(91px + env(safe-area-inset-bottom));
     width: max-content;
     max-width: calc(100% - 40px);
@@ -57,25 +57,25 @@
     font-size: 16px;
   }
   .document-letterhead span {
-    font-size: 5px;
+    font-size: 14px;
   }
   .sample-document h3 {
-    font-size: 17px;
+    font-size: 20px;
   }
   .help-questions summary {
-    font-size: 11px;
+    font-size: 16px;
   }
   .help-questions p,
   .privacy-copy p {
-    font-size: 10px;
+    font-size: 16px;
   }
   .appointment-ticket strong {
     font-size: 15px;
   }
   .appointment-ticket span {
-    font-size: 11px;
+    font-size: 14px;
   }
   .appointment-ticket small {
-    font-size: 9px;
+    font-size: 14px;
   }
 }

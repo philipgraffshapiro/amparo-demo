@@ -9,6 +9,22 @@ export class MobileSurfaces {
     this.filters = document.querySelector('.community-filters');
     this.filterHome = document.createComment('community filter home');
     this.filters?.before(this.filterHome);
+    this.networkControls = [];
+    this.networkControlHome = [];
+    this.networkControlHost = document.createElement('div');
+    this.networkControlHost.className = 'network-map-search';
+    document.querySelector('.network-canvas')?.append(this.networkControlHost);
+    for (const selector of [
+      '.network-sidebar .search-field',
+      '.network-sidebar .filter-tabs',
+    ]) {
+      const node = document.querySelector(selector);
+      if (!node) continue;
+      const home = document.createComment('network control home');
+      node.before(home);
+      this.networkControls.push(node);
+      this.networkControlHome.push(home);
+    }
     const list = document.querySelector('#community-list');
     if (list) {
       this.communityBody = document.createElement('div');
@@ -28,13 +44,14 @@ export class MobileSurfaces {
     };
     add('.network-sidebar', {
       mode: 'persistent',
-      background: '.network-canvas > :not(#location-detail)',
+      background:
+        '.network-canvas > :not(#location-detail,.network-map-search)',
     });
     add('.community-feed', {
       mode: 'persistent',
       body: '.community-sheet-scroll',
       background:
-        '.community-map-canvas > :not(#community-detail),.community-heading,.community-toolbar',
+        '.community-map-canvas > :not(#community-detail,.community-filters)',
     });
     add('#location-detail', {
       mode: 'detail',
@@ -79,6 +96,13 @@ export class MobileSurfaces {
         document.querySelector('dialog[open],.site-menu[open]')
       )
         return;
+      const filters = document.querySelector('.community-filter-menu[open]');
+      if (filters) {
+        event.preventDefault();
+        filters.open = false;
+        filters.querySelector('summary').focus();
+        return;
+      }
       const detail = this.sheets.find(
         (sheet) =>
           sheet.options.mode === 'detail' &&
@@ -156,12 +180,20 @@ export class MobileSurfaces {
     }
   }
   placeFilters() {
-    if (!this.filters || !this.communityBody) return;
-    const map = this.app.document.querySelector('[data-community-panel="map"]');
-    const inSheet = this.app.window.innerWidth <= 700 && !map.hidden;
-    if (inSheet && this.filters.parentNode !== this.communityBody)
-      this.communityBody.querySelector('#community-list').before(this.filters);
-    if (!inSheet && this.filters.parentNode === this.communityBody)
+    const phone = this.app.window.innerWidth <= 700;
+    this.networkControls.forEach((node, index) => {
+      if (phone && node.parentNode !== this.networkControlHost)
+        this.networkControlHost.append(node);
+      if (!phone && node.parentNode === this.networkControlHost)
+        this.networkControlHome[index].after(node);
+    });
+    if (!this.filters) return;
+    const canvas = this.app.document.querySelector('.community-map-canvas');
+    const map = canvas?.closest('[data-community-panel="map"]');
+    const onMap = phone && map && !map.hidden;
+    if (onMap && this.filters.parentNode !== canvas)
+      canvas.prepend(this.filters);
+    if (!onMap && this.filters.parentNode === canvas)
       this.filterHome.after(this.filters);
   }
   destroy() {

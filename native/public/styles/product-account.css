@@ -25,20 +25,20 @@
   margin-bottom: 8px;
 }
 .account-block > p {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   overflow-wrap: anywhere;
 }
 .account-block > .sample-label {
   display: block;
-  font-size: 8px;
+  font-size: 14px;
   margin: 20px 0 26px;
 }
 .account-block .button {
-  font-size: 10px;
+  font-size: 16px;
 }
 .account-block .text-action {
-  font-size: 9px;
+  font-size: 16px;
   margin-top: 10px;
   justify-content: center;
 }
@@ -63,12 +63,12 @@
 }
 .settings-row strong {
   display: block;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 500;
 }
 .settings-row small {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.7;
   margin-top: 5px;
@@ -111,7 +111,7 @@ button.settings-row:hover > span strong {
   flex-wrap: wrap;
   align-items: center;
   gap: 14px;
-  font-size: 8px;
+  font-size: 14px;
   color: var(--muted);
   margin-top: 20px;
 }
@@ -120,8 +120,8 @@ button.settings-row:hover > span strong {
 }
 .product-footer button {
   padding: 10px 0;
-  font-size: 8px;
-  min-height: 32px;
+  font-size: 16px;
+  min-height: 48px;
   text-decoration: underline;
   text-underline-offset: 3px;
 }

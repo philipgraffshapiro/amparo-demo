@@ -1,26 +1,26 @@
 @media (max-width: 650px) {
   .contact-cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 16px;
   }
   .contact-card {
-    padding: 20px 16px;
+    padding: 24px;
   }
   .contact-card h3 {
-    font-size: 12px;
+    font-size: 20px;
   }
   .contact-card p {
-    font-size: 9px;
+    font-size: 16px;
     margin-bottom: 15px;
   }
   .contact-phone {
-    font-size: 8px;
+    font-size: 14px;
   }
   .contact-card > small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .add-contact {
-    min-height: 155px;
+    min-height: 120px;
     grid-column: 1/-1;
     flex-direction: row;
     gap: 15px;
@@ -35,14 +35,14 @@
     margin: 0;
   }
   .add-contact strong {
-    font-size: 11px;
+    font-size: 16px;
     margin: 0;
   }
   .add-contact span {
-    font-size: 9px;
+    font-size: 14px;
     width: 100%;
     padding-left: 36px;
-    margin-top: -15px;
+    margin-top: 0;
   }
   .family-plan {
     margin-top: 26px;
@@ -52,7 +52,7 @@
     font-size: 31px;
   }
   .family-plan > p:not(.eyebrow) {
-    font-size: 10px;
+    font-size: 16px;
   }
   .family-plan-actions {
     gap: 10px;
@@ -60,8 +60,8 @@
     align-items: stretch;
   }
   .family-plan-actions .button {
-    font-size: 10px;
-    min-height: 45px;
+    font-size: 16px;
+    min-height: 48px;
   }
   .activity-aside .next-step {
     display: flex;
@@ -70,10 +70,10 @@
     padding: 0;
   }
   .next-step strong {
-    font-size: 11px;
+    font-size: 16px;
   }
   .next-step p {
-    font-size: 9px;
+    font-size: 16px;
   }
   .activity-list {
     display: block;
@@ -91,31 +91,31 @@
     margin: 0 auto;
     padding: 25px;
     border-radius: 14px;
-    aspect-ratio: 1.65;
+    width: 100%;
   }
   .member-card-top > strong {
     font-size: 24px;
   }
   .membership-card > p {
-    font-size: 6px;
+    font-size: 14px;
   }
   .member-card-bottom {
-    bottom: 23px;
-    left: 25px;
-    right: 25px;
+    bottom: auto;
+    left: auto;
+    right: auto;
   }
   .member-card-bottom strong {
-    font-size: 11px;
+    font-size: 14px;
     max-width: 200px;
   }
   .member-card-bottom > .sample-label {
-    font-size: 6px;
+    font-size: 14px;
   }
   .membership-price strong {
     font-size: 34px;
   }
   .membership-price > .sample-label {
-    font-size: 7px;
+    font-size: 14px;
   }
   .membership-details > h2 {
     font-size: 25px;
@@ -125,10 +125,10 @@
     margin: 23px 0;
   }
   .included-row strong {
-    font-size: 11px;
+    font-size: 16px;
   }
   .included-row p {
-    font-size: 10px;
+    font-size: 16px;
   }
   .more-layout {
     display: flex;
@@ -139,7 +139,7 @@
     width: 100%;
     padding: 24px;
     display: grid;
-    grid-template-columns: 56px minmax(0, 1fr);
+    grid-template-columns: 48px minmax(0, 1fr);
     gap: 0 16px;
     text-align: left;
   }
@@ -157,11 +157,11 @@
     margin-bottom: 5px;
   }
   .account-block > p {
-    font-size: 9px;
+    font-size: 14px;
     margin: 0 0 10px;
   }
   .account-block > .sample-label {
-    font-size: 7px;
+    font-size: 14px;
     margin: 0 0 22px;
   }
   .account-block .button,
@@ -178,10 +178,10 @@
     min-height: 77px;
   }
   .settings-row strong {
-    font-size: 11px;
+    font-size: 16px;
   }
   .settings-row small {
-    font-size: 8px;
+    font-size: 14px;
   }
   .settings-row > svg:first-child {
     width: 18px;
@@ -190,12 +190,12 @@
   .product-footer {
     margin-top: 20px;
     gap: 8px 15px;
-    font-size: 7px;
+    font-size: 14px;
   }
   .product-footer > span {
     flex-basis: 100%;
   }
   .product-footer button {
-    font-size: 7px;
+    font-size: 16px;
   }
 }

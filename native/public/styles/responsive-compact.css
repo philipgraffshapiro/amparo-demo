@@ -3,16 +3,14 @@
     --gutter: 18px;
   }
   .product-header {
-    padding: 0 18px;
+    padding: 0 12px;
   }
   .header-actions {
-    gap: 5px;
+    gap: 2px;
   }
   .product-brand {
-    font-size: 24px;
-  }
-  .theme-control {
-    display: none;
+    font-size: 21px;
+    gap: 4px;
   }
   .home-copy {
     padding-left: 18px;
@@ -22,7 +20,7 @@
     font-size: 44px;
   }
   .home-copy > p:not(.eyebrow) {
-    font-size: 11px;
+    font-size: 16px;
     max-width: 265px;
   }
   .home-stage {
@@ -38,7 +36,7 @@
     padding-left: 16px;
   }
   .home-summary strong {
-    font-size: 9px;
+    font-size: 14px;
   }
   .padded-screen {
     padding-left: 18px;
@@ -48,13 +46,13 @@
     font-size: 32px;
   }
   .page-heading .eyebrow {
-    font-size: 7px;
+    font-size: 14px;
   }
   .contact-card {
     padding: 20px 12px;
   }
   .contact-card h3 {
-    font-size: 11px;
+    font-size: 20px;
   }
   .network-sidebar {
     padding-left: 18px;
@@ -72,7 +70,7 @@
     gap: 6px;
   }
   .prompt-grid button span {
-    font-size: 8px;
+    font-size: 16px;
     min-width: 69px;
   }
   .composer-wrap {
@@ -80,13 +78,13 @@
     padding-right: 12px;
   }
   .assistant-composer #voice-demo {
-    width: 23px;
+    width: 44px;
   }
   .dock-wrap {
     width: calc(100% - 22px);
   }
   .product-dock button {
-    font-size: 7px;
+    font-size: 12px;
   }
   .product-dock button svg {
     width: 19px;
@@ -101,10 +99,10 @@
     height: 80px;
   }
   .preparation-aside h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
   .file-name strong {
-    font-size: 9px;
+    font-size: 16px;
   }
   #dialog-content {
     padding: 29px 22px;
@@ -113,7 +111,7 @@
     font-size: 27px;
   }
   .sample-card-input {
-    font-size: 10px;
+    font-size: 16px;
     gap: 9px;
   }
   .sample-card-input svg {
@@ -126,8 +124,13 @@
     padding: 21px;
   }
   .member-card-bottom {
-    left: 21px;
-    right: 21px;
+    left: auto;
+    right: auto;
+  }
+  .product-brand .brand-symbol,
+  .product-brand .brand-symbol svg {
+    width: 20px;
+    height: 24px;
   }
 }
 @media (max-height: 760px) and (min-width: 651px) {
@@ -149,7 +152,7 @@
     margin-bottom: 18px;
   }
   .home-copy > p:not(.eyebrow) {
-    font-size: 11px;
+    font-size: 16px;
     line-height: 1.8;
     margin-bottom: 20px;
     max-width: 370px;
@@ -158,8 +161,8 @@
     margin-top: 20px;
   }
   .hero-actions .button {
-    min-height: 42px;
-    font-size: 10px;
+    min-height: 48px;
+    font-size: 16px;
     padding: 10px 15px;
   }
   .home-circle-card {
@@ -174,7 +177,7 @@
     margin-bottom: 12px;
   }
   .home-circle-card > strong {
-    font-size: 13px;
+    font-size: 14px;
   }
   .home-coordinates {
     top: 23px;
@@ -198,8 +201,8 @@
   }
   .product-dock button,
   .dock-indicator {
-    height: 55px;
-    min-height: 55px;
+    height: 64px;
+    min-height: 64px;
   }
   .desktop-agent {
     bottom: 25px;
@@ -269,9 +272,7 @@
     min-height: 520px;
   }
   .ai-orb {
-    width: 70px;
-    height: 70px;
-    margin-bottom: 15px;
+    display: none;
   }
   .ai-orb > span {
     width: 49px;
@@ -281,7 +282,7 @@
     font-size: 30px;
   }
   .assistant-empty > .eyebrow {
-    font-size: 6px;
+    font-size: 14px;
   }
   .assistant-empty > p:not(.eyebrow) {
     margin-bottom: 20px;
@@ -290,7 +291,7 @@
     min-height: 60px;
   }
   .composer-note {
-    font-size: 6px;
+    font-size: 14px;
   }
   .assistant-thread {
     padding-top: 8px;

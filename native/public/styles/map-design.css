@@ -1,0 +1,309 @@
+.network-map-search {
+  display: none;
+}
+.community-marker-ring {
+  display: none;
+}
+body[data-screen='home'] .map-credit,
+body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
+  .map-credit {
+  display: none;
+}
+@media (max-width: 700px) {
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden])) {
+    padding-top: 14px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-heading {
+    margin: 0 16px 12px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading
+    h1 {
+    font-size: 26px;
+    margin: 0 0 14px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-toolbar {
+    margin: 0 16px 0;
+  }
+  .community-map-canvas > .community-filters {
+    position: absolute;
+    top: 14px;
+    left: 16px;
+    right: 16px;
+    margin: 0;
+    gap: 8px;
+  }
+  .community-map-canvas > .community-filters .search-field,
+  .community-map-canvas > .community-filters summary {
+    box-shadow: 0 3px 12px #0002;
+  }
+  html[data-mobile-surfaces='true'] .community-feed {
+    height: calc(100% - 82px);
+    min-height: 0;
+  }
+  .community-map-controls {
+    top: 80px;
+    left: 16px;
+    right: 16px;
+    align-items: flex-start;
+  }
+  .community-map-layers {
+    padding: 3px;
+    border-radius: 10px;
+  }
+  .community-map-layers button {
+    font-size: 14px;
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+  .community-map-fit {
+    min-height: 48px;
+    width: 48px;
+  }
+  .community-map-summary {
+    top: 140px;
+    left: auto;
+    right: 16px;
+    border: 0;
+    padding: 0;
+    box-shadow: 0 3px 12px #0002;
+  }
+  .community-map-summary > :not(button) {
+    display: none;
+  }
+  .community-map-summary button {
+    min-height: 44px;
+    font-size: 14px;
+    border: 0;
+    margin: 0;
+    padding: 10px 12px;
+  }
+  .community-map-canvas .leaflet-control-zoom {
+    display: none;
+  }
+  .network-map-search {
+    display: block;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    right: 16px;
+    z-index: 720;
+  }
+  .network-map-search .search-field {
+    min-height: 52px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px #0002;
+  }
+  .network-map-search .filter-tabs {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0 0;
+    padding: 0;
+    border: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .network-map-search .filter-tabs button {
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 15px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .network-map-search .filter-tabs button.selected {
+    color: var(--accent-ink);
+    background: #e4bc80;
+    border-color: #e4bc80;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar {
+    inset: auto 0 0;
+    height: calc(100% - 140px);
+  }
+  .network-canvas .map-top-controls {
+    top: 136px;
+  }
+  .network-canvas .map-style-control {
+    display: none;
+  }
+  .network-canvas .map-fit {
+    margin-left: auto;
+    min-height: 44px;
+  }
+  .network-canvas .leaflet-bottom.leaflet-right {
+    top: 194px;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar .location-row {
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    padding: 20px 0;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar .location-row strong {
+    font-size: 17px;
+  }
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    .location-row
+    :is(small, em),
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    .location-row
+    > span
+    > span {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .network-screen:has(#location-detail:not([hidden])) .network-sidebar,
+  .community-map-layout:has(#community-detail:not([hidden])) .community-feed {
+    visibility: hidden;
+    pointer-events: none;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet='detail'] {
+    max-height: calc(var(--sheet-available-height) - 16px);
+  }
+  html[data-mobile-surfaces='true'] .community-detail > .sheet-body {
+    padding: 0 24px 24px;
+  }
+  html[data-mobile-surfaces='true'] .community-feed .community-feed-heading {
+    padding: 0 24px 16px;
+  }
+  .community-feed .community-list {
+    padding: 0 16px;
+  }
+  .community-detail-top .icon-button {
+    min-width: 48px;
+    height: 48px;
+  }
+  .community-map-layout,
+  .network-screen {
+    border: 0;
+    border-radius: 0;
+  }
+}
+@media (max-width: 700px) and (max-height: 600px) {
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading
+    h1 {
+    font-size: 22px;
+    margin: 0;
+    position: absolute;
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading-actions {
+    display: grid;
+  }
+  .community-map-controls,
+  .community-map-summary {
+    display: none;
+  }
+  .community-filter-options {
+    max-height: 50dvh;
+  }
+}
+@media (max-width: 700px) and (min-width: 600px) and (max-height: 500px) {
+  :root {
+    --header: 56px;
+    --dock-space: 70px;
+  }
+  .product-header {
+    height: 56px;
+  }
+  .dock-wrap {
+    bottom: calc(4px + env(safe-area-inset-bottom));
+  }
+  .product-dock button,
+  .dock-indicator {
+    min-height: 48px;
+    height: 48px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden])) {
+    position: relative;
+    padding-top: 4px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-heading {
+    margin: 0 12px 6px;
+    height: 48px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading
+    h1 {
+    position: absolute;
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading-actions
+    .button {
+    min-height: 44px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-toolbar {
+    position: absolute;
+    top: 4px;
+    left: 12px;
+    margin: 0;
+    width: calc(100% - 300px);
+  }
+  .community-map-canvas > .community-filters {
+    left: calc(45% + 12px);
+    right: 12px;
+    top: 8px;
+  }
+  html[data-mobile-surfaces='true'] .community-feed {
+    width: 45%;
+    height: 100%;
+    min-height: 0;
+  }
+  .community-filter-options {
+    position: fixed;
+    top: calc(var(--header) + 8px);
+    right: 8px;
+    max-height: calc(
+      100dvh - var(--header) - var(--dock-space) - env(safe-area-inset-bottom) -
+        16px
+    );
+  }
+  .network-map-search {
+    left: calc(45% + 12px);
+    top: 8px;
+    right: 12px;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar {
+    width: 45%;
+    height: 100%;
+  }
+  .network-canvas .map-top-controls {
+    top: 128px;
+    left: calc(45% + 12px);
+  }
+}

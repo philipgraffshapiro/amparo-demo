@@ -41,9 +41,9 @@
   background: var(--line);
 }
 .header-context {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.06em;
   color: var(--muted);
 }
 .desktop-links {
@@ -55,7 +55,7 @@
 .desktop-links button {
   min-height: 44px;
   padding: 0;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -73,15 +73,15 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
 }
 .language-control {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
-  width: 38px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--line);
   border-radius: 7px;
 }
@@ -95,8 +95,8 @@
   padding: 10px 14px;
   border: 1px solid var(--line);
   border-radius: 7px;
-  min-height: 40px;
-  font-size: 10px;
+  min-height: 44px;
+  font-size: 14px;
   font-weight: 700;
 }
 .header-alert svg {
@@ -110,12 +110,12 @@
 .header-avatar {
   width: 34px;
   height: 34px;
-  font-size: 10px;
+  font-size: 14px;
   border: 0;
 }
 .theme-control {
-  width: 33px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
 }
 .theme-control svg {
   width: 17px;
@@ -130,7 +130,7 @@
   display: none;
   padding: 4px var(--gutter);
   text-align: right;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 16px;
   color: var(--muted);
   background: var(--bg);
@@ -153,10 +153,11 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
   overscroll-behavior: contain;
   scrollbar-width: thin;
   scrollbar-color: var(--line) transparent;
-  animation: screen-in 0.4s ease both;
+  animation: none;
 }
 .padded-screen {
   padding: 44px var(--gutter) 38px;
+  scroll-padding-block: 24px;
 }
 .page-heading {
   display: flex;
@@ -179,8 +180,9 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
 .page-description {
   color: var(--muted);
   line-height: 1.7;
-  font-size: 12px;
+  font-size: 16px;
   margin-bottom: 0;
+  max-width: 68ch;
 }
 .section-line {
   display: flex;
@@ -188,9 +190,10 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
   justify-content: space-between;
   gap: 14px;
   margin-bottom: 15px;
+  flex-wrap: wrap;
 }
 .section-line h2 {
-  font-size: 16px;
+  font-size: 20px;
   margin: 0;
 }
 .section-line > svg {
@@ -200,7 +203,7 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
 .session-note {
   display: block;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.7;
   margin: 17px 0 0;
 }
@@ -217,11 +220,11 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
 .empty-state h3,
 .empty-state h2 {
   color: var(--text);
-  font-size: 17px;
+  font-size: 20px;
   margin-bottom: 8px;
 }
 .empty-state p {
-  font-size: 12px;
+  font-size: 16px;
   margin: 0;
 }
 .search-field {
@@ -232,7 +235,7 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
   border-radius: 8px;
   background: var(--surface);
   padding: 0 13px;
-  min-height: 45px;
+  min-height: 48px;
 }
 .search-field svg {
   width: 16px;
@@ -243,7 +246,7 @@ body:is([data-screen='home'], [data-screen='alerts'], [data-screen='network'])
   outline: 0;
   background: transparent;
   padding: 11px 0;
-  font-size: 11px;
+  font-size: 16px;
   flex: 1;
   width: 100%;
 }

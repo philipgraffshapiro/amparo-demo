@@ -97,7 +97,7 @@
       #account-access-dialog
     )[data-mobile-sheet='modal']
     .checkbox-field {
-    font-size: 13px;
+    font-size: 14px;
   }
   html[data-mobile-surfaces='true']
     :is(
@@ -106,8 +106,8 @@
       #account-access-dialog
     )[data-mobile-sheet='modal']
     .button {
-    min-height: 46px;
-    font-size: 13px;
+    min-height: 48px;
+    font-size: 16px;
   }
   html[data-mobile-surfaces='true']
     :is(

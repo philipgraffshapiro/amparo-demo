@@ -29,7 +29,7 @@
 .family-update-panel > p:not(.eyebrow),
 .report-photo-note {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.65;
 }
 .family-case-tabs {
@@ -46,8 +46,8 @@
   align-items: center;
   gap: 8px;
   white-space: nowrap;
-  min-height: 44px;
-  font-size: 12px;
+  min-height: 48px;
+  font-size: 16px;
 }
 .family-case-tabs [aria-pressed='true'] {
   border-color: var(--accent);
@@ -74,7 +74,7 @@
   align-items: center;
   gap: 12px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .family-stage-pill {
   padding: 7px 10px;
@@ -124,18 +124,18 @@
   width: 12px;
 }
 .family-timeline strong {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
 }
 .family-timeline time {
   display: block;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 6px;
 }
 .family-timeline p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 16px;
   line-height: 1.6;
   margin: 10px 0 0;
   overflow-wrap: anywhere;
@@ -155,7 +155,7 @@
 .family-next-check strong,
 .family-next-check span {
   display: block;
-  font-size: 12px;
+  font-size: 16px;
 }
 .family-next-check span {
   color: var(--muted);
@@ -169,27 +169,28 @@
 .report-private-fields > label {
   display: grid;
   gap: 8px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 .family-update-panel select,
 .family-update-panel textarea,
 .report-private-fields select {
   width: 100%;
-  min-height: 44px;
+  min-height: 48px;
   background: var(--surface);
   color: var(--text);
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--muted) 75%, var(--surface));
   border-radius: 7px;
   padding: 12px;
   font: inherit;
+  font-size: 16px;
 }
 .family-update-panel textarea {
   resize: vertical;
   line-height: 1.6;
 }
 .family-update-panel .family-demo-note {
-  font-size: 10px;
+  font-size: 14px;
   margin: 16px 0 22px;
 }
 .family-private-gallery {
@@ -198,12 +199,12 @@
   border-top: 1px solid var(--line);
 }
 .family-private-gallery h4 {
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 500;
 }
 .family-private-gallery .section-line > span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: 14px;
 }
 .report-private-fields {
   margin: 22px 0;
@@ -226,11 +227,11 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .report-photo-heading span {
   color: var(--accent);
-  font-size: 10px;
+  font-size: 14px;
 }
 .report-photo-heading svg {
   width: 13px;
@@ -249,7 +250,7 @@
 .report-photo-picker small {
   display: block;
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .report-photo-picker input {
   position: absolute;
@@ -269,7 +270,7 @@
 }
 .report-photo-grid > p {
   grid-column: 1 / -1;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
 }
 .report-photo {
@@ -289,7 +290,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   margin-top: 6px;
 }
@@ -298,8 +299,8 @@
   top: 4px;
   right: 4px;
   background: var(--surface);
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
 }
 .family-notification {
   border: 1px solid var(--line);
@@ -318,7 +319,7 @@
 }
 .family-notification-brand small {
   margin-left: auto;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
 }
 .family-notification > strong {
@@ -327,11 +328,11 @@
 }
 .family-notification p {
   color: var(--muted);
-  font-size: 13px;
+  font-size: 16px;
 }
 .family-notification > small {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.6;
 }
@@ -344,7 +345,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
 }
 @media (max-width: 760px) {

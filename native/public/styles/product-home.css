@@ -40,9 +40,9 @@
   position: absolute;
   top: 30px;
   right: var(--gutter);
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.06em;
   color: var(--muted);
   display: flex;
   gap: 20px;
@@ -60,12 +60,12 @@
   font-size: clamp(56px, 6.1vw, 96px);
   font-weight: 500;
   line-height: 1.04;
-  letter-spacing: -0.065em;
+  letter-spacing: -0.04em;
   margin: 0 0 24px;
 }
 .home-copy > p:not(.eyebrow) {
   max-width: 390px;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 1.9;
   color: var(--muted);
   margin-bottom: 25px;
@@ -80,7 +80,7 @@
   gap: 11px;
   align-items: center;
   margin-top: 33px;
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
 }
 .home-greeting strong {
@@ -89,7 +89,7 @@
 }
 .home-greeting small {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1.6;
   margin-top: 3px;
 }
@@ -111,13 +111,13 @@
 }
 .home-map-label small {
   display: block;
-  font-size: 8px;
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  letter-spacing: 0.06em;
   color: var(--muted);
   margin-bottom: 4px;
 }
 .home-map-label strong {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 .home-map-label > svg {
@@ -156,10 +156,10 @@
   width: 285px;
   padding: 23px;
   border-radius: 13px;
-  animation: gentle-float 10s ease-in-out infinite;
+  animation: none;
 }
 .home-circle-card > .eyebrow {
-  font-size: 8px;
+  font-size: 14px;
   margin-bottom: 18px;
 }
 .circle-avatars {
@@ -178,7 +178,7 @@
 }
 .home-circle-card > .subtle {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .card-arrow {
   position: absolute;
@@ -195,7 +195,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 0.025em;
   color: var(--muted);
 }
@@ -252,13 +252,13 @@
 .home-summary small {
   display: block;
   color: var(--muted);
-  font-size: 8px;
-  letter-spacing: 0.14em;
+  font-size: 14px;
+  letter-spacing: 0.06em;
   margin-bottom: 7px;
 }
 .home-summary strong {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   letter-spacing: -0.015em;
 }

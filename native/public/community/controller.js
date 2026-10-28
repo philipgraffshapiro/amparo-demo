@@ -201,8 +201,6 @@ export class CommunityController {
   setTab(tab, showMap = true) {
     if (!['news', 'map', 'reports', 'stats'].includes(tab)) return;
     this.tab = tab;
-    this.document.querySelector('.community-beta').textContent =
-      tab === 'news' ? this.text('NEWS', 'NOTICIAS') : 'DEMO';
     for (const element of this.document.querySelectorAll(
       '.community-filters, .community-export, .community-dataset-note',
     ))
@@ -341,6 +339,11 @@ export class CommunityController {
   }
 
   async action(action) {
+    if (action === 'apply-filters') {
+      const menu = this.document.querySelector('.community-filter-menu');
+      menu?.removeAttribute('open');
+      menu?.querySelector('summary')?.focus();
+    }
     if (action === 'news-retry') return (this.news.ready = this.news.load());
     if (action === 'report')
       this.openDialog('report', reportForm(this.language, this.draft));

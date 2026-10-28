@@ -24,7 +24,7 @@
   inset: -8px;
   border: 1px solid var(--line);
   border-radius: 50%;
-  animation: spin 20s linear infinite;
+  animation: none;
 }
 .orbit-dot:after {
   content: '';
@@ -43,7 +43,7 @@
   margin-bottom: 23px;
 }
 .onboarding-tabs button {
-  font-size: 11px;
+  font-size: 16px;
   color: var(--muted);
   padding: 12px 5px;
   border-bottom: 2px solid transparent;
@@ -98,19 +98,19 @@
   border: 1px solid var(--line);
   border-radius: 50%;
   color: var(--muted);
-  font-size: 10px;
+  font-size: 14px;
   transition: background 0.3s;
 }
 .alert-steps p {
   margin: 0;
 }
 .alert-steps strong {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   display: block;
 }
 .alert-steps small {
-  font-size: 9px;
+  font-size: 14px;
   color: var(--muted);
   display: block;
   margin-top: 5px;
@@ -135,15 +135,15 @@
   margin-right: 7px;
 }
 .alert-complete > strong {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
 }
 .alert-complete > p {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   line-height: 1.8;
   margin: 12px 0 0;
 }
 .alert-complete .text-action {
-  font-size: 10px;
+  font-size: 16px;
 }
