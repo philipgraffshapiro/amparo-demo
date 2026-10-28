@@ -34,6 +34,16 @@ jobs:
         if: always()
         with:
           name: amparo-iphone-build-${{ github.sha }}
-          path: native/artifacts/
+          path: |
+            native/artifacts/*.zip
+            native/artifacts/*.xcresult
+            native/artifacts/device.json
+          retention-days: 14
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: amparo-iphone-screenshots-${{ github.sha }}
+          path: native/artifacts/screenshots/
           retention-days: 14
           if-no-files-found: error

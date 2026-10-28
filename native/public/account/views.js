@@ -61,13 +61,7 @@ export function accountView(controller) {
   const updating = controller.mode === 'update-password';
   if (controller.mode === 'delete' && session)
     return deletionView(controller, t, button, notices);
-  const heading = updating
-    ? t('Choose a new password.', 'Elige una contraseña nueva.')
-    : controller.mode === 'recover'
-      ? t('Reset your password.', 'Restablece tu contraseña.')
-      : session
-        ? t('Welcome back.', 'Bienvenido.')
-        : t('Sign in to Amparo.', 'Entra en Amparo.');
+  const heading = accountHeading(controller, t);
   return `<button type="button" class="icon-button dialog-close" data-account-action="close" aria-label="${t('Close account', 'Cerrar cuenta')}">×</button>
     <p class="eyebrow">${t('YOUR ACCOUNT', 'TU CUENTA')}</p><h2 id="account-access-title">${heading}</h2>
     <p class="session-note">${t('Your sign-in is saved on this device. Documents, family tools and the assistant remain demo features.', 'Tu sesión se guarda en este dispositivo. Los documentos, las herramientas familiares y el asistente siguen siendo funciones de demostración.')}</p>
@@ -92,4 +86,16 @@ function deletionView(controller, t, button, notices) {
     <button type="submit" class="button quiet" id="account-delete-confirm" ${busy ? 'disabled' : ''}>${t('Delete account permanently', 'Eliminar cuenta permanentemente')}</button></form>
     ${button('signin', t('Keep my account', 'Conservar mi cuenta'))}
     <p role="status">${busy ? t('Deleting…', 'Eliminando…') : notices[status] || ''}</p>`;
+}
+
+function accountHeading(controller, t) {
+  const { session } = controller;
+  const updating = controller.mode === 'update-password';
+  return updating
+    ? t('Choose a new password.', 'Elige una contraseña nueva.')
+    : controller.mode === 'recover'
+      ? t('Reset your password.', 'Restablece tu contraseña.')
+      : session
+        ? t('Welcome back.', 'Bienvenido.')
+        : t('Sign in to Amparo.', 'Entra en Amparo.');
 }

@@ -19,7 +19,9 @@
     "news:export": "node tools/export-news.mjs",
     "build:auth-sdk": "node tools/build-auth-sdk.mjs",
     "ios:prepare": "node tools/build-ios.mjs && cap sync ios && node tools/configure-ios.mjs",
-    "ios:open": "cap open ios"
+    "ios:open": "cap open ios",
+    "ios:release-check": "node tools/check-ios-release.mjs",
+    "ios:release-prepare": "npm run ios:release-check && npm run ios:prepare"
   },
   "devDependencies": {
     "@capacitor/cli": "8.5.3",

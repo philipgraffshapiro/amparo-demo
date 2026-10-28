@@ -67,7 +67,7 @@ export class NativeKit {
         );
       }
     });
-    host.append(section);
+    host.insertBefore(section, host.querySelector('.more-layout'));
   }
   async action(action) {
     const t = this.app.text.bind(this.app);

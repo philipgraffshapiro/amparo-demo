@@ -1,3 +1,21 @@
+.native-ios body {
+  padding-top: env(safe-area-inset-top);
+}
+.native-ios #app-main {
+  height: calc(
+    100dvh - var(--header) - var(--dock-space) - env(safe-area-inset-bottom) -
+      env(safe-area-inset-top)
+  );
+}
+.native-ios .language-control,
+.native-ios .header-alert,
+.native-ios .site-menu summary {
+  min-width: 44px;
+  min-height: 44px;
+}
+.native-ios .header-actions {
+  gap: 4px;
+}
 .native-ios .native-kit {
   margin: 24px 0;
   padding: 24px;

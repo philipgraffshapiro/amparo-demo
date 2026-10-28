@@ -30,11 +30,23 @@ run('xcodebuild', [
   'artifacts/Amparo-unsigned.xcarchive',
   'archive',
 ]);
+run('ditto', [
+  '-c',
+  '-k',
+  '--sequesterRsrc',
+  '--keepParent',
+  'artifacts/Amparo-unsigned.xcarchive',
+  'artifacts/Amparo-unsigned.xcarchive.zip',
+]);
 try {
   run('xcodebuild', [
     ...base,
     '-destination',
     'platform=iOS Simulator,id=' + phone.udid,
+    '-test-timeouts-enabled',
+    'YES',
+    '-maximum-test-execution-time-allowance',
+    '180',
     '-resultBundlePath',
     'artifacts/Amparo-tests.xcresult',
     '-derivedDataPath',
