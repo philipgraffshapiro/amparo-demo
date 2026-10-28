@@ -1,17 +1,17 @@
 # Amparo product demo
 
-[Open the interactive demo](https://philipgraffshapiro.github.io/amparo-demo/)
+[Open Amparo](https://philipgraffshapiro.github.io/amparo-demo/)
 
-A responsive English/Spanish product demonstration with community alerts, an interactive activity map, reports and statistics, document organization, family preparation, private family progress timelines, photo evidence, notification previews, membership checkout and Amparo AI.
+A responsive English/Spanish product with publisher news, an illustrative community map, family preparation, documents and an assistant demo.
 
-All incident reports, provider records, checkout and alert delivery are illustrative. The demo does not dispatch help, charge a card or create a live account. Uploaded files and conversations remain in the current browser session.
+News contains real publisher headlines and links with publication and collection timestamps. Unknown event times remain unknown. The saved snapshot is not a continuously running news feed or an emergency alert service. The map incidents and notification delivery remain illustrative.
 
-## Run
+Existing-account sign-in uses the Amparo Supabase development project. Public signup and Face ID/passkeys await provider configuration. Stripe checkout is disabled; no card is charged. Demo documents, family edits and conversations remain in the current tab. Sign-in sessions persist until sign-out.
 
-Open index.html in a modern browser, or use the GitHub Pages link. The application, styles, icons and font are bundled; map imagery requires an internet connection.
+Open index.html or the link above. The portable HTML includes a saved news snapshot; data/news.json supplies refreshes when hosted. Internet is needed for authentication, source links and map imagery.
 
-## Third-party notices
+## Notices
 
-Map data: copyright OpenStreetMap contributors, https://www.openstreetmap.org/copyright. The required attribution is displayed below the map area.
-
-Leaflet 1.9.4 is distributed under the BSD 2-Clause license in LEAFLET-LICENSE.txt. Manrope is distributed under the SIL Open Font License in MANROPE-OFL.txt.
+Map data: © OpenStreetMap contributors, https://www.openstreetmap.org/copyright.
+Leaflet 1.9.4: LEAFLET-LICENSE.txt. Manrope: MANROPE-OFL.txt.
+Supabase SDK 2.118.0 and bundled dependencies: SUPABASE-LICENSES.txt.
