@@ -75,6 +75,7 @@ jobs:
         run: |
           mkdir -p _site/data
           cp index.html _site/index.html
+          cp privacy.html terms.html legal.css _site/
           cp data/news.json _site/data/news.json
           cp .nojekyll _site/.nojekyll
           find . -maxdepth 1 -name '*LICENSE*' -type f -exec cp {} _site/ \;

@@ -9971,8 +9971,8 @@ form > .button {
           [
             t("Is anything sent or charged?", "\xBFSe env\xEDa o cobra algo?"),
             t(
-              "No. Membership, appointments, alerts and assistant replies are simulations. Only the map imagery loads from OpenStreetMap.",
-              "No. La membres\xEDa, las citas, las alertas y las respuestas del asistente son simulaciones. Solo las im\xE1genes del mapa se cargan desde OpenStreetMap."
+              "No payment is collected or alert sent. Membership, appointments and assistant replies are simulations. Account sign-in connects to Supabase and Google; news and map images load from external services.",
+              "No se cobra ni se env\xEDan alertas. La membres\xEDa, las citas y el asistente son simulaciones. El acceso a cuentas conecta con Supabase y Google; las noticias y mapas usan servicios externos."
             )
           ],
           [
@@ -9997,7 +9997,7 @@ form > .button {
       return [
         t("Your space, explained.", "Tu espacio, explicado."),
         t("PRIVACY & THIS DEMO", "PRIVACIDAD Y ESTA DEMO"),
-        `<div class="privacy-copy"><p>${t("This demo keeps your files, contacts and conversation in this browser tab. Reloading resets them. Theme, language and reminder preferences may be saved on this device.", "Esta demo mantiene tus archivos, contactos y conversaci\xF3n en esta pesta\xF1a. Se borran al recargar. Las preferencias de tema, idioma y recordatorios pueden guardarse en este dispositivo.")}</p><p>${t("Map tiles come from OpenStreetMap. No document, contact, chat message or payment information is sent to a server by this demo.", "Las im\xE1genes del mapa vienen de OpenStreetMap. Esta demo no env\xEDa documentos, contactos, mensajes ni informaci\xF3n de pago a un servidor.")}</p><p>${t("Secure accounts, protected storage, live billing, attorney availability and alert delivery require live services before launch. Amparo is not a law firm or an emergency service.", "Las cuentas seguras, el almacenamiento protegido, los pagos, la disponibilidad de abogados y el env\xEDo de alertas requieren servicios reales antes del lanzamiento. Amparo no es un bufete ni un servicio de emergencia.")}</p></div>`
+        `<div class="privacy-copy"><p>${t("Demo files, photos, contacts, reports and conversations stay in this browser tab and reset when you reload. Theme, language and reminder preferences may be saved on this device.", "Los archivos, fotos, contactos, reportes y conversaciones de la demo permanecen en esta pesta\xF1a y se borran al recargar. El tema, idioma y recordatorios pueden guardarse en este dispositivo.")}</p><p>${t("Account sign-in uses Supabase and, if you choose it, Google. Your account and sign-in session persist separately from demo data. Passkeys never send your face scan or fingerprint to Amparo.", "El acceso a cuentas usa Supabase y, si lo eliges, Google. La cuenta y sesi\xF3n se conservan por separado de los datos de la demo. Las llaves de acceso nunca env\xEDan tu imagen facial ni huella a Amparo.")}</p><p>${t("GitHub Pages serves this site and public news; OpenStreetMap serves map images. Private uploads, billing and alert delivery are not active. Amparo is not a law firm or an emergency service.", "GitHub Pages sirve el sitio y noticias p\xFAblicas; OpenStreetMap sirve los mapas. Los archivos privados, pagos y env\xEDo de alertas no est\xE1n activos. Amparo no es un bufete ni un servicio de emergencia.")}</p><a href="https://philipgraffshapiro.github.io/amparo-demo/privacy.html" target="_blank" rel="noopener">${t("Full privacy notice and account deletion contact", "Aviso completo y contacto para eliminar tu cuenta")}</a></div>`
       ];
     }
     reset() {
@@ -11691,7 +11691,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     <button class="button primary full" type="submit" ${busy || !service?.available ? "disabled" : ""}>${label}</button></form>
     <div class="account-access-actions">${recovering ? button2("signin", t("Back to sign in", "Volver a entrar")) : updating ? "" : `${button2("recover", t("Forgot password?", "\xBFOlvidaste tu contrase\xF1a?"))}
           ${service?.googleEnabled ? button2("google", t("Continue with Google", "Continuar con Google")) : ""}
-          ${button2("passkey", t("Sign in with Face ID / passkey", "Entrar con Face ID / llave de acceso"), !service?.passkeys)}`}</div>`;
+          ${button2("passkey", t("Sign in with Face ID / passkey", "Entrar con Face ID / llave de acceso"), !service?.passkeys)}`}</div>${recovering ? `<p class="session-note">${t("Password reset emails are currently limited to invited demo accounts. If you joined with Google, continue with Google and recover your Google account there if needed.", "Los correos para restablecer contrase\xF1as est\xE1n limitados a cuentas invitadas de la demo. Si te registraste con Google, contin\xFAa con Google y recupera tu cuenta all\xED si es necesario.")}</p>` : ""}`;
   }
   function accountView(controller) {
     const { app, session, service, membership, busy, status } = controller;
@@ -11730,6 +11730,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     ${!service?.passkeys ? `<p class="session-note">${t("Passkeys are not enabled for this deployment yet. Face ID will work through a passkey on supported Apple devices; Amparo never receives your face scan.", "Las llaves de acceso a\xFAn no est\xE1n habilitadas aqu\xED. Face ID funcionar\xE1 mediante una llave de acceso en dispositivos Apple compatibles; Amparo nunca recibe tu imagen facial.")}</p>` : ""}
     ${!service?.billingEnabled ? `<p class="session-note">${t("Stripe account setup is pending. Checkout is unavailable.", "La configuraci\xF3n de Stripe est\xE1 pendiente. El pago no est\xE1 disponible.")}</p>` : ""}
     ${!service?.signupEnabled && !session ? `<p class="session-note">${service?.googleEnabled ? t("New here? Continue with Google to create your account.", "\xBFPrimera visita? Contin\xFAa con Google para crear tu cuenta.") : t("New-account registration is not open yet.", "El registro de cuentas nuevas a\xFAn no est\xE1 abierto.")}</p>` : ""}
+    <p class="session-note"><a href="https://philipgraffshapiro.github.io/amparo-demo/privacy.html" target="_blank" rel="noopener">${t("Privacy", "Privacidad")}</a> \xB7 <a href="https://philipgraffshapiro.github.io/amparo-demo/terms.html" target="_blank" rel="noopener">${t("Demo terms", "Condiciones de la demo")}</a></p>
     <p id="account-access-status" role="status" aria-live="polite">${busy ? t("Working\u2026", "Procesando\u2026") : notices[status] || ""}</p>`;
   }
 
