@@ -1,0 +1,90 @@
+name: Refresh news and publish Amparo
+on:
+  schedule:
+    - cron: '3-58/5 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+  actions: write
+  pages: write
+  id-token: write
+concurrency:
+  group: amparo-news-publication
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '26.1.0'
+      - name: Install pinned collector dependencies
+        working-directory: collector
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Restore the last public-news warehouse
+        working-directory: collector
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          state_run=$(gh api "repos/$REPOSITORY/actions/artifacts?per_page=100" --jq '[.artifacts[] | select(.name == "amparo-news-state-v1" and .expired == false)] | sort_by(.created_at) | last | .workflow_run.id // empty')
+          mkdir -p .state
+          if [ -n "$state_run" ]; then
+            gh run download "$state_run" --repo "$REPOSITORY" --name amparo-news-state-v1 --dir .state
+            cd .state
+            sha256sum --check amparo.sqlite.gz.sha256
+            gzip --decompress amparo.sqlite.gz
+          fi
+      - name: Collect, independently verify and publish news data
+        id: collect
+        working-directory: collector
+        env:
+          AMPARO_NEWS_OUTPUT: ../data/news.json
+        run: node tools/scheduled-news.mjs
+      - name: Compress the transaction-consistent backup
+        working-directory: collector/.state-backup
+        run: |
+          gzip -9 amparo.sqlite
+          sha256sum amparo.sqlite.gz > amparo.sqlite.gz.sha256
+          test "$(stat -c %s amparo.sqlite.gz)" -lt 104857600
+      - name: Save public-news state for the next run
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: amparo-news-state-v1
+          path: collector/.state-backup/
+          include-hidden-files: true
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: error
+      - name: Retain the two latest complete backups
+        env:
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          gh api "repos/$REPOSITORY/actions/artifacts?per_page=100" --jq '[.artifacts[] | select(.name == "amparo-news-state-v1" and .expired == false)] | sort_by(.created_at) | reverse | .[2:] | .[].id' | while read -r artifact_id; do
+            gh api --method DELETE "repos/$REPOSITORY/actions/artifacts/$artifact_id"
+          done
+      - name: Stage the public site only
+        run: |
+          mkdir -p _site/data
+          cp index.html _site/index.html
+          cp data/news.json _site/data/news.json
+          cp .nojekyll _site/.nojekyll
+          find . -maxdepth 1 -name '*LICENSE*' -type f -exec cp {} _site/ \;
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
+        with:
+          path: _site
+          retention-days: 1
+      - name: Deploy the checked public site
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
+      - name: Record partial source failures
+        if: steps.collect.outputs.degraded == 'true'
+        run: echo '::warning::Some publisher feeds failed or are stale. The site shows their individual status and retains previous stories.'

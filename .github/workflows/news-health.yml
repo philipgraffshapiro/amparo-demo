@@ -1,0 +1,26 @@
+name: Check public news freshness
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  freshness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '26.1.0'
+      - name: Detect a missed collector run through its public output
+        run: |
+          node --input-type=module <<'JS'
+          const response = await fetch('https://philipgraffshapiro.github.io/amparo-demo/data/news.json', {cache: 'no-store', signal: AbortSignal.timeout(20000)});
+          if (!response.ok) throw Error('Public news is unavailable');
+          const snapshot = await response.json();
+          const fresh = time => Number.isFinite(Date.parse(time)) && Date.now() - Date.parse(time) < 30 * 60000 && Date.parse(time) < Date.now() + 300000;
+          if (!fresh(snapshot.generatedAt)) throw Error('The public news collector has missed its 30-minute freshness window');
+          if (!snapshot.sourceStatus?.some(source => fresh(source.lastSuccessAt))) throw Error('No publisher has refreshed successfully in 30 minutes');
+          console.log(JSON.stringify({generatedAt: snapshot.generatedAt, stories: snapshot.items.length, freshSources: snapshot.sourceStatus.filter(source => fresh(source.lastSuccessAt)).length}));
+          JS

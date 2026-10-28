@@ -4,9 +4,11 @@
 
 A responsive English/Spanish product with publisher news, an illustrative community map, family preparation, documents and an assistant demo.
 
-News contains real publisher headlines and links with publication and collection timestamps. Unknown event times remain unknown. The saved snapshot is not a continuously running news feed or an emergency alert service. The map incidents and notification delivery remain illustrative.
+News contains real publisher headlines and links with publication and collection timestamps. Unknown event times remain unknown. The hosted collector checks 14 feeds on a five-minute GitHub Actions schedule; GitHub may delay scheduled runs. Failed sources and stale data remain visible. The map incidents and notification delivery remain illustrative.
 
-Existing-account sign-in uses the Amparo Supabase development project. Public signup and Face ID/passkeys await provider configuration. Stripe checkout is disabled; no card is charged. Demo documents, family edits and conversations remain in the current tab. Sign-in sessions persist until sign-out.
+Google signup and existing-account sign-in use the Amparo Supabase development project. Signed-in members can enroll a passkey for supported Face ID, fingerprint or security-key authentication. Password recovery is provided for email/password accounts; email delivery depends on the configured provider. Stripe checkout is disabled; no card is charged. Demo documents, family edits and conversations remain in the current tab. Sign-in sessions persist until sign-out.
+
+The allowlisted `collector/` source runs in a separate public-news-only SQLite store. Each run independently checks the saved source records and uploads a transaction-consistent backup; the two latest backups are kept. A separate freshness workflow checks the public output every 30 minutes and fails if collection is stale. Workflow failures use GitHub Actions notifications for the repository owner. No private family warehouse or server credential belongs in this repository.
 
 Open index.html or the link above. The portable HTML includes a saved news snapshot; data/news.json supplies refreshes when hosted. Internet is needed for authentication, source links and map imagery.
 

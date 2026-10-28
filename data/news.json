@@ -1,108 +1,122 @@
 {
   "version": 1,
   "mode": "published-news",
-  "generatedAt": "2026-10-28T01:42:18.660Z",
+  "generatedAt": "2026-10-28T03:03:44.789Z",
   "sourceStatus": [
     {
       "id": "local10",
       "name": "Local 10 / WPLG",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "wlrn",
       "name": "WLRN immigration",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "nbc-miami",
       "name": "NBC 6 South Florida immigration",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "telemundo51",
       "name": "Telemundo 51",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "wsvn",
       "name": "WSVN 7News",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "nbc-chicago",
       "name": "NBC 5 Chicago",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "block-club",
       "name": "Block Club Chicago",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "minnesota-reformer",
       "name": "Minnesota Reformer",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "texas-tribune",
       "name": "The Texas Tribune",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "calmatters",
       "name": "CalMatters",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "documented",
       "name": "Documented immigration reporting",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "democracy-now",
       "name": "Democracy Now!",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "pbs-newshour",
       "name": "PBS NewsHour",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     },
     {
       "id": "ice-news",
       "name": "ICE official news releases",
       "status": "ok",
-      "lastAttemptAt": "2026-10-28T01:39:14.623Z",
-      "lastSuccessAt": "2026-10-28T01:39:14.623Z"
+      "lastAttemptAt": "2026-10-28T03:03:44.789Z",
+      "lastSuccessAt": "2026-10-28T03:03:44.789Z"
     }
   ],
   "items": [
+    {
+      "id": "fecbb4adc45af09313bc6efc104372096fcaee735cded32e6cb722b227a83941",
+      "sourceId": "wsvn",
+      "sourceName": "WSVN 7News",
+      "title": "FIU poll shows Cuban Americans support Republicans despite staunch opposition to Trump’s deportation of Cubans",
+      "url": "https://wsvn.com/news/politics/cuban-americans-support-gop-poll/",
+      "language": "en",
+      "publishedAt": "2026-10-28T02:47:32.000Z",
+      "datePrecision": "instant",
+      "detectedAt": "2026-10-28T03:03:59.059Z",
+      "eventAt": null,
+      "requiresReview": true,
+      "deliveryEligible": false
+    },
     {
       "id": "9e8b5dc080e27de009603397cf5abcfcb674c20a4eedfd07acc50283f997794c",
       "sourceId": "telemundo51",
@@ -112,7 +126,7 @@
       "language": "es",
       "publishedAt": "2026-10-28T00:02:44.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -126,7 +140,7 @@
       "language": "es",
       "publishedAt": "2026-10-27T23:08:48.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -140,7 +154,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T22:32:46.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:30.947Z",
+      "detectedAt": "2026-10-28T03:04:05.562Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -154,7 +168,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T21:56:43.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:29.859Z",
+      "detectedAt": "2026-10-28T03:04:04.473Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -168,7 +182,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T21:44:31.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:29.859Z",
+      "detectedAt": "2026-10-28T03:04:04.473Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -182,21 +196,7 @@
       "language": "es",
       "publishedAt": "2026-10-27T21:02:26.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
-      "eventAt": null,
-      "requiresReview": true,
-      "deliveryEligible": false
-    },
-    {
-      "id": "22fd3cca9103245a5def7870079a9a2bf14272d11549d7d92282d3a03ff35014",
-      "sourceId": "block-club",
-      "sourceName": "Block Club Chicago",
-      "title": "Street Vendors Rally For More Protections In Proposed Ordinance: ‘Being A Worker Is Not A Crime’",
-      "url": "https://blockclubchicago.org/2026/10/27/street-vendors-rally-for-more-protections-in-proposed-ordinance-being-a-worker-is-not-a-crime/",
-      "language": "en",
-      "publishedAt": "2026-10-27T20:17:37.000Z",
-      "datePrecision": "instant",
-      "detectedAt": "2026-10-27T22:41:33.994Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -210,7 +210,7 @@
       "language": "es",
       "publishedAt": "2026-10-27T17:37:52.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -224,7 +224,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T17:33:24.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:30.263Z",
+      "detectedAt": "2026-10-28T03:04:04.823Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -238,7 +238,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T16:58:13.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.003Z",
+      "detectedAt": "2026-10-28T03:04:05.629Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -252,7 +252,7 @@
       "language": "es",
       "publishedAt": "2026-10-27T16:55:43.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -266,7 +266,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T16:48:21.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.003Z",
+      "detectedAt": "2026-10-28T03:04:05.629Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -280,7 +280,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T16:35:33.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.003Z",
+      "detectedAt": "2026-10-28T03:04:05.629Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -294,7 +294,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T15:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.003Z",
+      "detectedAt": "2026-10-28T03:04:05.629Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -308,21 +308,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T14:45:39.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:30.263Z",
-      "eventAt": null,
-      "requiresReview": true,
-      "deliveryEligible": false
-    },
-    {
-      "id": "00bff0d6e6512baa48498ae963b8b54717b7aa593747b0c4de4ff771476198f2",
-      "sourceId": "nbc-chicago",
-      "sourceName": "NBC 5 Chicago",
-      "title": "Florida police called to youth soccer game after alleged dispute involving 3-year-old player",
-      "url": "https://www.nbcchicago.com/news/national-international/florida-police-called-youth-soccer-game-alleged-dispute-3-year-old/4007852/",
-      "language": "en",
-      "publishedAt": "2026-10-27T14:42:32.000Z",
-      "datePrecision": "instant",
-      "detectedAt": "2026-10-27T22:41:33.919Z",
+      "detectedAt": "2026-10-28T03:04:04.823Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -336,7 +322,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T13:58:36.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.387Z",
+      "detectedAt": "2026-10-28T03:03:45.421Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -350,7 +336,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T13:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.003Z",
+      "detectedAt": "2026-10-28T03:04:05.629Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -364,7 +350,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T12:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.003Z",
+      "detectedAt": "2026-10-28T03:04:05.629Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -378,7 +364,7 @@
       "language": "es",
       "publishedAt": "2026-10-27T11:57:50.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -392,7 +378,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T11:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -406,7 +392,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T05:16:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.054Z",
+      "detectedAt": "2026-10-28T03:03:45.096Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -420,7 +406,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T01:49:15.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.054Z",
+      "detectedAt": "2026-10-28T03:03:45.096Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -434,7 +420,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T00:14:38.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -448,7 +434,7 @@
       "language": "en",
       "publishedAt": "2026-10-27T00:06:59.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.054Z",
+      "detectedAt": "2026-10-28T03:03:45.096Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -462,7 +448,7 @@
       "language": "es",
       "publishedAt": "2026-10-26T23:06:47.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -476,7 +462,7 @@
       "language": "es",
       "publishedAt": "2026-10-26T22:55:39.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -490,7 +476,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T22:22:37.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.054Z",
+      "detectedAt": "2026-10-28T03:03:45.096Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -504,7 +490,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T21:07:56.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:34.994Z",
+      "detectedAt": "2026-10-28T03:04:07.692Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -518,7 +504,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T20:19:53.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:29.794Z",
+      "detectedAt": "2026-10-28T03:04:04.411Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -532,7 +518,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T19:54:01.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:30.263Z",
+      "detectedAt": "2026-10-28T03:04:04.823Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -546,7 +532,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T19:20:05.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.054Z",
+      "detectedAt": "2026-10-28T03:03:45.096Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -560,7 +546,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T18:04:30.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:30.263Z",
+      "detectedAt": "2026-10-28T03:04:04.823Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -574,7 +560,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T16:31:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:34.994Z",
+      "detectedAt": "2026-10-28T03:04:07.692Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -588,7 +574,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T16:30:20.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -602,7 +588,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T16:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -616,7 +602,7 @@
       "language": "es",
       "publishedAt": "2026-10-26T15:29:34.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:27.119Z",
+      "detectedAt": "2026-10-28T03:03:58.647Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -630,7 +616,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T15:08:36.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -644,7 +630,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T13:00:13.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:30.263Z",
+      "detectedAt": "2026-10-28T03:04:04.823Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -658,7 +644,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T11:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -672,7 +658,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T11:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:15.285Z",
+      "detectedAt": "2026-10-28T03:03:45.318Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -686,7 +672,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T11:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -700,7 +686,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T10:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
@@ -714,7 +700,7 @@
       "language": "en",
       "publishedAt": "2026-10-26T10:00:00.000Z",
       "datePrecision": "instant",
-      "detectedAt": "2026-10-28T01:39:31.492Z",
+      "detectedAt": "2026-10-28T03:04:06.188Z",
       "eventAt": null,
       "requiresReview": true,
       "deliveryEligible": false
