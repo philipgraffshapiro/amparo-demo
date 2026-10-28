@@ -1,0 +1,16 @@
+node_modules/
+evidence/*.log
+*.zip
+.testingbot/
+.publish/
+.state/
+.state-backup/
+.amparo-data/
+data/.env
+data/.env.local
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+mobile/www/
+artifacts/

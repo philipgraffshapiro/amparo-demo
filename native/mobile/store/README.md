@@ -27,7 +27,6 @@ An unsigned archive is suitable for developer inspection. Sign and test the
 finished app through TestFlight before requesting App Store review. The remaining
 family, assistant, appointment and dispatch demo services need production work.
 
-
 The supported npm commands in the source package are `test` and `ios:*`.
 `npm run ios:release-check` currently exits with the missing business inputs;
 this is intentional. Do not mark a declaration verified before its acceptance
@@ -45,3 +44,14 @@ The current version deliberately disables native Apple/Google sign-in and
 account deletion until their service configuration and acceptance checks pass.
 The controls remain visible with an explanation. Do not enable those flags just
 to make the App Store screenshots look complete.
+
+To reproduce the native archive and simulator checks on that Mac:
+
+```text
+gem install xcodeproj -v 1.27.0 --no-document
+ruby tools/add-ios-tests.rb
+node tools/run-ios-checks.mjs
+```
+
+The archive uses unsigned device output; simulator tests use ad hoc signing.
+These test settings do not supply distribution signing or an Apple membership.

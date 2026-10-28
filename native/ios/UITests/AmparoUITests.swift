@@ -51,17 +51,30 @@ final class AmparoUITests: XCTestCase {
         screenshot("native-share")
         XCTAssertTrue(app.otherElements["ActivityListView"].waitForExistence(timeout: 10) || app.buttons["Copy"].exists)
     }
+    func scrollIntoContent(_ element: XCUIElement) {
+        let top = app.buttons["ES"].firstMatch.frame.maxY + 12
+        let bottom = app.buttons["Menu"].firstMatch.frame.minY - 20
+        for _ in 0..<6 {
+            if element.isHittable && element.frame.minY >= top && element.frame.maxY <= bottom { break }
+            app.swipeUp()
+        }
+        XCTAssertTrue(element.isHittable)
+        XCTAssertGreaterThanOrEqual(element.frame.minY, top)
+        XCTAssertLessThanOrEqual(element.frame.maxY, bottom)
+    }
     func testReminderSchedulesAndCancels() {
         openAccountScreen()
         let reminder = app.buttons["Remind me tomorrow"]
-        for _ in 0..<6 where !reminder.isHittable { app.swipeUp() }
+        scrollIntoContent(reminder)
         XCTAssertTrue(reminder.waitForExistence(timeout: 10))
         reminder.tap()
-        let allow = app.alerts.buttons["Allow"]
+        let allow = XCUIApplication(bundleIdentifier: "com.apple.springboard").alerts.buttons["Allow"]
         if allow.waitForExistence(timeout: 10) { allow.tap() }
         XCTAssertTrue(app.staticTexts["Reminder set for tomorrow."].waitForExistence(timeout: 15))
         screenshot("iphone-reminder")
-        app.buttons["Cancel reminder"].tap()
+        let cancel = app.buttons["Cancel reminder"]
+        scrollIntoContent(cancel)
+        cancel.tap()
         XCTAssertTrue(app.staticTexts["Reminder cancelled."].waitForExistence(timeout: 10))
     }
     func testAccountHasAppleAndGoogleOptions() {
