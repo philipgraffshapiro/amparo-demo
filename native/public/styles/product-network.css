@@ -11,15 +11,18 @@
   border-right: 1px solid var(--line);
   overflow: hidden;
 }
-.network-sidebar > .eyebrow {
+.network-sidebar > .eyebrow,
+.network-sidebar > .sheet-wrap > .eyebrow {
   margin-bottom: 14px;
   font-size: 8px;
 }
-.network-sidebar > h1 {
+.network-sidebar > h1,
+.network-sidebar > .sheet-wrap > h1 {
   font-size: 33px;
   margin: 0 0 12px;
 }
-.network-sidebar > .page-description {
+.network-sidebar > .page-description,
+.network-sidebar > .sheet-wrap > .page-description {
   font-size: 11px;
   margin-bottom: 20px;
 }
@@ -347,7 +350,8 @@
 .detail-close svg {
   width: 16px;
 }
-.location-detail > .eyebrow {
+.location-detail > .eyebrow,
+.location-detail > .sheet-wrap > .eyebrow {
   font-size: 7px;
   margin-right: 20px;
 }
@@ -361,7 +365,8 @@
   font-size: 22px;
   margin: 0;
 }
-.location-detail > p:not(.eyebrow) {
+.location-detail > p:not(.eyebrow),
+.location-detail > .sheet-wrap > p:not(.eyebrow) {
   font-size: 11px;
   color: var(--muted);
 }

@@ -347,10 +347,7 @@ export class CommunityController {
     if (action === 'watch')
       this.openDialog('watch', watchForm(this.language, this.following));
     if (action === 'close-dialog') this.closeDialog();
-    if (action === 'close-detail') {
-      this.selectedId = null;
-      this.render();
-    }
+    if (action === 'close-detail') this.closeDetail();
     if (action === 'clear') {
       this.filters = defaultFilters();
       this.selectedId = null;
@@ -392,6 +389,18 @@ export class CommunityController {
       if (report)
         this.openDialog('preview', alertPreview(report, this.language));
     }
+  }
+
+  closeDetail() {
+    const selected = this.selectedId;
+    this.selectedId = null;
+    this.render();
+    const opener = this.document.querySelector(
+      `#community-list [data-community-report="${selected}"]`,
+    );
+    if (!opener) return;
+    this.app.surfaces?.reveal(opener);
+    opener.focus({ preventScroll: true });
   }
 
   reset() {

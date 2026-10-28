@@ -251,10 +251,12 @@
   .network-sidebar {
     padding-top: 23px;
   }
-  .network-sidebar > .page-description {
+  .network-sidebar > .page-description,
+  .network-sidebar > .sheet-wrap > .page-description {
     margin-bottom: 14px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 29px;
   }
   .location-row {

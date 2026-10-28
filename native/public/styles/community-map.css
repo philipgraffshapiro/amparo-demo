@@ -251,7 +251,8 @@
 .community-detail-location span {
   color: var(--muted);
 }
-.community-detail > p {
+.community-detail > p,
+.community-detail > .sheet-wrap > p {
   font-size: 12px;
   line-height: 1.7;
   color: var(--muted);
@@ -294,7 +295,8 @@
 .community-detail-actions .text-action {
   font-size: 10px;
 }
-.community-detail > small {
+.community-detail > small,
+.community-detail > .sheet-wrap > small {
   display: block;
   color: var(--muted);
   font-size: 9px;

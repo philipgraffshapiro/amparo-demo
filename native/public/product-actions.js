@@ -147,9 +147,7 @@ const namedActions = {
     app.reportPreferenceStorage();
   },
   'close-dialog': (app) => app.dialogs.close(),
-  'close-location'(app) {
-    app.document.querySelector('#location-detail').hidden = true;
-  },
+  'close-location': (app) => app.closeLocation(),
   'clear-network'(app) {
     app.filters.network = 'all';
     app.filters.networkQuery = '';

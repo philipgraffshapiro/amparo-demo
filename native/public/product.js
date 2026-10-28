@@ -16,6 +16,8 @@ import { AccountController } from './account/controller.js';
 import { FamilyController } from './family/controller.js';
 import { NativeKit } from './native/kit.js';
 
+import { MobileSurfaces } from './ui/surfaces.js';
+
 class ProductController {
   constructor(window, options) {
     this.window = window;
@@ -23,6 +25,7 @@ class ProductController {
     this.options = options;
     this.features = {
       communityAlerts: options.features?.communityAlerts !== false,
+      mobileSheets: options.features?.mobileSheets !== false,
     };
     this.store = options.store || createProductStore(window);
     this.services = options.services || createProductServices(this.features);
@@ -171,7 +174,16 @@ class ProductController {
       );
   }
 
+  closeLocation() {
+    this.document.querySelector('#location-detail').hidden = true;
+    const opener = this.document.querySelector('[data-location].selected');
+    if (!opener) return;
+    this.surfaces?.reveal(opener);
+    opener.focus({ preventScroll: true });
+  }
+
   build() {
+    this.surfaces?.destroy();
     this.family?.captureDraft();
     this.community?.detach();
     this.maps?.destroy();
@@ -213,6 +225,9 @@ class ProductController {
       this.community ??= new CommunityController(this);
       this.community.mount();
     }
+    this.surfaces = this.features.mobileSheets
+      ? new MobileSurfaces(this)
+      : null;
     document
       .querySelector('#product-dialog')
       .addEventListener('cancel', (event) => {
@@ -248,6 +263,7 @@ class ProductController {
   }
 
   destroy() {
+    this.surfaces?.destroy();
     this.unsubscribe();
     this.maps.destroy();
     this.assistant.destroy();

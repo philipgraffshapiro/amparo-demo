@@ -7,16 +7,19 @@
     padding-top: 20px;
     padding-bottom: 7px;
   }
-  .network-sidebar > .eyebrow {
+  .network-sidebar > .eyebrow,
+  .network-sidebar > .sheet-wrap > .eyebrow {
     margin-bottom: 9px;
     font-size: 8px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 28px;
     margin-bottom: 17px;
   }
   .network-sidebar > .page-description,
-  .network-note {
+  .network-note,
+  .network-sidebar > .sheet-wrap > .page-description {
     display: none;
   }
   .search-field input,
@@ -202,14 +205,17 @@
     padding-top: 13px;
     padding-bottom: 5px;
   }
-  .network-sidebar > .eyebrow {
+  .network-sidebar > .eyebrow,
+  .network-sidebar > .sheet-wrap > .eyebrow {
     margin-bottom: 6px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 26px;
     margin-bottom: 12px;
   }
-  .network-sidebar > .search-field {
+  .network-sidebar > .search-field,
+  .network-sidebar > .sheet-wrap > .search-field {
     min-height: 38px;
   }
   .filter-tabs {

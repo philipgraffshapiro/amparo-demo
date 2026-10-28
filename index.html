@@ -42,6 +42,8 @@
 
 
 
+
+
 <style>/* required styles */
 
 .leaflet-pane,
@@ -1663,15 +1665,18 @@ body[data-screen='assistant'] .desktop-agent {
   border-right: 1px solid var(--line);
   overflow: hidden;
 }
-.network-sidebar > .eyebrow {
+.network-sidebar > .eyebrow,
+.network-sidebar > .sheet-wrap > .eyebrow {
   margin-bottom: 14px;
   font-size: 8px;
 }
-.network-sidebar > h1 {
+.network-sidebar > h1,
+.network-sidebar > .sheet-wrap > h1 {
   font-size: 33px;
   margin: 0 0 12px;
 }
-.network-sidebar > .page-description {
+.network-sidebar > .page-description,
+.network-sidebar > .sheet-wrap > .page-description {
   font-size: 11px;
   margin-bottom: 20px;
 }
@@ -1999,7 +2004,8 @@ body[data-screen='assistant'] .desktop-agent {
 .detail-close svg {
   width: 16px;
 }
-.location-detail > .eyebrow {
+.location-detail > .eyebrow,
+.location-detail > .sheet-wrap > .eyebrow {
   font-size: 7px;
   margin-right: 20px;
 }
@@ -2013,7 +2019,8 @@ body[data-screen='assistant'] .desktop-agent {
   font-size: 22px;
   margin: 0;
 }
-.location-detail > p:not(.eyebrow) {
+.location-detail > p:not(.eyebrow),
+.location-detail > .sheet-wrap > p:not(.eyebrow) {
   font-size: 11px;
   color: var(--muted);
 }
@@ -4470,20 +4477,24 @@ form > .button {
     border-right: 0;
     overflow: visible;
   }
-  .network-sidebar > .eyebrow {
+  .network-sidebar > .eyebrow,
+  .network-sidebar > .sheet-wrap > .eyebrow {
     font-size: 7px;
     margin-bottom: 13px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 32px;
     margin-bottom: 11px;
   }
-  .network-sidebar > .page-description {
+  .network-sidebar > .page-description,
+  .network-sidebar > .sheet-wrap > .page-description {
     font-size: 10px;
     margin-bottom: 17px;
     max-width: 300px;
   }
-  .network-sidebar > .search-field {
+  .network-sidebar > .search-field,
+  .network-sidebar > .sheet-wrap > .search-field {
     min-height: 41px;
   }
   .filter-tabs {
@@ -4610,10 +4621,12 @@ form > .button {
   .detail-title h2 {
     font-size: 20px;
   }
-  .location-detail > .eyebrow {
+  .location-detail > .eyebrow,
+  .location-detail > .sheet-wrap > .eyebrow {
     font-size: 6px;
   }
-  .location-detail > p:not(.eyebrow) {
+  .location-detail > p:not(.eyebrow),
+  .location-detail > .sheet-wrap > p:not(.eyebrow) {
     font-size: 10px;
   }
   .detail-facts {
@@ -5449,10 +5462,12 @@ form > .button {
   .network-sidebar {
     padding-top: 23px;
   }
-  .network-sidebar > .page-description {
+  .network-sidebar > .page-description,
+  .network-sidebar > .sheet-wrap > .page-description {
     margin-bottom: 14px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 29px;
   }
   .location-row {
@@ -5502,16 +5517,19 @@ form > .button {
     padding-top: 20px;
     padding-bottom: 7px;
   }
-  .network-sidebar > .eyebrow {
+  .network-sidebar > .eyebrow,
+  .network-sidebar > .sheet-wrap > .eyebrow {
     margin-bottom: 9px;
     font-size: 8px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 28px;
     margin-bottom: 17px;
   }
   .network-sidebar > .page-description,
-  .network-note {
+  .network-note,
+  .network-sidebar > .sheet-wrap > .page-description {
     display: none;
   }
   .search-field input,
@@ -5697,14 +5715,17 @@ form > .button {
     padding-top: 13px;
     padding-bottom: 5px;
   }
-  .network-sidebar > .eyebrow {
+  .network-sidebar > .eyebrow,
+  .network-sidebar > .sheet-wrap > .eyebrow {
     margin-bottom: 6px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 26px;
     margin-bottom: 12px;
   }
-  .network-sidebar > .search-field {
+  .network-sidebar > .search-field,
+  .network-sidebar > .sheet-wrap > .search-field {
     min-height: 38px;
   }
   .filter-tabs {
@@ -6450,7 +6471,8 @@ form > .button {
 .community-detail-location span {
   color: var(--muted);
 }
-.community-detail > p {
+.community-detail > p,
+.community-detail > .sheet-wrap > p {
   font-size: 12px;
   line-height: 1.7;
   color: var(--muted);
@@ -6493,7 +6515,8 @@ form > .button {
 .community-detail-actions .text-action {
   font-size: 10px;
 }
-.community-detail > small {
+.community-detail > small,
+.community-detail > .sheet-wrap > small {
   display: block;
   color: var(--muted);
   font-size: 9px;
@@ -8242,6 +8265,466 @@ form > .button {
     padding: 24px;
   }
 }
+
+@media (max-width: 700px) {
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal'] {
+    position: fixed;
+    inset: auto 0 var(--keyboard-inset, 0px);
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    max-height: calc(var(--visual-height, 100dvh) - 12px);
+    padding: 0;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      transform 240ms ease,
+      opacity 240ms ease,
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal'][open] {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    animation: mobile-sheet-enter 260ms cubic-bezier(0.22, 0.75, 0.18, 1);
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    > .sheet-body {
+    padding: 6px 24px max(28px, env(safe-area-inset-bottom));
+    position: relative;
+    flex: 1 1 auto;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .dialog-close {
+    position: sticky;
+    display: flex;
+    margin: 0 0 2px auto;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--surface);
+    z-index: 4;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    input:not([type='checkbox']),
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    textarea,
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    select {
+    font-size: 16px;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .form-field,
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .checkbox-field {
+    font-size: 13px;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .button {
+    min-height: 46px;
+    font-size: 13px;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    #dialog-content
+    > p:not(.eyebrow),
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .help-questions
+    p {
+    font-size: 14px;
+  }
+  @keyframes mobile-sheet-enter {
+    from {
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.sheet-handle {
+  display: none;
+}
+.sheet-wrap {
+  display: contents;
+}
+.community-sheet-scroll {
+  display: contents;
+}
+
+@media (max-width: 700px) {
+  html[data-mobile-surfaces='true'] [data-mobile-sheet] {
+    --sheet-y: 0px;
+    transform: translate3d(0, var(--sheet-y), 0);
+    transition: transform 260ms cubic-bezier(0.22, 0.75, 0.18, 1);
+    will-change: transform;
+    overscroll-behavior: contain;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet] > .sheet-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 44px;
+    min-height: 44px;
+    flex: 0 0 44px;
+    position: relative;
+    z-index: 3;
+    padding: 0;
+    background: var(--surface);
+    border-radius: 22px 22px 0 0;
+    touch-action: none;
+    cursor: grab;
+    transform: none;
+  }
+  html[data-mobile-surfaces='true'] .sheet-handle::before {
+    content: '';
+    width: 42px;
+    height: 5px;
+    border-radius: 5px;
+    background: var(--faint);
+  }
+  html[data-mobile-surfaces='true'] .sheet-handle:focus-visible {
+    outline-offset: -6px;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet].sheet-remeasuring,
+  html[data-mobile-surfaces='true'] [data-mobile-sheet].sheet-dragging {
+    transition: none;
+    user-select: none;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet] .sheet-body {
+    display: block;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+  html[data-mobile-surfaces='true']
+    [data-mobile-sheet='persistent']
+    > .sheet-body {
+    flex: 1;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet='persistent'] {
+    position: absolute;
+    inset: 0;
+    z-index: 680;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 1px solid var(--line);
+    border-bottom: 0;
+    border-radius: 22px 22px 0 0;
+    background: var(--surface);
+    box-shadow: 0 -10px 35px #0003;
+    overflow: hidden;
+  }
+  html[data-mobile-surfaces='true'] .network-screen {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+  html[data-mobile-surfaces='true'] .network-screen > .network-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    isolation: auto;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar > .sheet-wrap > .eyebrow,
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    > .sheet-wrap
+    > .page-description,
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    > .sheet-wrap
+    > .network-note {
+    display: none;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar > .sheet-wrap > h1 {
+    font-size: 22px;
+    margin: 0 20px 12px;
+  }
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    > .sheet-wrap
+    > .search-field,
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    > .sheet-wrap
+    > .filter-tabs,
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    > .sheet-wrap
+    > .results-caption {
+    margin: 0 20px 12px;
+    flex-shrink: 0;
+  }
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    > .sheet-wrap
+    > #network-results {
+    position: static;
+    display: block;
+    flex: 1;
+    padding: 0 20px max(24px, env(safe-area-inset-bottom));
+    margin: 0;
+    overflow-y: visible;
+    scroll-snap-type: none;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar .location-row {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    margin-bottom: 10px;
+    box-shadow: none;
+    background: var(--bg);
+    padding: 16px;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar .filter-tabs button {
+    min-height: 44px;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar .location-row strong {
+    font-size: 14px;
+  }
+  html[data-mobile-surfaces='true'] .network-sidebar .location-row small,
+  html[data-mobile-surfaces='true']
+    .network-sidebar
+    .location-row
+    > span
+    > span,
+  html[data-mobile-surfaces='true'] .network-sidebar .location-row em {
+    font-size: 12px;
+  }
+  html[data-mobile-surfaces='true']
+    .network-sidebar[data-sheet-state='peek']
+    > .sheet-wrap
+    > .search-field,
+  html[data-mobile-surfaces='true']
+    .network-sidebar[data-sheet-state='peek']
+    > .sheet-wrap
+    > .filter-tabs {
+    display: none;
+  }
+  html[data-mobile-surfaces='true'] .community-workspace {
+    min-height: 0;
+    flex: 1;
+  }
+  html[data-mobile-surfaces='true'] .community-map-layout {
+    position: relative;
+    display: block;
+    height: 100%;
+    min-height: 0;
+    overflow: visible;
+  }
+  html[data-mobile-surfaces='true'] .community-feed {
+    inset: auto 0 0;
+    height: var(--sheet-available-height);
+  }
+  html[data-mobile-surfaces='true']
+    .community-map-layout
+    > .community-map-canvas {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    min-height: 0;
+    isolation: auto;
+  }
+  html[data-mobile-surfaces='true'] .community-map-canvas #community-map {
+    inset: 0;
+    height: 100%;
+  }
+  html[data-mobile-surfaces='true']
+    .community-map-canvas
+    .community-map-legend {
+    display: none;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden])) {
+    padding: 10px 0 0;
+    overflow: hidden;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-heading {
+    margin: 0 14px 6px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading
+    .eyebrow,
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading
+    p:not(.eyebrow) {
+    display: none;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-heading
+    h1 {
+    font-size: 20px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    > .community-toolbar {
+    margin: 0 14px 6px;
+  }
+  html[data-mobile-surfaces='true']
+    .community-screen:has([data-community-panel='map']:not([hidden]))
+    .community-dataset-note {
+    display: none;
+  }
+  html[data-mobile-surfaces='true'] .community-feed > .community-sheet-scroll {
+    flex: 1;
+  }
+  html[data-mobile-surfaces='true'] .community-sheet-scroll .community-filters {
+    padding: 12px 20px;
+    margin: 0;
+  }
+  html[data-mobile-surfaces='true']
+    .community-feed[data-sheet-state='peek']
+    .community-filters {
+    display: none;
+  }
+  html[data-mobile-surfaces='true'] .community-sheet-scroll .community-list {
+    overflow: visible;
+  }
+  html[data-mobile-surfaces='true'] .community-feed .community-list {
+    flex: 1;
+    min-height: 0;
+    max-height: none;
+  }
+  html[data-mobile-surfaces='true'] .community-feed .community-feed-heading {
+    padding: 0 20px 12px;
+    flex-shrink: 0;
+  }
+  html[data-mobile-surfaces='true'] .community-feed .community-feed-footer {
+    flex-shrink: 0;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet='detail'] {
+    position: absolute;
+    inset: auto 0 0;
+    z-index: 750;
+    max-height: calc(var(--sheet-available-height) - 8px);
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px 22px 0 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 -12px 40px #0005;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet='detail'] > .sheet-body {
+    padding: 0 22px 24px;
+  }
+  html[data-mobile-surfaces='true'] [data-mobile-sheet='detail'] .detail-close,
+  html[data-mobile-surfaces='true']
+    [data-mobile-sheet='detail']
+    .community-detail-close {
+    top: 42px;
+    right: 12px;
+    min-height: 44px;
+    width: 44px;
+  }
+  html[data-mobile-surfaces='true'] body[data-keyboard-open='true'] {
+    --dock-space: 0px;
+  }
+  html[data-mobile-surfaces='true']
+    body[data-keyboard-open='true']
+    #product-dock {
+    visibility: hidden;
+  }
+  html[data-mobile-surfaces='true'] body[data-keyboard-open='true'] #app-main {
+    height: calc(var(--visual-height) - var(--header));
+  }
+  html[data-mobile-surfaces='true']
+    body[data-keyboard-open='true']
+    .assistant-thread {
+    min-height: 60px;
+  }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  html[data-mobile-surfaces='true'] [data-mobile-sheet],
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal'][open] {
+    animation: none;
+    transition: none;
+  }
+}
 </style></head>
   <body>
 <noscript>Amparo is an interactive product demo. Enable JavaScript to explore the
@@ -9277,8 +9760,8 @@ form > .button {
       ["30d", t("Last 30 days", "\xDAltimos 30 d\xEDas")]
     ])}
       ${filterSelect("region", t("Area", "Zona"), [["all", t("All counties", "Todos los condados")], ...regions.map((region) => [region.id, region.name])])}
-      ${filterSelect("kind", t("Activity", "Actividad"), [["all", t("All activity", "Toda actividad")], ...Object.entries(kinds).map(([key, value]) => [key, value[language]])])}
-      ${filterSelect("status", t("Review status", "Revisi\xF3n"), [["all", t("Any status", "Todos los estados")], ...Object.entries(statuses).map(([key, value]) => [key, value[language]])])}
+      ${filterSelect("kind", t("Activity", "Actividad"), [["all", t("All activity", "Toda actividad")], ...Object.entries(kinds).map(([key2, value]) => [key2, value[language]])])}
+      ${filterSelect("status", t("Review status", "Revisi\xF3n"), [["all", t("Any status", "Todos los estados")], ...Object.entries(statuses).map(([key2, value]) => [key2, value[language]])])}
     </div>
     <div id="community-load-state" role="status" aria-live="polite"></div>
     <div class="community-workspace">
@@ -10503,9 +10986,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       app.reportPreferenceStorage();
     },
     "close-dialog": (app) => app.dialogs.close(),
-    "close-location"(app) {
-      app.document.querySelector("#location-detail").hidden = true;
-    },
+    "close-location": (app) => app.closeLocation(),
     "clear-network"(app) {
       app.filters.network = "all";
       app.filters.networkQuery = "";
@@ -10532,7 +11013,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       event.preventDefault();
     }
     const entry = Object.entries(dataActions).find(
-      ([key]) => button2.dataset[key]
+      ([key2]) => button2.dataset[key2]
     );
     const handler = entry?.[1] || controlActions[button2.id] || namedActions[button2.dataset.action];
     if (handler) await handler(app, button2);
@@ -10552,6 +11033,10 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       );
     };
     const onSubmit = (event) => {
+      if (event.target.id === "account-delete-form") {
+        event.preventDefault();
+        app.account.delete(event.target);
+      }
       if (event.target.id === "account-access-form") {
         event.preventDefault();
         app.account.submit(event.target);
@@ -10671,7 +11156,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         "clock"
       ]
     ];
-    return `<div class="community-metric-grid">${cards.map(([key, value, label, note, glyph]) => `<article class="community-metric"><div>${icon(glyph)}<span>${label}</span></div><strong data-stat-value="${key}">${value}</strong><p>${note}</p></article>`).join("")}</div>
+    return `<div class="community-metric-grid">${cards.map(([key2, value, label, note, glyph]) => `<article class="community-metric"><div>${icon(glyph)}<span>${label}</span></div><strong data-stat-value="${key2}">${value}</strong><p>${note}</p></article>`).join("")}</div>
     <div class="community-charts"><article class="community-chart-card"><div class="community-section-heading"><div><p class="eyebrow">${t("THE RECENT PICTURE", "EL PANORAMA RECIENTE")}</p><h2>${t("Reports over the last week", "Reportes de la \xFAltima semana")}</h2></div><span class="sample-label">${t("SAMPLE DATA", "DATOS DE EJEMPLO")}</span></div><div class="community-bars" role="img" aria-label="${days.map((day) => `${reportDate(day.date + "T12:00:00Z", language)}: ${day.count}`).join("; ")}">${days.map((day) => `<div class="community-bar-column"><strong>${day.count}</strong><div class="community-bar-track"><span data-bar-height="${day.count / maximum * 100}"></span></div><small>${reportDate(day.date + "T12:00:00Z", language)}</small></div>`).join("")}</div><p class="community-chart-caption">${t("Seven 24-hour periods ending Oct 27, noon ET. Counts reflect your current filters.", "Siete per\xEDodos de 24 horas hasta el 27 de oct., mediod\xEDa ET. Los totales reflejan tus filtros actuales.")}</p></article>
     <article class="community-chart-card"><p class="eyebrow">${t("BY COMMUNITY", "POR COMUNIDAD")}</p><h2>${t("Where reports are coming from", "De d\xF3nde vienen los reportes")}</h2><div class="community-area-bars">${stats.areas.map((area) => `<button type="button" data-community-region="${area.id}"><span><strong>${area.name}</strong><b>${area.count}</b></span><span class="community-area-track"><i data-bar-width="${stats.reports ? area.count / stats.reports * 100 : 0}"></i></span></button>`).join("")}</div><button type="button" class="text-action" data-community-tab="map">${t("Explore on the map", "Explorar en el mapa")}${icon("arrow")}</button></article></div>
     <div class="community-method-note">${icon("help")}<div><strong>${t("What these numbers mean", "Qu\xE9 significan estas cifras")}</strong><p>${t("This entire dataset is illustrative. Counts describe reports, not confirmed enforcement totals. People counts are reported estimates, may overlap, and exclude unknown counts. Filters apply to every number and to your export.", "Todos estos datos son ilustrativos. Los totales describen reportes, no cifras confirmadas de actividad migratoria. Las cantidades de personas son estimaciones reportadas, pueden solaparse y excluyen datos desconocidos. Los filtros se aplican a todas las cifras y a la exportaci\xF3n.")}</p></div></div>`;
@@ -10799,7 +11284,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     return `<div class="family-space-heading"><div><p class="eyebrow">${icon("lock")}${t("PRIVATE FAMILY SPACE", "ESPACIO FAMILIAR PRIVADO")}</p><h2>${t("Stay close. Stay informed.", "Cerca de ti. Al tanto.")}</h2><p>${t("A shared picture of what is known, and what happens next.", "Lo que se sabe y el siguiente paso, en un mismo lugar.")}</p></div><span class="sample-label">${t("INTERACTIVE DEMO", "DEMO INTERACTIVA")}</span></div><div class="family-case-tabs" role="group" aria-label="${t("Family follow-ups", "Seguimientos familiares")}">${cases.map((entry) => `<button type="button" data-family-case="${escapeHTML(entry.id)}" aria-pressed="${entry.id === item.id}">${icon("people")}${escapeHTML(entry.name)}</button>`).join("")}</div><div class="family-workspace"><div class="family-case-panel"><div class="family-case-top"><span>${escapeHTML(item.area)}</span><span class="family-stage-pill">${stage}</span></div><h3>${t("Every update, in one place.", "Cada novedad, en un lugar.")}</h3><ol class="family-timeline">${item.events.map((event) => `<li><i>${icon("check")}</i><div><strong>${familyStages[event.stage][column]}</strong><time datetime="${event.at}">${eventTime(event.at, language)}</time><p>${escapeHTML(event.note)}</p></div></li>`).join("")}</ol><div class="family-next-check">${icon("clock")}<div><strong>${t("Next family check-in", "Pr\xF3ximo contacto familiar")}</strong><span>${item.nextCheckAt ? eventTime(item.nextCheckAt, language) : t("No check-in scheduled", "Sin contacto programado")}</span></div></div>${item.reportId ? `<button type="button" class="text-action" data-community-open="${escapeHTML(item.reportId)}">${t("View the community report", "Ver reporte comunitario")}${icon("arrow")}</button>` : ""}<div class="family-private-gallery"><div class="section-line"><h4>${t("Private evidence", "Evidencia privada")}</h4><span>${photos.length} ${t("photos", "fotos")}</span></div><div class="report-photo-grid">${photos.length ? photoGallery(photos, language) : `<p class="subtle">${t("Photos attached to your report appear here. They are not published to the map.", "Las fotos de tu reporte aparecen aqu\xED. No se publican en el mapa.")}</p>`}</div></div></div><aside class="family-update-panel"><p class="eyebrow">${t("KEEP YOUR PEOPLE CLOSE", "CERCA DE TU GENTE")}</p><h3>${t("Share the next update.", "Comparte la novedad.")}</h3><p>${t("Record what your family has confirmed. Updating this space does not verify a public report.", "Registra lo que tu familia confirm\xF3. Esto no verifica el reporte p\xFAblico.")}</p><form id="family-update-form"><label>${t("Current status", "Estado actual")}<select name="familyStage">${Object.entries(
       familyStages
     ).map(
-      ([key, labels]) => `<option value="${key}" ${key === (draft.familyStage || item.stage) ? "selected" : ""}>${labels[column]}</option>`
+      ([key2, labels]) => `<option value="${key2}" ${key2 === (draft.familyStage || item.stage) ? "selected" : ""}>${labels[column]}</option>`
     ).join(
       ""
     )}</select></label><label>${t("What has changed?", "\xBFQu\xE9 ha cambiado?")}<textarea name="familyNote" minlength="8" maxlength="800" rows="4" required placeholder="${t("Add a private update for your circle\u2026", "A\xF1ade una novedad privada\u2026")}">${escapeHTML(draft.familyNote || "")}</textarea></label><label>${t("Check in again", "Volver a contactar")}<select name="checkInHours">${[
@@ -10827,12 +11312,12 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       <label>${t("What was reported?", "\xBFQu\xE9 se report\xF3?")}<select name="kind" required>${Object.entries(
       kinds
     ).map(
-      ([key, value]) => `<option value="${key}" ${draft.kind === key ? "selected" : ""}>${value[language]}</option>`
+      ([key2, value]) => `<option value="${key2}" ${draft.kind === key2 ? "selected" : ""}>${value[language]}</option>`
     ).join("")}</select></label>
       <label>${t("City / approximate area", "Ciudad / zona aproximada")}<select name="city" required>${Object.entries(
       cities
     ).map(
-      ([key, value]) => `<option value="${key}" ${draft.city === key ? "selected" : ""}>${value.name}</option>`
+      ([key2, value]) => `<option value="${key2}" ${draft.city === key2 ? "selected" : ""}>${value.name}</option>`
     ).join("")}</select></label>
       <label>${t("Date observed", "Fecha de observaci\xF3n")}<input name="date" type="date" min="2026-09-28" max="2026-10-27" value="${escapeHTML(draft.date || "2026-10-27")}" required><small>${t("Demo reference date: Oct 27, 2026", "Fecha de la demo: 27 oct. 2026")}</small></label>
       <label>${t("People reportedly detained", "Personas reportadas detenidas")}<input name="people" type="number" min="1" max="99" placeholder="${t("Unknown / not applicable", "Desconocido / no aplica")}" value="${escapeHTML(draft.people || "")}"><small>${t("Leave blank if not known", "D\xE9jalo vac\xEDo si no se sabe")}</small></label>
@@ -10874,8 +11359,8 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       ).matches;
     }
     ensure(home = false) {
-      const key = home ? "home" : "alerts";
-      if (this.entries.has(key)) return this.entries.get(key);
+      const key2 = home ? "home" : "alerts";
+      if (this.entries.has(key2)) return this.entries.get(key2);
       const element = this.window.document.querySelector(
         home ? "#home-alert-map" : "#community-map"
       );
@@ -10921,7 +11406,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         markers: /* @__PURE__ */ new Map(),
         reports: []
       };
-      this.entries.set(key, entry);
+      this.entries.set(key2, entry);
       return entry;
     }
     status(message) {
@@ -11478,15 +11963,15 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       return;
     }
     restoreFilters() {
-      for (const [key, value] of Object.entries(this.filters)) {
-        const input = this.document.querySelector("#community-" + key);
+      for (const [key2, value] of Object.entries(this.filters)) {
+        const input = this.document.querySelector("#community-" + key2);
         if (input) input.value = value;
       }
     }
     input(target) {
-      const key = target.id?.replace("community-", "");
-      if (!Object.hasOwn(this.filters, key)) return;
-      this.filters[key] = target.value;
+      const key2 = target.id?.replace("community-", "");
+      if (!Object.hasOwn(this.filters, key2)) return;
+      this.filters[key2] = target.value;
       this.selectedId = null;
       this.render();
       this.maps.fit();
@@ -11621,10 +12106,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       if (action === "watch")
         this.openDialog("watch", watchForm(this.language, this.following));
       if (action === "close-dialog") this.closeDialog();
-      if (action === "close-detail") {
-        this.selectedId = null;
-        this.render();
-      }
+      if (action === "close-detail") this.closeDetail();
       if (action === "clear") {
         this.filters = defaultFilters();
         this.selectedId = null;
@@ -11663,6 +12145,17 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
           this.openDialog("preview", alertPreview(report, this.language));
       }
     }
+    closeDetail() {
+      const selected = this.selectedId;
+      this.selectedId = null;
+      this.render();
+      const opener = this.document.querySelector(
+        `#community-list [data-community-report="${selected}"]`
+      );
+      if (!opener) return;
+      this.app.surfaces?.reveal(opener);
+      opener.focus({ preventScroll: true });
+    }
     reset() {
       this.closeDialog();
       this.lifecycle++;
@@ -11699,14 +12192,19 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     ${recovering || updating ? "" : `<label class="form-field">${t("Action", "Acci\xF3n")}<select name="mode"><option value="signin">${t("Sign in", "Entrar")}</option><option value="signup" ${service?.signupEnabled ? "" : "disabled"}>${t("Create account", "Crear cuenta")}</option></select></label>`}
     <button class="button primary full" type="submit" ${busy || !service?.available ? "disabled" : ""}>${label}</button></form>
     <div class="account-access-actions">${recovering ? button2("signin", t("Back to sign in", "Volver a entrar")) : updating ? "" : `${button2("recover", t("Forgot password?", "\xBFOlvidaste tu contrase\xF1a?"))}
-          ${service?.googleEnabled ? button2("google", t("Continue with Google", "Continuar con Google")) : ""}
+          ${service?.appleEnabled ? button2("apple", t("Sign in with Apple", "Iniciar sesi\xF3n con Apple"), !service.nativeProvidersReady) : ""}
+          ${service?.googleEnabled ? button2("google", t("Continue with Google", "Continuar con Google"), service.native && !service.nativeProvidersReady) : ""}
           ${button2("passkey", t("Sign in with Face ID / passkey", "Entrar con Face ID / llave de acceso"), !service?.passkeys)}`}</div>${recovering ? `<p class="session-note">${t("Password reset emails are currently limited to invited demo accounts. If you joined with Google, continue with Google and recover your Google account there if needed.", "Los correos para restablecer contrase\xF1as est\xE1n limitados a cuentas invitadas de la demo. Si te registraste con Google, contin\xFAa con Google y recupera tu cuenta all\xED si es necesario.")}</p>` : ""}`;
   }
   function accountView(controller) {
     const { app, session, service, membership, busy, status } = controller;
     const t = (en2, es2) => app.text(en2, es2);
-    const button2 = (action, label, disabled = false) => `<button type="button" class="button quiet" data-account-action="${action}" ${busy || disabled ? "disabled" : ""}>${label}</button>`;
+    const button2 = (action, label, disabled = false) => `<button type="button" class="button quiet${action === "apple" ? " apple-sign-in" : ""}" data-account-action="${action}" ${busy || disabled ? "disabled" : ""}>${label}</button>`;
     const notices = {
+      reauthenticate: t(
+        "For your protection, sign out and sign in again, then retry deletion.",
+        "Por tu seguridad, cierra sesi\xF3n y vuelve a entrar; despu\xE9s intenta eliminar la cuenta."
+      ),
       failed: t(
         "Could not finish. Check your details and connection, then try again.",
         "No se pudo completar. Revisa tus datos y conexi\xF3n e intenta otra vez."
@@ -11730,17 +12228,41 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       "password-updated": t("Password updated.", "Contrase\xF1a actualizada.")
     };
     const updating = controller.mode === "update-password";
-    const heading = updating ? t("Choose a new password.", "Elige una contrase\xF1a nueva.") : controller.mode === "recover" ? t("Reset your password.", "Restablece tu contrase\xF1a.") : session ? t("Welcome back.", "Bienvenido.") : t("Sign in to Amparo.", "Entra en Amparo.");
+    if (controller.mode === "delete" && session)
+      return deletionView(controller, t, button2, notices);
+    const heading = accountHeading(controller, t);
     return `<button type="button" class="icon-button dialog-close" data-account-action="close" aria-label="${t("Close account", "Cerrar cuenta")}">\xD7</button>
+    ${nativeNotice(service, t)}
     <p class="eyebrow">${t("YOUR ACCOUNT", "TU CUENTA")}</p><h2 id="account-access-title">${heading}</h2>
     <p class="session-note">${t("Your sign-in is saved on this device. Documents, family tools and the assistant remain demo features.", "Tu sesi\xF3n se guarda en este dispositivo. Los documentos, las herramientas familiares y el asistente siguen siendo funciones de demostraci\xF3n.")}</p>
     ${session && !updating ? `<p>${escapeHTML(session.user.email || "")}</p><div class="account-verification"><strong>${membership?.active ? t("Test membership verified", "Membres\xEDa de prueba verificada") : t("No verified membership", "Sin membres\xEDa verificada")}</strong><p>${t("Stripe test mode \xB7 No real charge. A checkout return page never activates membership.", "Modo de prueba de Stripe \xB7 Sin cobro real. La p\xE1gina de regreso del pago nunca activa la membres\xEDa.")}</p></div>
-      <div class="account-access-actions">${button2("refresh", t("Check payment status", "Comprobar pago"), !service.billingEnabled)}${button2("checkout", t("Open Stripe test checkout", "Abrir pago de prueba Stripe"), !service.billingEnabled || membership?.active)}${button2("portal", t("Manage billing", "Administrar pagos"), !service.billingEnabled)}${button2("register-passkey", t("Set up Face ID / passkey", "Configurar Face ID / llave de acceso"), !service.passkeys)}${button2("signout", t("Sign out", "Cerrar sesi\xF3n"))}</div>` : accessForm(controller, t, button2)}
+      <div class="account-access-actions">${button2("refresh", t("Check payment status", "Comprobar pago"), !service.billingEnabled)}${button2("checkout", t("Open Stripe test checkout", "Abrir pago de prueba Stripe"), !service.billingEnabled || membership?.active)}${button2("portal", t("Manage billing", "Administrar pagos"), !service.billingEnabled)}${button2("register-passkey", t("Set up Face ID / passkey", "Configurar Face ID / llave de acceso"), !service.passkeys)}${button2("signout", t("Sign out", "Cerrar sesi\xF3n"))}${service.deletionEnabled ? button2("delete", t("Delete account", "Eliminar cuenta")) : ""}</div>` : accessForm(controller, t, button2)}
     ${!service?.passkeys ? `<p class="session-note">${t("Passkeys are not enabled for this deployment yet. Face ID will work through a passkey on supported Apple devices; Amparo never receives your face scan.", "Las llaves de acceso a\xFAn no est\xE1n habilitadas aqu\xED. Face ID funcionar\xE1 mediante una llave de acceso en dispositivos Apple compatibles; Amparo nunca recibe tu imagen facial.")}</p>` : ""}
     ${!service?.billingEnabled ? `<p class="session-note">${t("Stripe account setup is pending. Checkout is unavailable.", "La configuraci\xF3n de Stripe est\xE1 pendiente. El pago no est\xE1 disponible.")}</p>` : ""}
-    ${!service?.signupEnabled && !session ? `<p class="session-note">${service?.googleEnabled ? t("New here? Continue with Google to create your account.", "\xBFPrimera visita? Contin\xFAa con Google para crear tu cuenta.") : t("New-account registration is not open yet.", "El registro de cuentas nuevas a\xFAn no est\xE1 abierto.")}</p>` : ""}
+    ${!service?.signupEnabled && !session ? `<p class="session-note">${service?.googleEnabled ? t(service?.appleEnabled ? "Create your account with Apple or Google." : "New here? Continue with Google to create your account.", "\xBFPrimera visita? Contin\xFAa con Google para crear tu cuenta.") : t("New-account registration is not open yet.", "El registro de cuentas nuevas a\xFAn no est\xE1 abierto.")}</p>` : ""}
     <p class="session-note"><a href="https://philipgraffshapiro.github.io/amparo-demo/privacy.html" target="_blank" rel="noopener">${t("Privacy", "Privacidad")}</a> \xB7 <a href="https://philipgraffshapiro.github.io/amparo-demo/terms.html" target="_blank" rel="noopener">${t("Demo terms", "Condiciones de la demo")}</a></p>
     <p id="account-access-status" role="status" aria-live="polite">${busy ? t("Working\u2026", "Procesando\u2026") : notices[status] || ""}</p>`;
+  }
+  function deletionView(controller, t, button2, notices) {
+    const { busy, status } = controller;
+    return `<h2 id="account-access-title">${t("Delete your account?", "\xBFEliminar tu cuenta?")}</h2>
+    <p>${t("This permanently deletes your account, profile, subscriptions, submitted reports, uploaded photos and family cases you own, including shared access to those cases. This cannot be undone.", "Esto elimina permanentemente tu cuenta, perfil, suscripciones, reportes, fotos y los casos familiares que te pertenecen, incluido el acceso compartido. No se puede deshacer.")}</p>
+    <form id="account-delete-form"><label class="form-field">${t("Type DELETE to confirm", "Escribe DELETE para confirmar")}<input name="confirmation" required pattern="DELETE" autocomplete="off" autocapitalize="characters"></label>
+    <button type="submit" class="button quiet" id="account-delete-confirm" ${busy ? "disabled" : ""}>${t("Delete account permanently", "Eliminar cuenta permanentemente")}</button></form>
+    ${button2("signin", t("Keep my account", "Conservar mi cuenta"))}
+    <p role="status">${busy ? t("Deleting\u2026", "Eliminando\u2026") : notices[status] || ""}</p>`;
+  }
+  function accountHeading(controller, t) {
+    const { session } = controller;
+    const updating = controller.mode === "update-password";
+    return updating ? t("Choose a new password.", "Elige una contrase\xF1a nueva.") : controller.mode === "recover" ? t("Reset your password.", "Restablece tu contrase\xF1a.") : session ? t("Welcome back.", "Bienvenido.") : t("Sign in to Amparo.", "Entra en Amparo.");
+  }
+  function nativeNotice(service, t) {
+    if (!service?.native || service.nativeProvidersReady) return "";
+    return '<p class="session-note">' + t(
+      "Apple and Google account services are not available in this iPhone preview yet. You can use the checklist and news without signing in.",
+      "Los servicios de cuenta de Apple y Google a\xFAn no est\xE1n disponibles en esta vista previa para iPhone. Puedes usar la lista y las noticias sin iniciar sesi\xF3n."
+    ) + "</p>";
   }
 
   // public/account/controller.js
@@ -11881,6 +12403,23 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         } else await this.service.signIn(values.email, values.password);
       });
     }
+    async delete(form2) {
+      if (this.busy || !this.service.deletionEnabled || !form2.reportValidity())
+        return;
+      if (new this.app.window.FormData(form2).get("confirmation") !== "DELETE")
+        return;
+      await this.run(async () => {
+        if (this.session?.user.identities?.some(
+          (identity) => identity.provider === "apple"
+        ))
+          await this.service.signInApple();
+        await this.service.deleteAccount();
+        this.setSession(null);
+        this.close();
+        this.app.reset();
+        this.app.toast(this.app.text("Account deleted.", "Cuenta eliminada."));
+      });
+    }
     async run(operation) {
       if (this.busy) return;
       this.captureForm();
@@ -11889,8 +12428,11 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.render();
       try {
         await operation();
-      } catch {
-        this.status = "failed";
+      } catch (error) {
+        this.status = [
+          "reauthentication_required",
+          "apple_reauthentication_required"
+        ].includes(error.message) ? "reauthenticate" : "failed";
       } finally {
         this.busy = false;
         if (!this.destroyed) this.render();
@@ -11908,8 +12450,15 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         this.render();
         return;
       }
+      if (action === "delete" && this.service.deletionEnabled) {
+        this.mode = "delete";
+        this.render();
+        return;
+      }
       if (action === "refresh") return this.refresh = this.verify();
       await this.run(async () => {
+        if (action === "apple" && this.service.appleEnabled)
+          await this.service.signInApple();
         if (action === "google" && this.service.googleEnabled)
           await this.service.signInGoogle();
         if (action === "signout") {
@@ -12146,6 +12695,565 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     }
   };
 
+  // public/native/kit.js
+  var key = "amparo.native.preparation.v1";
+  var tasks = [
+    ["contact", "Choose a trusted contact", "Elige un contacto de confianza"],
+    [
+      "copies",
+      "Keep copies of important documents",
+      "Guarda copias de documentos importantes"
+    ],
+    ["appointment", "Write down your next appointment", "Anota tu pr\xF3xima cita"],
+    [
+      "review",
+      "Review your plan with your household",
+      "Revisa el plan con tu familia"
+    ]
+  ];
+  var NativeKit = class {
+    constructor(app, bridge) {
+      this.app = app;
+      this.bridge = bridge;
+      this.values = {};
+      try {
+        const saved = JSON.parse(app.window.localStorage.getItem(key) || "{}");
+        for (const [id] of tasks) this.values[id] = saved?.[id] === true;
+      } catch {
+        this.storageFailed = true;
+      }
+      this.listener = (event) => {
+        const target = event.target.closest("[data-native-action]");
+        if (target)
+          this.action(target.dataset.nativeAction).catch(
+            () => app.toast(
+              app.text(
+                "Could not finish. Check your device settings and try again.",
+                "No se pudo completar. Revisa los ajustes del dispositivo e intenta otra vez."
+              )
+            )
+          );
+      };
+      app.document.addEventListener("click", this.listener);
+    }
+    mount() {
+      const host = this.app.document.querySelector('section[data-screen="more"]');
+      if (!host) return;
+      const t = this.app.text.bind(this.app);
+      const section = this.app.document.createElement("section");
+      section.className = "native-kit";
+      section.innerHTML = `<p class="eyebrow">${t("ON YOUR IPHONE", "EN TU IPHONE")}</p>
+      <h2>${t("Your preparation checklist", "Tu lista de preparaci\xF3n")}</h2>
+      <p>${t("Available offline. Checkmarks stay on this device. No document or contact information is stored here.", "Disponible sin conexi\xF3n. Las marcas se guardan en este dispositivo. No se guardan documentos ni datos de contactos aqu\xED.")}</p>
+      <div class="native-kit-tasks">${tasks.map(([id, en2, es2]) => `<label><input type="checkbox" data-native-task="${id}" ${this.values[id] ? "checked" : ""}>${t(en2, es2)}</label>`).join("")}</div>
+      <div class="native-kit-actions"><button class="button quiet" data-native-action="share">${t("Share checklist", "Compartir lista")}</button>
+      <button class="button quiet" data-native-action="remind">${t("Remind me tomorrow", "Recordar ma\xF1ana")}</button>
+      <button class="button quiet" data-native-action="cancel">${t("Cancel reminder", "Cancelar recordatorio")}</button>
+      <button class="button quiet" data-native-action="clear">${t("Clear checklist", "Borrar lista")}</button></div>
+      <p class="session-note" role="status">${this.storageFailed ? t("Device storage is unavailable; changes cannot be saved.", "El almacenamiento no est\xE1 disponible; los cambios no se guardar\xE1n.") : ""}</p>`;
+      section.addEventListener("change", (event) => {
+        const id = event.target.dataset.nativeTask;
+        if (!tasks.some(([value]) => value === id)) return;
+        this.values[id] = event.target.checked;
+        try {
+          this.app.window.localStorage.setItem(key, JSON.stringify(this.values));
+        } catch {
+          section.querySelector('[role="status"]').textContent = t(
+            "Could not save this change.",
+            "No se pudo guardar este cambio."
+          );
+        }
+      });
+      host.insertBefore(section, host.querySelector(".more-layout"));
+    }
+    syncAppearance() {
+      const theme = this.app.store.get().theme;
+      if (!this.bridge.appearance || this.appliedTheme === theme) return;
+      this.appliedTheme = theme;
+      this.bridge.appearance({ theme }).catch(() => {
+        this.appliedTheme = void 0;
+        this.app.toast(
+          this.app.text(
+            "Could not update device appearance.",
+            "No se pudo actualizar la apariencia del dispositivo."
+          )
+        );
+      });
+    }
+    async action(action) {
+      const t = this.app.text.bind(this.app);
+      if (action === "share")
+        await this.bridge.share({
+          text: [
+            "Amparo",
+            ...tasks.map(
+              ([id, en2, es2]) => `${this.values[id] ? "\u2713" : "\u25CB"} ${t(en2, es2)}`
+            )
+          ].join("\n")
+        });
+      if (action === "remind") {
+        await this.bridge.remind({ language: this.app.store.get().language });
+        this.app.toast(
+          t("Reminder set for tomorrow.", "Recordatorio programado para ma\xF1ana.")
+        );
+      }
+      if (action === "cancel") {
+        await this.bridge.cancelReminder();
+        this.app.toast(t("Reminder cancelled.", "Recordatorio cancelado."));
+      }
+      if (action === "clear") {
+        this.app.window.localStorage.removeItem(key);
+        this.values = {};
+        this.app.document.querySelectorAll("[data-native-task]").forEach((input) => {
+          input.checked = false;
+        });
+        this.app.toast(t("Checklist cleared.", "Lista borrada."));
+      }
+    }
+    destroy() {
+      this.app.document.removeEventListener("click", this.listener);
+    }
+  };
+
+  // public/ui/sheet-gestures.js
+  function bindSheetGestures(sheet) {
+    const { node, window: window2 } = sheet;
+    let drag;
+    let suppressClick = false;
+    const point = (event) => event.touches?.[0] || event.changedTouches?.[0] || event;
+    const start = (event) => {
+      if (!sheet.enabled || drag || event.isPrimary === false) return;
+      if (event.type === "pointerdown" && (event.pointerType === "touch" || event.button !== 0))
+        return;
+      if (event.touches?.length > 1) return;
+      const handle = event.target.closest(".sheet-handle");
+      if (!handle && event.target.closest("input,textarea,select,a,summary,[contenteditable]"))
+        return;
+      if (!handle && !sheet.body.contains(event.target)) return;
+      const p = point(event);
+      drag = {
+        x: p.clientX,
+        y: p.clientY,
+        offset: sheet.paintedOffset(),
+        lastY: p.clientY,
+        time: event.timeStamp,
+        velocity: 0,
+        moved: false,
+        handle: Boolean(handle),
+        id: event.pointerId,
+        target: event.target
+      };
+      if (event.pointerId !== void 0)
+        event.target.setPointerCapture?.(event.pointerId);
+      suppressClick = false;
+    };
+    const move = (event) => {
+      if (!drag) return;
+      if (event.touches?.length > 1) return cancel();
+      const p = point(event);
+      const dy = p.clientY - drag.y;
+      if (!drag.moved) {
+        if (Math.max(Math.abs(dy), Math.abs(p.clientX - drag.x)) < 7) return;
+        if (Math.abs(p.clientX - drag.x) > Math.abs(dy)) return cancel();
+        if (!drag.handle && (sheet.body.scrollTop > 1 || sheet.state === "full" && dy < 0))
+          return cancel();
+        drag.moved = true;
+        node.classList.add("sheet-dragging");
+        if (drag.id !== void 0) drag.target.setPointerCapture?.(drag.id);
+      }
+      if (event.cancelable) event.preventDefault();
+      const elapsed = event.timeStamp - drag.time;
+      if (elapsed > 0) drag.velocity = (p.clientY - drag.lastY) / elapsed;
+      drag.lastY = p.clientY;
+      drag.time = event.timeStamp;
+      sheet.paint(Math.max(0, Math.min(sheet.height(), drag.offset + dy)));
+    };
+    const end = (event) => {
+      if (!drag) return;
+      const last = drag;
+      drag = null;
+      node.classList.remove("sheet-dragging");
+      if (!last.moved) return;
+      suppressClick = true;
+      const offset = sheet.offset;
+      if (last.target.hasPointerCapture?.(last.id))
+        last.target.releasePointerCapture(last.id);
+      const velocity = event.timeStamp - last.time > 100 ? 0 : last.velocity;
+      sheet.release(offset, velocity);
+    };
+    const cancel = () => {
+      if (!drag) return;
+      drag = null;
+      node.classList.remove("sheet-dragging");
+      sheet.measure();
+    };
+    const click = (event) => {
+      if (suppressClick && event.detail !== 0) {
+        suppressClick = false;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }
+    };
+    const events = {
+      pointerdown: start,
+      pointermove: move,
+      pointerup: end,
+      pointercancel: cancel,
+      lostpointercapture: cancel,
+      touchstart: start,
+      touchmove: move,
+      touchend: end,
+      touchcancel: cancel
+    };
+    for (const [type, fn2] of Object.entries(events))
+      node.addEventListener(type, fn2, { passive: false });
+    node.addEventListener("click", click, true);
+    const blur = () => cancel();
+    window2.addEventListener("blur", blur);
+    return () => {
+      for (const [type, fn2] of Object.entries(events))
+        node.removeEventListener(type, fn2);
+      node.removeEventListener("click", click, true);
+      window2.removeEventListener("blur", blur);
+    };
+  }
+
+  // public/ui/sheet.js
+  function editedField(field2) {
+    if (field2.type === "file") return Boolean(field2.files?.length);
+    if (["checkbox", "radio"].includes(field2.type))
+      return field2.checked !== field2.defaultChecked;
+    if (field2.tagName === "SELECT") {
+      const initial = [...field2.options].findIndex(
+        (option) => option.defaultSelected
+      );
+      return field2.selectedIndex !== Math.max(0, initial);
+    }
+    return field2.value !== field2.defaultValue;
+  }
+  var MobileSheet = class {
+    constructor(window2, node, options) {
+      Object.assign(this, { window: window2, node, options });
+      this.state = options.mode === "persistent" ? "peek" : "full";
+      this.offset = 0;
+      this.changedFields = /* @__PURE__ */ new Set();
+      if (!node.id)
+        node.id = "mobile-sheet-" + window2.document.querySelectorAll("[data-mobile-sheet]").length;
+      node.dataset.mobileSheet = options.mode;
+      this.refresh();
+      this.unbind = bindSheetGestures(this);
+      this.onInput = (event) => {
+        this.changedFields.add(event.target);
+      };
+      node.addEventListener("input", this.onInput);
+      node.addEventListener("change", this.onInput);
+      this.observer = new window2.MutationObserver(() => this.refresh());
+      this.observer.observe(node, {
+        childList: true,
+        attributes: true,
+        attributeFilter: ["open", "hidden"]
+      });
+      this.resize = window2.ResizeObserver ? new window2.ResizeObserver(() => this.measure()) : null;
+      this.resize?.observe(node);
+    }
+    get enabled() {
+      return this.window.innerWidth <= 700;
+    }
+    get dirty() {
+      return [...this.changedFields].some((field2) => this.node.contains(field2)) || [
+        ...this.node.querySelectorAll(
+          'form input:not([type="hidden"]), form textarea, form select'
+        )
+      ].some(editedField);
+    }
+    height() {
+      return this.node.getBoundingClientRect().height || Math.max(260, this.window.innerHeight - 160);
+    }
+    stops() {
+      const height = this.height();
+      return {
+        full: 0,
+        middle: height * 0.46,
+        peek: Math.max(0, height - Math.min(180, height * 0.4))
+      };
+    }
+    paintedOffset() {
+      const transform = this.window.getComputedStyle(this.node).transform;
+      if (transform && transform !== "none" && this.window.DOMMatrixReadOnly) {
+        return new this.window.DOMMatrixReadOnly(transform).m42;
+      }
+      return this.offset;
+    }
+    refresh() {
+      const { node, window: window2, options } = this;
+      let handle = node.querySelector(":scope > .sheet-handle");
+      if (!handle) {
+        handle = window2.document.createElement("button");
+        handle.type = "button";
+        handle.className = "sheet-handle";
+        handle.addEventListener("click", () => {
+          if (options.mode === "modal") this.release(this.height(), 0);
+          else this.setState(this.state === "full" ? "peek" : "full");
+        });
+        handle.addEventListener("keydown", (event) => {
+          if (!["ArrowUp", "ArrowDown", "Home", "End"].includes(event.key))
+            return;
+          event.preventDefault();
+          this.setState(
+            ["ArrowUp", "Home"].includes(event.key) ? "full" : "peek"
+          );
+        });
+        node.prepend(handle);
+      }
+      this.handle = handle;
+      this.body = options.body ? node.querySelector(options.body) : node.querySelector(":scope > .sheet-wrap");
+      if (!this.body) {
+        this.body = window2.document.createElement("div");
+        this.body.className = "sheet-wrap";
+        this.body.append(
+          ...[...node.childNodes].filter((child) => child !== handle)
+        );
+        node.append(this.body);
+      }
+      this.body.classList.add("sheet-body");
+      if (!this.body.id) this.body.id = node.id + "-sheet-body";
+      handle.setAttribute("aria-controls", this.body.id);
+      const open = node.tagName === "DIALOG" ? node.open : !node.hidden;
+      if (open && !this.wasOpen) {
+        this.changedFields.clear();
+        this.state = options.mode === "persistent" ? this.state : "full";
+        node.classList.remove("sheet-closing");
+        if (options.mode === "detail") {
+          const heading = node.querySelector("h2");
+          if (heading) {
+            heading.id = node.id + "-heading";
+            heading.tabIndex = -1;
+            node.setAttribute("role", "region");
+            node.setAttribute("aria-labelledby", heading.id);
+            heading.focus({ preventScroll: true });
+          }
+        }
+      }
+      this.wasOpen = open;
+      this.measure();
+    }
+    paint(offset) {
+      this.offset = offset;
+      this.node.style.setProperty("--sheet-y", `${offset}px`);
+    }
+    measure(animate = false) {
+      if (!animate) {
+        this.node.classList.add("sheet-remeasuring");
+        this.window.cancelAnimationFrame(this.measureFrame);
+        this.measureFrame = this.window.requestAnimationFrame(
+          () => this.node.classList.remove("sheet-remeasuring")
+        );
+      }
+      this.paint(this.enabled ? this.stops()[this.state] : 0);
+      this.node.dataset.sheetState = this.state;
+      if (this.options.background)
+        this.window.document.querySelectorAll(this.options.background).forEach((element) => {
+          element.inert = this.enabled && this.state === "full";
+        });
+      this.handle.setAttribute("aria-expanded", String(this.state === "full"));
+      const es2 = this.window.document.documentElement.lang === "es";
+      const expand = this.options.mode === "persistent" ? ["Show list", "Mostrar lista"] : ["Expand panel", "Ampliar panel"];
+      const collapse = this.options.mode === "persistent" ? ["Show map", "Mostrar mapa"] : ["Collapse panel", "Reducir panel"];
+      const labels = this.options.mode === "modal" ? ["Close panel", "Cerrar panel"] : this.state === "full" ? collapse : expand;
+      this.handle.setAttribute("aria-label", labels[es2 ? 1 : 0]);
+    }
+    setState(state) {
+      if (!this.enabled) return;
+      this.state = this.options.mode === "modal" ? "full" : state;
+      this.measure(true);
+    }
+    release(offset, velocity) {
+      if (this.options.mode !== "persistent" && (offset > 100 || velocity > 0.65)) {
+        if (this.dirty || this.options.busy?.()) return this.setState("full");
+        this.options.dismiss?.();
+        return this.setState("full");
+      }
+      const stops = Object.entries(this.stops());
+      const projected = Math.max(
+        0,
+        offset + Math.max(-160, Math.min(160, velocity * 130))
+      );
+      const target = stops.reduce(
+        (best, stop) => Math.abs(stop[1] - projected) < Math.abs(best[1] - projected) ? stop : best
+      );
+      this.setState(target[0]);
+    }
+    destroy() {
+      this.window.cancelAnimationFrame(this.measureFrame);
+      this.observer.disconnect();
+      this.resize?.disconnect();
+      this.unbind();
+      this.node.removeEventListener("input", this.onInput);
+      this.node.removeEventListener("change", this.onInput);
+    }
+  };
+
+  // public/ui/surfaces.js
+  var MobileSurfaces = class {
+    constructor(app) {
+      this.app = app;
+      this.sheets = [];
+      const { document: document2, window: window2 } = app;
+      document2.documentElement.dataset.mobileSurfaces = "true";
+      this.filters = document2.querySelector(".community-filters");
+      this.filterHome = document2.createComment("community filter home");
+      this.filters?.before(this.filterHome);
+      const list = document2.querySelector("#community-list");
+      if (list) {
+        this.communityBody = document2.createElement("div");
+        this.communityBody.className = "community-sheet-scroll";
+        list.before(this.communityBody);
+        this.communityBody.append(list);
+        this.communityBody.prepend(
+          document2.querySelector(".community-feed-heading")
+        );
+        this.communityBody.append(
+          document2.querySelector(".community-feed-footer")
+        );
+      }
+      const add = (selector, options) => {
+        const node = document2.querySelector(selector);
+        if (node) this.sheets.push(new MobileSheet(window2, node, options));
+      };
+      add(".network-sidebar", {
+        mode: "persistent",
+        background: ".network-canvas > :not(#location-detail)"
+      });
+      add(".community-feed", {
+        mode: "persistent",
+        body: ".community-sheet-scroll",
+        background: ".community-map-canvas > :not(#community-detail),.community-heading,.community-toolbar"
+      });
+      add("#location-detail", {
+        mode: "detail",
+        dismiss: () => app.closeLocation()
+      });
+      add("#community-detail", {
+        mode: "detail",
+        dismiss: () => app.community.closeDetail()
+      });
+      add("#product-dialog", {
+        mode: "modal",
+        body: "#dialog-content",
+        dismiss: () => app.dialogs.close()
+      });
+      add("#community-dialog", {
+        mode: "modal",
+        body: "#community-dialog-content",
+        dismiss: () => app.community.closeDialog()
+      });
+      add("#account-access-dialog", {
+        mode: "modal",
+        busy: () => app.account.busy,
+        dismiss: () => app.account.close()
+      });
+      this.viewport = () => this.updateViewport();
+      this.focus = (event) => {
+        if (event.target.matches("input,textarea,select,:focus-visible"))
+          this.reveal(event.target);
+      };
+      window2.addEventListener("resize", this.viewport);
+      window2.visualViewport?.addEventListener("resize", this.viewport);
+      window2.visualViewport?.addEventListener("scroll", this.viewport);
+      document2.addEventListener("focusin", this.focus);
+      this.escape = (event) => {
+        if (event.key !== "Escape" || document2.querySelector("dialog[open],.site-menu[open]"))
+          return;
+        const detail = this.sheets.find(
+          (sheet) => sheet.options.mode === "detail" && !sheet.node.hidden && !sheet.node.closest("section")?.hidden
+        );
+        if (detail) {
+          event.preventDefault();
+          detail.options.dismiss();
+        }
+      };
+      document2.addEventListener("keydown", this.escape);
+      const map = document2.querySelector('[data-community-panel="map"]');
+      this.tabObserver = new window2.MutationObserver(() => this.placeFilters());
+      if (map)
+        this.tabObserver.observe(map, {
+          attributes: true,
+          attributeFilter: ["hidden"]
+        });
+      this.updateViewport();
+    }
+    reveal(target) {
+      const sheet = this.sheets.find((item) => item.body.contains(target));
+      if (!sheet?.enabled) return;
+      sheet.state = "full";
+      sheet.measure();
+      for (let parent = sheet.node.parentElement; parent; parent = parent.parentElement)
+        if (parent.matches("section,.community-map-layout,.community-workspace"))
+          parent.scrollTop = 0;
+      const body = sheet.body.getBoundingClientRect();
+      const rect = target.getBoundingClientRect();
+      if (rect.bottom > body.bottom)
+        sheet.body.scrollTop += rect.bottom - body.bottom + 8;
+      if (rect.top < body.top) sheet.body.scrollTop -= body.top - rect.top + 8;
+    }
+    updateViewport() {
+      const { window: window2, document: document2 } = this.app;
+      const viewport = window2.visualViewport;
+      const height = viewport?.height || window2.innerHeight;
+      const inset = Math.max(
+        0,
+        window2.innerHeight - height - (viewport?.offsetTop || 0)
+      );
+      document2.documentElement.style.setProperty(
+        "--visual-height",
+        `${height}px`
+      );
+      document2.documentElement.style.setProperty(
+        "--keyboard-inset",
+        `${inset}px`
+      );
+      document2.body.dataset.keyboardOpen = String(
+        window2.innerWidth <= 700 && inset > 120
+      );
+      const available = (document2.querySelector("#app-main")?.clientHeight || height) - (document2.querySelector(".map-credit")?.offsetHeight || 0);
+      document2.documentElement.style.setProperty(
+        "--sheet-available-height",
+        `${available}px`
+      );
+      this.placeFilters();
+      for (const sheet of this.sheets) sheet.measure();
+      if (inset > 120) {
+        window2.cancelAnimationFrame(this.frame);
+        this.frame = window2.requestAnimationFrame(() => {
+          const active = document2.activeElement;
+          if (active?.matches("input,textarea,select"))
+            active.scrollIntoView?.({ block: "nearest" });
+        });
+      }
+    }
+    placeFilters() {
+      if (!this.filters || !this.communityBody) return;
+      const map = this.app.document.querySelector('[data-community-panel="map"]');
+      const inSheet = this.app.window.innerWidth <= 700 && !map.hidden;
+      if (inSheet && this.filters.parentNode !== this.communityBody)
+        this.communityBody.querySelector("#community-list").before(this.filters);
+      if (!inSheet && this.filters.parentNode === this.communityBody)
+        this.filterHome.after(this.filters);
+    }
+    destroy() {
+      const { window: window2, document: document2 } = this.app;
+      for (const sheet of this.sheets) sheet.destroy();
+      this.tabObserver.disconnect();
+      window2.cancelAnimationFrame(this.frame);
+      window2.removeEventListener("resize", this.viewport);
+      window2.visualViewport?.removeEventListener("resize", this.viewport);
+      window2.visualViewport?.removeEventListener("scroll", this.viewport);
+      document2.removeEventListener("focusin", this.focus);
+      document2.removeEventListener("keydown", this.escape);
+      delete document2.documentElement.dataset.mobileSurfaces;
+    }
+  };
+
   // public/product.js
   var ProductController = class {
     constructor(window2, options) {
@@ -12153,7 +13261,8 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.document = window2.document;
       this.options = options;
       this.features = {
-        communityAlerts: options.features?.communityAlerts !== false
+        communityAlerts: options.features?.communityAlerts !== false,
+        mobileSheets: options.features?.mobileSheets !== false
       };
       this.store = options.store || createProductStore(window2);
       this.services = options.services || createProductServices(this.features);
@@ -12183,6 +13292,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       renderLiveState(this.document, this.store.get(), this.filters);
       this.community?.render();
       this.family?.render();
+      this.native?.syncAppearance();
     }
     toast(message) {
       const box = this.document.querySelector("#product-toast");
@@ -12278,7 +13388,15 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         (row) => row.classList.toggle("selected", row.dataset.location === id)
       );
     }
+    closeLocation() {
+      this.document.querySelector("#location-detail").hidden = true;
+      const opener = this.document.querySelector("[data-location].selected");
+      if (!opener) return;
+      this.surfaces?.reveal(opener);
+      opener.focus({ preventScroll: true });
+    }
     build() {
+      this.surfaces?.destroy();
       this.family?.captureDraft();
       this.community?.detach();
       this.maps?.destroy();
@@ -12311,10 +13429,16 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.family ??= new FamilyController(this);
       this.account ??= new AccountController(this);
       this.account.mount();
+      const nativeBridge = options.nativeBridge || window2.AmparoNative;
+      if (nativeBridge) {
+        this.native ??= new NativeKit(this, nativeBridge);
+        this.native.mount();
+      }
       if (this.features.communityAlerts) {
         this.community ??= new CommunityController(this);
         this.community.mount();
       }
+      this.surfaces = this.features.mobileSheets ? new MobileSurfaces(this) : null;
       document2.querySelector("#product-dialog").addEventListener("cancel", (event) => {
         event.preventDefault();
         this.dialogs.close();
@@ -12345,6 +13469,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       );
     }
     destroy() {
+      this.surfaces?.destroy();
       this.unsubscribe();
       this.maps.destroy();
       this.assistant.destroy();
@@ -12352,6 +13477,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.community?.destroy();
       this.family.destroy();
       this.account.destroy();
+      this.native?.destroy();
       this.window.clearTimeout(this.toastTimer);
       this.unbindEvents();
     }
@@ -18223,20 +19349,86 @@ ${_}`;
     passkeysEnabled: true,
     passkeyOrigin: "https://philipgraffshapiro.github.io",
     googleEnabled: true,
+    nativeProvidersReady: false,
+    deletionEnabled: false,
     signupEnabled: false,
     billingEnabled: false
   };
 
+  // public/native/account.js
+  var nativeRedirect = "com.amparoaccess.app://auth/callback";
+  function callbackCode(value) {
+    const url = new URL(value);
+    if (url.origin !== "null" || url.protocol !== "com.amparoaccess.app:" || url.host !== "auth" || url.pathname !== "/callback" || url.username || url.password || url.hash || url.searchParams.has("error") || url.searchParams.getAll("code").length !== 1)
+      throw new Error("Invalid sign-in callback");
+    const code = url.searchParams.get("code");
+    if (!code || code.length > 4096) throw new Error("Invalid sign-in code");
+    return code;
+  }
+  function createNativeAccount(bridge, client) {
+    let appleCode;
+    const unwrap = ({ data, error }) => {
+      if (error) throw error;
+      return data;
+    };
+    return {
+      storage: {
+        getItem: async (key2) => (await bridge.readSecret({ key: key2 })).value,
+        setItem: async (key2, value) => {
+          await bridge.writeSecret({ key: key2, value });
+        },
+        removeItem: async (key2) => {
+          await bridge.removeSecret({ key: key2 });
+        }
+      },
+      async google() {
+        const data = unwrap(
+          await client.auth.signInWithOAuth({
+            provider: "google",
+            options: { redirectTo: nativeRedirect, skipBrowserRedirect: true }
+          })
+        );
+        const result = await bridge.authenticate({ url: data.url });
+        return unwrap(
+          await client.auth.exchangeCodeForSession(callbackCode(result.url))
+        );
+      },
+      async apple() {
+        const result = await bridge.apple();
+        if (!result.identityToken || !result.nonce || !result.authorizationCode)
+          throw new Error("Apple sign-in did not return credentials");
+        const data = unwrap(
+          await client.auth.signInWithIdToken({
+            provider: "apple",
+            token: result.identityToken,
+            nonce: result.nonce
+          })
+        );
+        appleCode = result.authorizationCode;
+        return data;
+      },
+      takeAppleCode() {
+        const value = appleCode;
+        appleCode = void 0;
+        return value;
+      }
+    };
+  }
+
   // public/account/service.js
   function createAccountService(window2, config = accountConfig) {
+    const bridge = window2.AmparoNative;
+    const secure = bridge ? createNativeAccount(bridge, {}) : null;
     const client = Qi(config.url, config.publishableKey, {
       auth: {
         flowType: "pkce",
         persistSession: true,
         autoRefreshToken: true,
-        detectSessionInUrl: true
+        detectSessionInUrl: !bridge,
+        ...secure ? { storage: secure.storage } : {}
       }
     });
+    const native = bridge ? createNativeAccount(bridge, client) : null;
     const unwrap = ({ data, error }) => {
       if (error) throw error;
       return data;
@@ -18259,6 +19451,10 @@ ${_}`;
     }
     return {
       available: true,
+      appleEnabled: Boolean(native),
+      deletionEnabled: Boolean(config.deletionEnabled),
+      native: Boolean(native),
+      nativeProvidersReady: config.nativeProvidersReady === true,
       signupEnabled: config.signupEnabled === true,
       googleEnabled: config.googleEnabled === true,
       passkeys: config.passkeysEnabled && window2.location.origin === config.passkeyOrigin && window2.isSecureContext && Boolean(window2.PublicKeyCredential),
@@ -18301,7 +19497,18 @@ ${_}`;
       async updatePassword(password) {
         unwrap(await client.auth.updateUser({ password }));
       },
+      async signInApple() {
+        if (!native || !config.nativeProvidersReady)
+          throw new Error("Native account services are not configured");
+        return native.apple();
+      },
+      deleteAccount: () => deleteAccount(window2, config, client, native, unwrap),
       async signInGoogle() {
+        if (native) {
+          if (!config.nativeProvidersReady)
+            throw new Error("Native account services are not configured");
+          return native.google();
+        }
         if (!config.googleEnabled)
           throw new Error("Google sign-in is unavailable");
         return unwrap(
@@ -18324,8 +19531,46 @@ ${_}`;
       portal: () => api("portal", {})
     };
   }
+  async function deleteAccount(window2, config, client, native, unwrap) {
+    if (!config.deletionEnabled)
+      throw new Error("Account deletion is unavailable");
+    const { session } = unwrap(await client.auth.getSession());
+    if (!session) throw new Error("Sign in required");
+    const appleCode = native?.takeAppleCode();
+    const response = await window2.fetch(
+      config.url + "/functions/v1/delete-account",
+      {
+        method: "POST",
+        headers: {
+          Authorization: "Bearer " + session.access_token,
+          apikey: config.publishableKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          confirmation: "DELETE",
+          ...appleCode ? { appleCode } : {}
+        }),
+        signal: AbortSignal.timeout(3e4)
+      }
+    );
+    if (!response.ok) {
+      const result = await response.json().catch(() => ({}));
+      throw new Error(result.code || "Deletion failed");
+    }
+    unwrap(await client.auth.signOut({ scope: "local" }));
+  }
 
   // public/bootstrap.js
-  mountProduct(window, { account: { service: createAccountService(window) } });
+  mountProduct(window, {
+    account: { service: createAccountService(window) },
+    ...window.AmparoNative ? {
+      news: {
+        fetch: (_url, options) => window.fetch(
+          "https://philipgraffshapiro.github.io/amparo-demo/data/news.json",
+          options
+        )
+      }
+    } : {}
+  });
 })();
 </script></body></html>

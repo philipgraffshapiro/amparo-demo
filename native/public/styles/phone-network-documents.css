@@ -10,20 +10,24 @@
     border-right: 0;
     overflow: visible;
   }
-  .network-sidebar > .eyebrow {
+  .network-sidebar > .eyebrow,
+  .network-sidebar > .sheet-wrap > .eyebrow {
     font-size: 7px;
     margin-bottom: 13px;
   }
-  .network-sidebar > h1 {
+  .network-sidebar > h1,
+  .network-sidebar > .sheet-wrap > h1 {
     font-size: 32px;
     margin-bottom: 11px;
   }
-  .network-sidebar > .page-description {
+  .network-sidebar > .page-description,
+  .network-sidebar > .sheet-wrap > .page-description {
     font-size: 10px;
     margin-bottom: 17px;
     max-width: 300px;
   }
-  .network-sidebar > .search-field {
+  .network-sidebar > .search-field,
+  .network-sidebar > .sheet-wrap > .search-field {
     min-height: 41px;
   }
   .filter-tabs {
@@ -150,10 +154,12 @@
   .detail-title h2 {
     font-size: 20px;
   }
-  .location-detail > .eyebrow {
+  .location-detail > .eyebrow,
+  .location-detail > .sheet-wrap > .eyebrow {
     font-size: 6px;
   }
-  .location-detail > p:not(.eyebrow) {
+  .location-detail > p:not(.eyebrow),
+  .location-detail > .sheet-wrap > p:not(.eyebrow) {
     font-size: 10px;
   }
   .detail-facts {

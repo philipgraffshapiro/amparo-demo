@@ -1,0 +1,138 @@
+@media (max-width: 700px) {
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal'] {
+    position: fixed;
+    inset: auto 0 var(--keyboard-inset, 0px);
+    margin: 0;
+    width: 100%;
+    max-width: none;
+    max-height: calc(var(--visual-height, 100dvh) - 12px);
+    padding: 0;
+    border-radius: 24px 24px 0 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      transform 240ms ease,
+      opacity 240ms ease,
+      display 240ms allow-discrete,
+      overlay 240ms allow-discrete;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal'][open] {
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    animation: mobile-sheet-enter 260ms cubic-bezier(0.22, 0.75, 0.18, 1);
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    > .sheet-body {
+    padding: 6px 24px max(28px, env(safe-area-inset-bottom));
+    position: relative;
+    flex: 1 1 auto;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .dialog-close {
+    position: sticky;
+    display: flex;
+    margin: 0 0 2px auto;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--surface);
+    z-index: 4;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    input:not([type='checkbox']),
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    textarea,
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    select {
+    font-size: 16px;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .form-field,
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .checkbox-field {
+    font-size: 13px;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .button {
+    min-height: 46px;
+    font-size: 13px;
+  }
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    #dialog-content
+    > p:not(.eyebrow),
+  html[data-mobile-surfaces='true']
+    :is(
+      #product-dialog,
+      #community-dialog,
+      #account-access-dialog
+    )[data-mobile-sheet='modal']
+    .help-questions
+    p {
+    font-size: 14px;
+  }
+  @keyframes mobile-sheet-enter {
+    from {
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
