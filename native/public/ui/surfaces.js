@@ -60,6 +60,11 @@ export class MobileSurfaces {
       dismiss: () => app.account.close(),
     });
     this.viewport = () => this.updateViewport();
+    this.layoutObserver = window.ResizeObserver
+      ? new window.ResizeObserver(this.viewport)
+      : null;
+    for (const element of document.querySelectorAll('#app-main,.map-credit'))
+      this.layoutObserver?.observe(element);
     this.focus = (event) => {
       if (event.target.matches('input,textarea,select,:focus-visible'))
         this.reveal(event.target);
@@ -163,6 +168,7 @@ export class MobileSurfaces {
     const { window, document } = this.app;
     for (const sheet of this.sheets) sheet.destroy();
     this.tabObserver.disconnect();
+    this.layoutObserver?.disconnect();
     window.cancelAnimationFrame(this.frame);
     window.removeEventListener('resize', this.viewport);
     window.visualViewport?.removeEventListener('resize', this.viewport);
