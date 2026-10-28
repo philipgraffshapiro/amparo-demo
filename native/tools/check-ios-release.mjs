@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 const profile = JSON.parse(
   await readFile('mobile/store/submission.json', 'utf8'),
 );
@@ -52,6 +52,7 @@ const result = {
   missing,
   note: 'This validates declared release inputs; Apple review and signed-device proof remain authoritative.',
 };
+await mkdir('evidence', { recursive: true });
 await writeFile(
   'evidence/ios-release-gate.json',
   JSON.stringify(result, null, 2) + '\n',

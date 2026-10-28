@@ -15,12 +15,7 @@ const phone = Object.entries(devices)
   .find((device) => device.isAvailable && device.name.includes('iPhone'));
 if (!phone) throw new Error('No iPhone simulator is available');
 writeFileSync('artifacts/device.json', JSON.stringify(phone, null, 2));
-const base = [
-  '-project',
-  'ios/App/App.xcodeproj',
-  '-scheme',
-  'Amparo',
-];
+const base = ['-project', 'ios/App/App.xcodeproj', '-scheme', 'Amparo'];
 run('xcodebuild', [
   ...base,
   'CODE_SIGNING_ALLOWED=NO',
