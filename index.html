@@ -11413,7 +11413,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       const box = this.document.querySelector("#community-load-state");
       if (!box) return;
       box.replaceChildren();
-      box.hidden = !this.loading && !this.error;
+      box.hidden = this.tab === "news" || !this.loading && !this.error;
       if (this.loading)
         box.textContent = this.text(
           "Loading community reports\u2026",
@@ -11496,9 +11496,10 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.tab = tab;
       this.document.querySelector(".community-beta").textContent = tab === "news" ? this.text("NEWS", "NOTICIAS") : "DEMO";
       for (const element of this.document.querySelectorAll(
-        ".community-filters, .community-export, .community-dataset-note, #community-load-state"
+        ".community-filters, .community-export, .community-dataset-note"
       ))
         element.hidden = tab === "news";
+      this.renderStatus();
       this.news.show(this.app.current);
       this.document.querySelectorAll("[data-community-panel]").forEach((panel) => {
         panel.hidden = panel.dataset.communityPanel !== tab;
