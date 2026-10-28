@@ -69,6 +69,8 @@ final class AmparoUITests: XCTestCase {
         app.buttons["Account & payment status"].firstMatch.tap()
         XCTAssertTrue(app.buttons["Sign in with Apple"].waitForExistence(timeout: 10))
         XCTAssertTrue(app.buttons["Continue with Google"].exists)
+        XCTAssertGreaterThan(app.buttons["Close account"].frame.minY, 62)
+        XCTAssertTrue(app.buttons["Close account"].isHittable)
         XCTAssertFalse(app.buttons["Sign in with Apple"].isEnabled)
         XCTAssertFalse(app.buttons["Continue with Google"].isEnabled)
         screenshot("iphone-sign-in")
