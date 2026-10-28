@@ -42,6 +42,7 @@ export function newsSnapshot(warehouse, now = new Date()) {
       title: item.title,
       url: item.url,
       language: item.language,
+      media: item.media,
       publishedAt: item.publishedAt,
       datePrecision: item.datePrecision,
       detectedAt: item.detectedAt,

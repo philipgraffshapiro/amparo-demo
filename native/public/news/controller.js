@@ -9,11 +9,18 @@ export class NewsController {
     this.state = { loading: false, error: false };
     this.generation = 0;
     this.visibility = () => this.show(this.app.current);
+    this.imageError = (event) => {
+      const photo = event.target;
+      if (!photo.matches?.('.news-photo img')) return;
+      photo.closest('.news-card')?.classList.add('news-card-text-only');
+      photo.closest('.news-photo')?.remove();
+    };
   }
 
   mount() {
     this.attached = true;
     this.app.document.addEventListener('visibilitychange', this.visibility);
+    this.app.document.addEventListener('error', this.imageError, true);
     this.render();
     this.show(this.app.current);
   }
@@ -101,6 +108,7 @@ export class NewsController {
   detach() {
     this.attached = false;
     this.app.document.removeEventListener('visibilitychange', this.visibility);
+    this.app.document.removeEventListener('error', this.imageError, true);
     this.stop();
   }
 }

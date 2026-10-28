@@ -1,5 +1,6 @@
 // Independent reader: no production parser or normalizer imports.
 import { JSDOM } from 'jsdom';
+import { isIP } from 'node:net';
 
 const one = (value) => (typeof value === 'object' ? value?.['#text'] : value);
 const list = (value) =>
@@ -56,7 +57,13 @@ function xmlObject(node) {
   return result;
 }
 
-export function expectedItem(sourceId, raw, body, source = {}) {
+export function expectedItem(
+  sourceId,
+  raw,
+  body,
+  source = {},
+  parserVersion = 'amparo-public-data/3',
+) {
   const base = {
     sourceId,
     observedAt: null,
@@ -88,7 +95,7 @@ export function expectedItem(sourceId, raw, body, source = {}) {
     ['immigration-impact', 'florida-phoenix'].includes(sourceId)
   )
     result = {
-      ...rssExpected(raw),
+      ...rssExpected(raw, parserVersion),
       ...(source.parser === 'rss'
         ? { language: source.language ?? null, kind: source.kind }
         : {}),
@@ -121,7 +128,7 @@ export function expectedItem(sourceId, raw, body, source = {}) {
   };
 }
 
-function rssExpected(raw) {
+function rssExpected(raw, parserVersion) {
   const url =
     typeof raw.link === 'object'
       ? list(raw.link).find((r) => !r['@_rel'] || r['@_rel'] === 'alternate')?.[
@@ -136,12 +143,124 @@ function rssExpected(raw) {
     url,
     publishedAt: date ? new Date(date).toISOString() : null,
     datePrecision: date ? 'instant' : 'unknown',
-    media: list(raw.enclosure)
-      .filter((r) => r['@_type']?.startsWith('image/'))
-      .map((r) => ({
-        url: new URL(r['@_url'].trim()).href,
-        reuseStatus: 'permission-required',
-      })),
+    media: parserVersion.startsWith('amparo-public-data/2')
+      ? list(raw.enclosure)
+          .filter((r) => r['@_type']?.startsWith('image/'))
+          .map((r) => ({
+            url: new URL(r['@_url'].trim()).href,
+            reuseStatus: 'permission-required',
+          }))
+      : rssMediaExpected(raw, url),
+  };
+}
+
+function rssMediaExpected(raw, articleUrl) {
+  // Independently reconstruct candidates from captured source fields. Never use
+  // production media helpers, exported media or the stored payload as truth.
+  const nodes = [];
+  for (const enclosure of list(raw.enclosure)) {
+    if (enclosure?.['@_type']?.startsWith('image/'))
+      nodes.push([enclosure, 'rss-enclosure']);
+  }
+  for (const container of [raw, ...list(raw['media:group'])]) {
+    for (const content of list(container?.['media:content'])) {
+      if (
+        content?.['@_type']?.startsWith('video/') ||
+        content?.['@_medium'] === 'video'
+      )
+        continue;
+      if (
+        content?.['@_medium'] === 'image' ||
+        content?.['@_type']?.startsWith('image/')
+      )
+        nodes.push([content, 'rss-media-content']);
+    }
+  }
+  for (const thumbnail of list(raw['media:thumbnail']))
+    nodes.push([thumbnail, 'rss-media-thumbnail']);
+  const markup =
+    one(raw['content:encoded']) || one(raw.description) || one(raw.summary);
+  nodes.push(...expectedHtmlNodes(markup));
+  const expected = [];
+  for (const [node, provenance] of nodes) {
+    const photo = expectedPhoto(node, provenance, articleUrl);
+    if (!photo || expected.some((prior) => prior.url === photo.url)) continue;
+    expected.push(photo);
+    if (expected.length === 5) break;
+  }
+  return expected;
+}
+
+function expectedHtmlNodes(markup) {
+  const nodes = [];
+  if (typeof markup === 'string') {
+    const document = new JSDOM(markup).window.document;
+    for (const img of document.images) {
+      if (
+        img.hasAttribute('hidden') ||
+        img.style.display === 'none' ||
+        img.style.visibility === 'hidden'
+      )
+        continue;
+      nodes.push([
+        {
+          '@_url': img.getAttribute('src'),
+          '@_width': img.getAttribute('width'),
+          '@_height': img.getAttribute('height'),
+          'media:title': img.getAttribute('alt'),
+          'media:credit': img.closest('figure')?.querySelector('figcaption')
+            ?.textContent,
+        },
+        'rss-content-image',
+      ]);
+    }
+    document.defaultView.close();
+  }
+  return nodes;
+}
+
+function decoded(value, max = 1000) {
+  const scalar = one(value);
+  return typeof scalar === 'string'
+    ? JSDOM.fragment(scalar).textContent.trim().slice(0, max)
+    : '';
+}
+
+function expectedPhoto(node, provenance, articleUrl) {
+  if (
+    !node ||
+    [node['@_width'], node['@_height']].some((n) => n && Number(n) <= 2)
+  )
+    return null;
+  if (
+    typeof node['@_url'] !== 'string' ||
+    !node['@_url'].trim() ||
+    node['@_url'].length > 4096
+  )
+    return null;
+  let url;
+  try {
+    url = new URL(decoded(node['@_url'], 4096), articleUrl);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:' ||
+    url.username ||
+    url.password ||
+    !url.hostname.includes('.') ||
+    url.hostname.endsWith('.local') ||
+    isIP(url.hostname.replaceAll('[', '').replaceAll(']', ''))
+  )
+    return null;
+  const alt = decoded(node['media:title']),
+    credit = decoded(node['media:credit']);
+  return {
+    url: url.href,
+    reuseStatus: 'permission-required',
+    provenance,
+    ...(alt ? { alt } : {}),
+    ...(credit ? { credit } : {}),
   };
 }
 

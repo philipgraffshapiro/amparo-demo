@@ -47,6 +47,7 @@ function candidate(row, now) {
     title: item.title,
     url: item.url,
     language: item.language,
+    media: Array.isArray(item.media) ? item.media : [],
     publishedAt: item.publishedAt,
     datePrecision: item.datePrecision,
     detectedAt: row.fetched_at,

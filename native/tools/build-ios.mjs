@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { build } from 'esbuild';
 import { JSDOM } from 'jsdom';
+import { newsImageHosts } from '../public/news/image-policy.js';
 
 await mkdir('mobile/www', { recursive: true });
 await cp('public', 'mobile/www', { recursive: true });
@@ -13,8 +14,7 @@ style.href = '/styles/native.css';
 document.head.append(style);
 const csp = document.createElement('meta');
 csp.httpEquiv = 'Content-Security-Policy';
-csp.content =
-  "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://tile.openstreetmap.org; font-src 'self' data:; connect-src 'self' https://kipnzxueazppkbgpxckz.supabase.co wss://kipnzxueazppkbgpxckz.supabase.co https://philipgraffshapiro.github.io; object-src 'none'; base-uri 'self'; form-action 'self'";
+csp.content = `default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://tile.openstreetmap.org ${newsImageHosts.map((host) => `https://${host}`).join(' ')}; font-src 'self' data:; connect-src 'self' https://kipnzxueazppkbgpxckz.supabase.co wss://kipnzxueazppkbgpxckz.supabase.co https://philipgraffshapiro.github.io; object-src 'none'; base-uri 'self'; form-action 'self'`;
 document.head.prepend(csp);
 const runtime = document.createElement('script');
 runtime.type = 'module';

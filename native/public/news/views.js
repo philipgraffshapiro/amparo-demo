@@ -26,7 +26,7 @@ function card(item, language, compact, index) {
   const t = words(language);
   const photo = newsPhoto(item);
   return `<article class="news-card${compact ? ' news-card-compact' : ''}${index === 0 ? ' news-card-lead' : ''}${photo ? '' : ' news-card-text-only'}">
-    ${photo ? `<figure class="news-photo"><img src="${photo.src}" alt="${escapeHTML(language === 'es' ? photo.es : photo.en)}" width="1100" height="619" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></figure>` : ''}
+    ${photo ? `<figure class="news-photo"><img src="${escapeHTML(photo.src)}" referrerpolicy="no-referrer" alt="${escapeHTML(language === 'es' ? photo.es : photo.en)}" width="1100" height="619" loading="${index === 0 ? 'eager' : 'lazy'}" decoding="async"></figure>` : ''}
     <div class="news-story-body"><p class="news-card-source"><span>${escapeHTML(item.sourceName)}</span><span aria-hidden="true">·</span>${time(item.publishedAt, language, true)}</p>
     <h3 lang="${item.language}">${escapeHTML(item.title)}</h3>
     <a class="news-source-link" href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">${t('Read original story', 'Leer noticia original')}${icon('diagonal')}<span class="visually-hidden">: ${escapeHTML(item.title)} · ${t('opens in a new tab', 'abre en otra pestaña')}</span></a>

@@ -10558,7 +10558,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
         async respond({ message, language = "en", state }) {
           const q2 = String(message).toLowerCase();
           const t = (en2, es2) => localText(language, en2, es2);
-          let content, action, label;
+          let content, action, label2;
           if (community && /immigra|\bice\b|community|report|statistics|estad|actividad|enforcement/.test(
             q2
           )) {
@@ -10568,51 +10568,51 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
               `La demo comunitaria tiene ${data.stats.reports} reportes de los \xFAltimos 7 d\xEDas, incluidos ${data.stats.detentions} reportes de detenci\xF3n. El mapa, la lista y las estad\xEDsticas comparten los mismos filtros. Son ejemplos ilustrativos, no incidentes reales. Abre un reporte para revisar su fuente y estado.`
             );
             action = "alerts";
-            label = t("Open community alerts", "Abrir alertas comunitarias");
+            label2 = t("Open community alerts", "Abrir alertas comunitarias");
           } else if (/emergency|urgent|sos|alert|detain|deten|emergencia/.test(q2)) {
             content = t(
               "We can walk through your family alert plan. First, review your trusted contacts and the information they would need. The demo shows each step without sending a message. For immediate danger, call 911; for a real legal matter, contact an attorney directly.",
               "Podemos recorrer tu plan de alerta familiar. Primero revisa tus contactos y la informaci\xF3n que necesitar\xEDan. La demo muestra cada paso sin enviar mensajes. Ante un peligro inmediato, llama al 911; para un asunto legal real, contacta directamente a un abogado."
             );
             action = "alert";
-            label = t("Walk through my plan", "Recorrer mi plan");
+            label2 = t("Walk through my plan", "Recorrer mi plan");
           } else if (/price|cost|pay|member|plan|50|precio|pago|membres/.test(q2)) {
             content = t(
               "The proposed Amparo membership is $50 per month for preparation tools, your document space, trusted contacts and access to the network. Attorney fees and bond payments are separate. You can walk through the entire checkout here with a sample card and a $0 charge.",
               "La membres\xEDa propuesta de Amparo cuesta $50 al mes e incluye herramientas de preparaci\xF3n, documentos, contactos y acceso a la red. Los honorarios de abogados y las fianzas son aparte. Puedes recorrer el pago completo con una tarjeta de ejemplo y un cargo de $0."
             );
             action = "membership";
-            label = t("Review my membership", "Revisar mi membres\xEDa");
+            label2 = t("Review my membership", "Revisar mi membres\xEDa");
           } else if (/law|legal|attorney|near|network|abogad|red|cerca|map/.test(q2)) {
             content = t(
               "The network demo lets you explore legal access and community support across Miami-Dade, Broward and Palm Beach. Filter the map, open a location, and plan a sample consultation. Locations are illustrative; a live provider network has not been activated.",
               "La demo de la red permite explorar acceso legal y apoyo comunitario en Miami-Dade, Broward y Palm Beach. Filtra el mapa, abre una ubicaci\xF3n y planifica una consulta de ejemplo. Las ubicaciones son ilustrativas; la red real a\xFAn no est\xE1 activada."
             );
             action = "network";
-            label = t("Explore the network", "Explorar la red");
+            label2 = t("Explore the network", "Explorar la red");
           } else if (/famil|contact|circle|people|person|círculo|circulo/.test(q2)) {
             content = t(
               `You have ${state.contacts.length} people in your demo circle. Make sure each person knows where your documents are and how to reach the others. You can add a contact, update the plan, and download a copy to discuss together.`,
               `Tienes ${state.contacts.length} personas en tu c\xEDrculo de ejemplo. Aseg\xFArate de que sepan d\xF3nde est\xE1n tus documentos y c\xF3mo comunicarse. Puedes a\xF1adir un contacto y descargar una copia del plan para revisarla juntos.`
             );
             action = "circle";
-            label = t("Open my circle", "Abrir mi c\xEDrculo");
+            label2 = t("Open my circle", "Abrir mi c\xEDrculo");
           } else if (/doc|file|vault|prepare|passport|ident|record|organ|archivo/.test(q2)) {
             content = t(
               `You have ${state.documents.length} documents in your space. Start with identity, family and residence records, then keep consultation notes together. I can open your documents so you can preview an example or add a file on this device. An attorney can advise which records are relevant to your situation.`,
               `Tienes ${state.documents.length} documentos en tu espacio. Empieza por los registros de identidad, familia y residencia. Puedo abrir tus documentos para ver un ejemplo o a\xF1adir un archivo en este dispositivo. Un abogado puede indicar cu\xE1les son relevantes para tu situaci\xF3n.`
             );
             action = "documents";
-            label = t("Open my documents", "Abrir mis documentos");
+            label2 = t("Open my documents", "Abrir mis documentos");
           } else {
             content = t(
               `Hi ${state.name}. I can help you organize documents, review your family circle, explore the network, explain the $50 membership, or walk through an alert. This is a contextual demo assistant with product actions. Which part would you like to work on?`,
               `Hola, ${state.name}. Puedo ayudarte con documentos, contactos familiares, la red, la membres\xEDa de $50 o una alerta. Soy un asistente de demostraci\xF3n con acciones dentro del producto. \xBFPor d\xF3nde quieres empezar?`
             );
             action = "documents";
-            label = t("Review my documents", "Revisar mis documentos");
+            label2 = t("Review my documents", "Revisar mis documentos");
           }
-          return { demo: true, content, action, label };
+          return { demo: true, content, action, label: label2 };
         }
       }
     };
@@ -10686,8 +10686,8 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
     day: "numeric",
     timeZone: "America/New_York"
   }).format(new Date(value));
-  function filterSelect(id, label, options) {
-    return `<label class="community-filter"><span>${label}</span><select id="community-${id}">${options.map(([value, text2]) => `<option value="${value}">${text2}</option>`).join("")}</select></label>`;
+  function filterSelect(id, label2, options) {
+    return `<label class="community-filter"><span>${label2}</span><select id="community-${id}">${options.map(([value, text2]) => `<option value="${value}">${text2}</option>`).join("")}</select></label>`;
   }
   function renderCommunityShell(language) {
     const t = textFor(language);
@@ -10759,7 +10759,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   // public/product-views.js
   function renderProductViews(state, features = { communityAlerts: true }) {
     const t = (en2, es2) => localText(state.language, en2, es2);
-    const route = (name, label, glyph = "arrow", className = "text-action") => `<button type="button" class="${className}" data-route="${name}">${label}${icon(glyph)}</button>`;
+    const route = (name, label2, glyph = "arrow", className = "text-action") => `<button type="button" class="${className}" data-route="${name}">${label2}${icon(glyph)}</button>`;
     const title = (number, kicker, heading, sub, action = "") => `<div class="page-heading"><div><h1 tabindex="-1">${heading}</h1><p class="page-description">${sub}</p></div>${action}</div>`;
     const home = features.communityAlerts ? renderCommunityHome(state) : `<section class="product-screen home-screen" data-screen="home">
     <div class="home-stage"><div id="home-map" class="home-map" aria-hidden="true"></div><div class="home-map-veil"></div>
@@ -10795,7 +10795,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
       ],
       [t("Explain my membership", "Explicar mi membres\xEDa"), "card"]
     ].map(
-      ([label, glyph]) => `<button type="button" data-prompt="${escapeHTML(label)}">${icon(glyph)}<span>${label}</span>${icon("diagonal")}</button>`
+      ([label2, glyph]) => `<button type="button" data-prompt="${escapeHTML(label2)}">${icon(glyph)}<span>${label2}</span>${icon("diagonal")}</button>`
     ).join(
       ""
     )}</div></div></div><div class="composer-wrap"><p id="voice-status" role="status"></p><form id="assistant-form" class="assistant-composer"><button type="button" class="icon-button" data-dialog="upload" aria-label="${t("Add a document", "A\xF1adir un documento")}">${icon("plus")}</button><textarea rows="1" maxlength="1200" id="assistant-input" placeholder="${t("Ask about your next step\u2026", "Pregunta sobre tu siguiente paso\u2026")}" aria-label="${t("Message Amparo AI", "Mensaje para Amparo AI")}"></textarea><button type="button" class="icon-button" id="voice-demo" aria-label="${t("Preview voice input", "Probar entrada de voz")}">${icon("mic")}</button><button type="submit" class="send-button" id="assistant-send" aria-label="${t("Send message", "Enviar mensaje")}">${icon("send")}</button></form><p class="composer-note">${t("Interactive AI demo \xB7 No message leaves this device.", "Demo interactiva de IA \xB7 Ning\xFAn mensaje sale de este dispositivo.")}</p></div></div>
@@ -10918,8 +10918,8 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
       ["membership", t("Membership", "Membres\xEDa")],
       ["more", t("My account", "Mi cuenta")]
     ];
-    const link = ([name, label]) => `<a href="#${name}" data-route="${name}">${label}</a>`;
-    const dockLabel = (name, label) => name === "documents" ? t("Files and documents", "Archivos y documentos") : name === "assistant" ? "Amparo AI" : label;
+    const link = ([name, label2]) => `<a href="#${name}" data-route="${name}">${label2}</a>`;
+    const dockLabel = (name, label2) => name === "documents" ? t("Files and documents", "Archivos y documentos") : name === "assistant" ? "Amparo AI" : label2;
     return `<a href="#app-main" class="skip-link">${t("Skip to content", "Saltar al contenido")}</a>
     <header class="product-header"><a href="#home" class="product-brand" data-route="home" aria-label="${t("Amparo home", "Inicio de Amparo")}"><span class="brand-symbol">${icon("shield")}</span><span>amparo<span class="brand-period">.</span></span></a>
       <nav class="desktop-links" aria-label="${t("Main navigation", "Navegaci\xF3n principal")}">${links.map(link).join("")}</nav>
@@ -10928,7 +10928,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
       </div>
     </header>
     <main id="app-main" tabindex="-1">${renderProductViews(state, features)}<div class="map-credit"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">\xA9 OpenStreetMap ${t("contributors", "colaboradores")}</a></div></main>
-    <div class="dock-wrap"><nav id="product-dock" class="product-dock" aria-label="${t("Product navigation", "Navegaci\xF3n del producto")}"><span class="dock-indicator" aria-hidden="true"></span>${tabs.map(([name, label]) => `<button type="button" data-route="${name}" aria-label="${dockLabel(name, label)}" ${name === "home" ? 'aria-current="page"' : ""}>${icon(name)}<span>${label}</span></button>`).join("")}</nav></div>
+    <div class="dock-wrap"><nav id="product-dock" class="product-dock" aria-label="${t("Product navigation", "Navegaci\xF3n del producto")}"><span class="dock-indicator" aria-hidden="true"></span>${tabs.map(([name, label2]) => `<button type="button" data-route="${name}" aria-label="${dockLabel(name, label2)}" ${name === "home" ? 'aria-current="page"' : ""}>${icon(name)}<span>${label2}</span></button>`).join("")}</nav></div>
     <button class="desktop-agent" type="button" data-route="assistant"><span class="agent-mini-orb">${icon("assistant")}</span><span>Amparo AI<small>${t("Ask a question", "Haz una pregunta")}</small></span>${icon("diagonal")}</button>
     <dialog id="product-dialog" aria-labelledby="dialog-title"><div id="dialog-content"></div></dialog>
     ${features.communityAlerts ? '<dialog id="community-dialog" aria-labelledby="community-dialog-title"><div id="community-dialog-content"></div></dialog>' : ""}
@@ -11275,7 +11275,7 @@ body[data-screen='alerts']:not(:has([data-community-panel='map']:not([hidden])))
   }
 
   // public/dialogs/content.js
-  var field = (label, name, value = "", type = "text", extra = "") => `<label class="form-field">${label}<input name="${name}" type="${type}" value="${escapeHTML(value)}" ${extra}></label>`;
+  var field = (label2, name, value = "", type = "text", extra = "") => `<label class="form-field">${label2}<input name="${name}" type="${type}" value="${escapeHTML(value)}" ${extra}></label>`;
   var button = (text2, id = "", extra = "") => `<button type="submit" class="button primary full" ${id ? `id="${id}"` : ""} ${extra}>${text2}${icon("arrow")}</button>`;
   var form = (body) => `<form id="product-dialog-form">${body}<p id="form-error" class="form-error" role="alert"></p></form>`;
   var sampleNote = (t) => `<p class="session-note">${t("Interactive demo. Your information stays in this tab.", "Demo interactiva. Tu informaci\xF3n permanece en esta pesta\xF1a.")}</p>`;
@@ -12110,7 +12110,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
         "clock"
       ]
     ];
-    return `<section class="community-stats-summary"><h2>${t("Report summary", "Resumen de reportes")}</h2><p>${t("Totals for the area and dates you selected.", "Totales para la zona y las fechas seleccionadas.")}</p><dl class="community-stat-counts">${cards.map(([key2, value, label]) => `<div><dt>${label}</dt><dd data-stat-value="${key2}">${value}</dd></div>`).join("")}</dl></section>
+    return `<section class="community-stats-summary"><h2>${t("Report summary", "Resumen de reportes")}</h2><p>${t("Totals for the area and dates you selected.", "Totales para la zona y las fechas seleccionadas.")}</p><dl class="community-stat-counts">${cards.map(([key2, value, label2]) => `<div><dt>${label2}</dt><dd data-stat-value="${key2}">${value}</dd></div>`).join("")}</dl></section>
     <div class="community-charts"><article class="community-chart-card"><h2>${t("Reports by day", "Reportes por d\xEDa")}</h2><p class="community-chart-caption">${t("Week ending", "Semana hasta el")} ${reportDate(data.snapshotAt, language)}</p><div class="community-bars" role="img" aria-label="${days.map((day) => `${reportDate(day.date + "T12:00:00Z", language)}: ${day.count}`).join("; ")}">${days.map((day) => `<div class="community-bar-column"><strong>${day.count}</strong><div class="community-bar-track"><span data-bar-height="${day.count / maximum * 100}"></span></div><small>${new Intl.DateTimeFormat(language === "es" ? "es-US" : "en-US", { weekday: "short", timeZone: "America/New_York" }).format(/* @__PURE__ */ new Date(day.date + "T12:00:00Z"))}</small></div>`).join("")}</div></article>
     <article class="community-chart-card"><h2>${t("Reports by county", "Reportes por condado")}</h2><div class="community-area-bars">${stats.areas.map((area) => `<button type="button" data-community-region="${area.id}"><span><strong>${area.name}</strong><b>${area.count}</b></span><span class="community-area-track"><i data-bar-width="${stats.reports ? area.count / stats.reports * 100 : 0}"></i></span></button>`).join("")}</div><button type="button" class="button quiet" data-community-tab="map">${t("View on map", "Ver en el mapa")}</button></article></div>
     <details class="community-stats-method"><summary>${t("How these totals are counted", "C\xF3mo se calculan los totales")}</summary><p>${t("These are demo reports, not confirmed incidents. Multiple reports may describe the same event. People totals exclude reports without a count.", "Son reportes de ejemplo, no incidentes confirmados. Varios reportes pueden describir el mismo evento. Los totales excluyen reportes sin cantidad de personas.")}</p></details>`;
@@ -12456,6 +12456,61 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     }
   };
 
+  // public/news/image-policy.js
+  var hostsBySource = /* @__PURE__ */ new Map([
+    ["block-club", ["i0.wp.com"]],
+    ["calmatters", ["i0.wp.com"]],
+    ["texas-tribune", ["i0.wp.com"]],
+    ["democracy-now", ["www.democracynow.org"]],
+    ["documented", ["documentedny.com"]],
+    ["ice-news", ["edit.ice.gov", "www.ice.gov"]],
+    ["local10", ["www.local10.com"]],
+    ["minnesota-reformer", ["minnesotareformer.com"]],
+    ["nbc-chicago", ["media.nbcchicago.com"]],
+    ["nbc-miami", ["media.nbcmiami.com"]],
+    ["pbs-newshour", ["d3i6fh83elv35t.cloudfront.net"]],
+    ["wsvn", ["wsvn.com"]],
+    ["wlrn", ["npr.brightspotcdn.com"]],
+    ["telemundo51", ["media.telemundo51.com"]]
+  ]);
+  var newsImageHosts = [...new Set([...hostsBySource.values()].flat())];
+  function imageURL(value, sourceId) {
+    if (typeof value !== "string" || value.length > 4096) return null;
+    try {
+      const url = new URL(value);
+      return url.protocol === "https:" && !url.username && !url.password && !url.port && hostsBySource.get(sourceId)?.includes(url.hostname) && !url.pathname.toLowerCase().endsWith(".svg") ? url.href : null;
+    } catch {
+      return null;
+    }
+  }
+  var label = (value, max) => typeof value === "string" && value.length <= max ? value.trim() : "";
+  var provenance = /* @__PURE__ */ new Set([
+    "rss-enclosure",
+    "rss-media-content",
+    "rss-media-thumbnail",
+    "rss-content-image"
+  ]);
+  function newsMedia(entries, sourceId) {
+    if (!Array.isArray(entries)) return [];
+    const seen = /* @__PURE__ */ new Set();
+    return entries.slice(0, 12).flatMap((entry) => {
+      if (entry?.reuseStatus !== "permission-required" || !provenance.has(entry.provenance))
+        return [];
+      const url = imageURL(entry?.url, sourceId);
+      if (!url || seen.has(url)) return [];
+      seen.add(url);
+      return [
+        {
+          url,
+          reuseStatus: "permission-required",
+          alt: label(entry.alt, 1e3),
+          credit: label(entry.credit, 500),
+          provenance: entry.provenance
+        }
+      ];
+    });
+  }
+
   // public/news/model.js
   var MAX_ITEMS = 1e3;
   var text = (value, max) => typeof value === "string" && value.trim().length > 0 && value.length <= max;
@@ -12490,6 +12545,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       publishedAt: item.publishedAt,
       datePrecision: item.datePrecision,
       detectedAt: item.detectedAt,
+      media: newsMedia(item.media, item.sourceId),
       // Publisher metadata cannot establish event time, location or corroboration.
       eventAt: null
     };
@@ -12634,6 +12690,14 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     ]
   ]);
   function newsPhoto(item) {
+    const media = newsMedia(item.media, item.sourceId)[0];
+    if (media)
+      return {
+        src: media.url,
+        en: media.alt || `Image published by ${item.sourceName}.`,
+        es: media.alt || `Imagen publicada por ${item.sourceName}.`,
+        credit: media.credit || item.sourceName
+      };
     return photos.get(item.url) || null;
   }
 
@@ -12659,7 +12723,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     const t = words(language);
     const photo = newsPhoto(item);
     return `<article class="news-card${compact ? " news-card-compact" : ""}${index === 0 ? " news-card-lead" : ""}${photo ? "" : " news-card-text-only"}">
-    ${photo ? `<figure class="news-photo"><img src="${photo.src}" alt="${escapeHTML(language === "es" ? photo.es : photo.en)}" width="1100" height="619" loading="${index === 0 ? "eager" : "lazy"}" decoding="async"></figure>` : ""}
+    ${photo ? `<figure class="news-photo"><img src="${escapeHTML(photo.src)}" referrerpolicy="no-referrer" alt="${escapeHTML(language === "es" ? photo.es : photo.en)}" width="1100" height="619" loading="${index === 0 ? "eager" : "lazy"}" decoding="async"></figure>` : ""}
     <div class="news-story-body"><p class="news-card-source"><span>${escapeHTML(item.sourceName)}</span><span aria-hidden="true">\xB7</span>${time(item.publishedAt, language, true)}</p>
     <h3 lang="${item.language}">${escapeHTML(item.title)}</h3>
     <a class="news-source-link" href="${escapeHTML(item.url)}" target="_blank" rel="noopener noreferrer">${t("Read original story", "Leer noticia original")}${icon("diagonal")}<span class="visually-hidden">: ${escapeHTML(item.title)} \xB7 ${t("opens in a new tab", "abre en otra pesta\xF1a")}</span></a>
@@ -12731,10 +12795,17 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
       this.state = { loading: false, error: false };
       this.generation = 0;
       this.visibility = () => this.show(this.app.current);
+      this.imageError = (event) => {
+        const photo = event.target;
+        if (!photo.matches?.(".news-photo img")) return;
+        photo.closest(".news-card")?.classList.add("news-card-text-only");
+        photo.closest(".news-photo")?.remove();
+      };
     }
     mount() {
       this.attached = true;
       this.app.document.addEventListener("visibilitychange", this.visibility);
+      this.app.document.addEventListener("error", this.imageError, true);
       this.render();
       this.show(this.app.current);
     }
@@ -12809,6 +12880,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     detach() {
       this.attached = false;
       this.app.document.removeEventListener("visibilitychange", this.visibility);
+      this.app.document.removeEventListener("error", this.imageError, true);
       this.stop();
     }
   };
@@ -13178,12 +13250,12 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
     const { mode, busy, service } = controller;
     const recovering = mode === "recover";
     const updating = mode === "update-password";
-    const label = recovering ? t("Send reset link", "Enviar enlace") : updating ? t("Save new password", "Guardar contrase\xF1a") : t("Continue", "Continuar");
+    const label2 = recovering ? t("Send reset link", "Enviar enlace") : updating ? t("Save new password", "Guardar contrase\xF1a") : t("Continue", "Continuar");
     return `<form id="account-access-form">
     ${updating ? "" : `<label class="form-field">${t("Email", "Correo electr\xF3nico")}<input name="email" type="email" required maxlength="254" autocomplete="username webauthn"></label>`}
     ${recovering ? "" : `<label class="form-field">${updating ? t("New password", "Contrase\xF1a nueva") : t("Password", "Contrase\xF1a")}<input name="password" type="password" required minlength="8" maxlength="128" autocomplete="${updating ? "new-password" : "current-password"}"></label>`}
     ${recovering || updating ? "" : `<label class="form-field">${t("Action", "Acci\xF3n")}<select name="mode"><option value="signin">${t("Sign in", "Entrar")}</option><option value="signup" ${service?.signupEnabled ? "" : "disabled"}>${t("Create account", "Crear cuenta")}</option></select></label>`}
-    <button class="button primary full" type="submit" ${busy || !service?.available ? "disabled" : ""}>${label}</button></form>
+    <button class="button primary full" type="submit" ${busy || !service?.available ? "disabled" : ""}>${label2}</button></form>
     <div class="account-access-actions">${recovering ? button2("signin", t("Back to sign in", "Volver a entrar")) : updating ? "" : `${button2("recover", t("Forgot password?", "\xBFOlvidaste tu contrase\xF1a?"))}
           ${service?.appleEnabled ? button2("apple", t("Sign in with Apple", "Iniciar sesi\xF3n con Apple"), !service.nativeProvidersReady) : ""}
           ${service?.googleEnabled ? button2("google", t("Continue with Google", "Continuar con Google"), service.native && !service.nativeProvidersReady) : ""}
@@ -13192,7 +13264,7 @@ ${app.text("Discuss your plan together. For immediate danger call 911. Contact a
   function accountView(controller) {
     const { app, session, service, membership, busy, status } = controller;
     const t = (en2, es2) => app.text(en2, es2);
-    const button2 = (action, label, disabled = false) => `<button type="button" class="button quiet${action === "apple" ? " apple-sign-in" : ""}" data-account-action="${action}" ${busy || disabled ? "disabled" : ""}>${label}</button>`;
+    const button2 = (action, label2, disabled = false) => `<button type="button" class="button quiet${action === "apple" ? " apple-sign-in" : ""}" data-account-action="${action}" ${busy || disabled ? "disabled" : ""}>${label2}</button>`;
     const notices = {
       reauthenticate: t(
         "For your protection, sign out and sign in again, then retry deletion.",

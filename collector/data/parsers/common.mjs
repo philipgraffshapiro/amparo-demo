@@ -1,7 +1,7 @@
 import { createHash } from 'node:crypto';
 import { parseTree } from 'jsonc-parser';
 
-export const PARSER_VERSION = 'amparo-public-data/2';
+export const PARSER_VERSION = 'amparo-public-data/3';
 export const digest = (value) =>
   createHash('sha256').update(value).digest('hex');
 

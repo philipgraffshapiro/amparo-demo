@@ -1,3 +1,5 @@
+import { newsMedia } from './image-policy.js';
+
 const MAX_ITEMS = 1000;
 const text = (value, max) =>
   typeof value === 'string' && value.trim().length > 0 && value.length <= max;
@@ -41,6 +43,7 @@ function newsItem(item) {
     publishedAt: item.publishedAt,
     datePrecision: item.datePrecision,
     detectedAt: item.detectedAt,
+    media: newsMedia(item.media, item.sourceId),
     // Publisher metadata cannot establish event time, location or corroboration.
     eventAt: null,
   };

@@ -95,7 +95,13 @@ function verifyCapture(warehouse, capture, bytes, issues) {
         error: 'Full source record differs',
       });
     const expected = {
-      ...expectedItem(capture.source_id, original, bytes, source),
+      ...expectedItem(
+        capture.source_id,
+        original,
+        bytes,
+        source,
+        row.parser_version,
+      ),
       id: row.item_id,
       versionId: row.id,
       captureId: row.capture_id,

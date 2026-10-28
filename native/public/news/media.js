@@ -1,5 +1,7 @@
-// Images belong to these exact publisher stories. New stories without a verified
-// image retain the typography layout; never borrow a photo from another report.
+import { newsMedia } from './image-policy.js';
+
+// These local images support saved snapshots of their exact publisher stories.
+// Live feed images take precedence; never borrow another story's photograph.
 const photos = new Map([
   [
     'https://wsvn.com/news/politics/cuban-americans-support-gop-poll/',
@@ -31,5 +33,13 @@ const photos = new Map([
 ]);
 
 export function newsPhoto(item) {
+  const media = newsMedia(item.media, item.sourceId)[0];
+  if (media)
+    return {
+      src: media.url,
+      en: media.alt || `Image published by ${item.sourceName}.`,
+      es: media.alt || `Imagen publicada por ${item.sourceName}.`,
+      credit: media.credit || item.sourceName,
+    };
   return photos.get(item.url) || null;
 }
