@@ -40,6 +40,7 @@ export function createAccountService(window, config = accountConfig) {
     appleEnabled: Boolean(native),
     deletionEnabled: Boolean(config.deletionEnabled),
     native: Boolean(native),
+    nativeProvidersReady: config.nativeProvidersReady === true,
     signupEnabled: config.signupEnabled === true,
     googleEnabled: config.googleEnabled === true,
     passkeys:
@@ -88,12 +89,17 @@ export function createAccountService(window, config = accountConfig) {
       unwrap(await client.auth.updateUser({ password }));
     },
     async signInApple() {
-      if (!native) throw new Error('Apple sign-in requires the iPhone app');
+      if (!native || !config.nativeProvidersReady)
+        throw new Error('Native account services are not configured');
       return native.apple();
     },
     deleteAccount: () => deleteAccount(window, config, client, native, unwrap),
     async signInGoogle() {
-      if (native) return native.google();
+      if (native) {
+        if (!config.nativeProvidersReady)
+          throw new Error('Native account services are not configured');
+        return native.google();
+      }
       if (!config.googleEnabled)
         throw new Error('Google sign-in is unavailable');
       return unwrap(

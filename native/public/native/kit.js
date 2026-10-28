@@ -69,6 +69,20 @@ export class NativeKit {
     });
     host.insertBefore(section, host.querySelector('.more-layout'));
   }
+  syncAppearance() {
+    const theme = this.app.store.get().theme;
+    if (!this.bridge.appearance || this.appliedTheme === theme) return;
+    this.appliedTheme = theme;
+    this.bridge.appearance({ theme }).catch(() => {
+      this.appliedTheme = undefined;
+      this.app.toast(
+        this.app.text(
+          'Could not update device appearance.',
+          'No se pudo actualizar la apariencia del dispositivo.',
+        ),
+      );
+    });
+  }
   async action(action) {
     const t = this.app.text.bind(this.app);
     if (action === 'share')

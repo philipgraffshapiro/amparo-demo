@@ -30,5 +30,11 @@ await build({
   minify: true,
   legalComments: 'eof',
 });
+await writeFile(
+  'mobile/www/NATIVE-LICENSES.txt',
+  (await readFile('node_modules/@capacitor/core/LICENSE', 'utf8')) +
+    '\n' +
+    (await readFile('node_modules/@capacitor/ios/LICENSE', 'utf8')),
+);
 dom.window.close();
 console.log('Built bundled iPhone web assets with an offline news snapshot.');

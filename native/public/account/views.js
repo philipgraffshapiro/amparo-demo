@@ -20,8 +20,8 @@ function accessForm(controller, t, button) {
         : updating
           ? ''
           : `${button('recover', t('Forgot password?', '¿Olvidaste tu contraseña?'))}
-          ${service?.appleEnabled ? button('apple', t('Sign in with Apple', 'Iniciar sesión con Apple')) : ''}
-          ${service?.googleEnabled ? button('google', t('Continue with Google', 'Continuar con Google')) : ''}
+          ${service?.appleEnabled ? button('apple', t('Sign in with Apple', 'Iniciar sesión con Apple'), !service.nativeProvidersReady) : ''}
+          ${service?.googleEnabled ? button('google', t('Continue with Google', 'Continuar con Google'), service.native && !service.nativeProvidersReady) : ''}
           ${button('passkey', t('Sign in with Face ID / passkey', 'Entrar con Face ID / llave de acceso'), !service?.passkeys)}`
     }</div>${recovering ? `<p class="session-note">${t('Password reset emails are currently limited to invited demo accounts. If you joined with Google, continue with Google and recover your Google account there if needed.', 'Los correos para restablecer contraseñas están limitados a cuentas invitadas de la demo. Si te registraste con Google, continúa con Google y recupera tu cuenta allí si es necesario.')}</p>` : ''}`;
 }
@@ -63,6 +63,7 @@ export function accountView(controller) {
     return deletionView(controller, t, button, notices);
   const heading = accountHeading(controller, t);
   return `<button type="button" class="icon-button dialog-close" data-account-action="close" aria-label="${t('Close account', 'Cerrar cuenta')}">×</button>
+    ${nativeNotice(service, t)}
     <p class="eyebrow">${t('YOUR ACCOUNT', 'TU CUENTA')}</p><h2 id="account-access-title">${heading}</h2>
     <p class="session-note">${t('Your sign-in is saved on this device. Documents, family tools and the assistant remain demo features.', 'Tu sesión se guarda en este dispositivo. Los documentos, las herramientas familiares y el asistente siguen siendo funciones de demostración.')}</p>
     ${
@@ -98,4 +99,16 @@ function accountHeading(controller, t) {
       : session
         ? t('Welcome back.', 'Bienvenido.')
         : t('Sign in to Amparo.', 'Entra en Amparo.');
+}
+
+function nativeNotice(service, t) {
+  if (!service?.native || service.nativeProvidersReady) return '';
+  return (
+    '<p class="session-note">' +
+    t(
+      'Apple and Google account services are not available in this iPhone preview yet. You can use the checklist and news without signing in.',
+      'Los servicios de cuenta de Apple y Google aún no están disponibles en esta vista previa para iPhone. Puedes usar la lista y las noticias sin iniciar sesión.',
+    ) +
+    '</p>'
+  );
 }

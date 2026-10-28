@@ -20,10 +20,10 @@ const base = [
   'ios/App/App.xcodeproj',
   '-scheme',
   'Amparo',
-  'CODE_SIGNING_ALLOWED=NO',
 ];
 run('xcodebuild', [
   ...base,
+  'CODE_SIGNING_ALLOWED=NO',
   '-destination',
   'generic/platform=iOS',
   '-archivePath',
@@ -41,6 +41,9 @@ run('ditto', [
 try {
   run('xcodebuild', [
     ...base,
+    'CODE_SIGNING_ALLOWED=YES',
+    'CODE_SIGNING_REQUIRED=YES',
+    'CODE_SIGN_IDENTITY=-',
     '-destination',
     'platform=iOS Simulator,id=' + phone.udid,
     '-test-timeouts-enabled',

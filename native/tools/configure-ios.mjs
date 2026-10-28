@@ -2,6 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import plist from 'plist';
 import xcode from 'xcode';
 import { Resvg } from '@resvg/resvg-js';
+import sharp from 'sharp';
 
 const root = 'ios/App/App/';
 const info = plist.parse(readFileSync(root + 'Info.plist', 'utf8'));
@@ -14,6 +15,10 @@ info.CFBundleURLTypes = [
 ];
 info.AmparoAuthHost = 'kipnzxueazppkbgpxckz.supabase.co';
 info.ITSAppUsesNonExemptEncryption = false;
+info.NSCameraUsageDescription =
+  'Add a photo to the family report draft you are preparing. Photos stay in the preview until you choose to remove them or close it.';
+info.NSPhotoLibraryUsageDescription =
+  'Choose a photo for your family report draft. Amparo uses only the photos you select.';
 delete info.UIRequiredDeviceCapabilities;
 writeFileSync(root + 'Info.plist', plist.build(info) + '\n');
 writeFileSync(
@@ -55,7 +60,7 @@ const icon = new Resvg(readFileSync('public/favicon.svg', 'utf8'), {
   .asPng();
 writeFileSync(
   root + 'Assets.xcassets/AppIcon.appiconset/AppIcon-512@2x.png',
-  icon,
+  await sharp(icon).removeAlpha().png().toBuffer(),
 );
 const splash = new Resvg(
   '<svg xmlns="http://www.w3.org/2000/svg" width="2732" height="2732"><rect width="2732" height="2732" fill="#171b1a"/><g transform="translate(1174 1174) scale(8)">' +

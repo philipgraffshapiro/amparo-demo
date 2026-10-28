@@ -1,0 +1,15 @@
+{
+  "status": "draft-requires-production-feature-review",
+  "en-US": {
+    "name": "Amparo",
+    "subtitle": "A clearer next step",
+    "description": "Keep a preparation checklist on your iPhone, share it with someone you trust, and set a reminder to review it. Follow sourced public news with clear publication times and links to the original reporting. Amparo supports English and Spanish. It does not provide legal advice, emergency response or independently verified incident alerts.",
+    "keywords": "preparation,family,community,news,checklist,bilingual"
+  },
+  "es-MX": {
+    "name": "Amparo",
+    "subtitle": "Un siguiente paso claro",
+    "description": "Guarda una lista de preparación en tu iPhone, compártela con alguien de confianza y programa un recordatorio para revisarla. Consulta noticias con fuentes, fechas de publicación y enlaces al reportaje original. Amparo está disponible en español e inglés. No ofrece asesoría legal, respuesta de emergencia ni alertas de incidentes verificadas de forma independiente.",
+    "keywords": "preparación,familia,comunidad,noticias,lista,bilingüe"
+  }
+}

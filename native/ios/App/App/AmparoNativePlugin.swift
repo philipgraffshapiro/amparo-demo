@@ -14,6 +14,7 @@ public class AmparoNativePlugin: CAPPlugin, CAPBridgedPlugin, ASWebAuthenticatio
         CAPPluginMethod(name: "removeSecret", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "authenticate", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "apple", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "appearance", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "share", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "openLink", returnType: CAPPluginReturnPromise),
         CAPPluginMethod(name: "remind", returnType: CAPPluginReturnPromise),
@@ -91,6 +92,18 @@ public class AmparoNativePlugin: CAPPlugin, CAPBridgedPlugin, ASWebAuthenticatio
                 call.reject("Invalid link", "INVALID_INPUT"); return
             }
             controller.present(SFSafariViewController(url: url), animated: true) { call.resolve() }
+        }
+    }
+    @objc func appearance(_ call: CAPPluginCall) {
+        DispatchQueue.main.async {
+            guard let theme = call.getString("theme"), ["dark", "light"].contains(theme),
+                  let controller = self.bridge?.viewController as? CAPBridgeViewController else {
+                call.reject("Invalid appearance", "INVALID_INPUT"); return
+            }
+            controller.overrideUserInterfaceStyle = theme == "dark" ? .dark : .light
+            controller.statusBarStyle = theme == "dark" ? .lightContent : .darkContent
+            controller.setNeedsStatusBarAppearanceUpdate()
+            call.resolve()
         }
     }
     @objc func share(_ call: CAPPluginCall) {

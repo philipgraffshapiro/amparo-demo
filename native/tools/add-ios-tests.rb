@@ -14,7 +14,7 @@ target.build_configurations.each do |config|
   config.build_settings['PRODUCT_NAME'] = 'AmparoUITests'
   config.build_settings['GENERATE_INFOPLIST_FILE'] = 'YES'
   config.build_settings['TEST_TARGET_NAME'] = 'App'
-  config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+  config.build_settings.delete('CODE_SIGNING_ALLOWED')
 end
 unit = project.targets.find { |entry| entry.name == 'AmparoNativeTests' }
 unless unit
@@ -30,7 +30,7 @@ unit.build_configurations.each do |config|
   config.build_settings['GENERATE_INFOPLIST_FILE'] = 'YES'
   config.build_settings['TEST_HOST'] = '$(BUILT_PRODUCTS_DIR)/App.app/App'
   config.build_settings['BUNDLE_LOADER'] = '$(TEST_HOST)'
-  config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+  config.build_settings.delete('CODE_SIGNING_ALLOWED')
 end
 project.save
 scheme = Xcodeproj::XCScheme.new

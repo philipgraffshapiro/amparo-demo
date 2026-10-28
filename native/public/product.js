@@ -54,6 +54,7 @@ class ProductController {
     renderLiveState(this.document, this.store.get(), this.filters);
     this.community?.render();
     this.family?.render();
+    this.native?.syncAppearance();
   }
 
   toast(message) {

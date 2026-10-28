@@ -82,5 +82,9 @@
     <string>kipnzxueazppkbgpxckz.supabase.co</string>
     <key>ITSAppUsesNonExemptEncryption</key>
     <false/>
+    <key>NSCameraUsageDescription</key>
+    <string>Add a photo to the family report draft you are preparing. Photos stay in the preview until you choose to remove them or close it.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>Choose a photo for your family report draft. Amparo uses only the photos you select.</string>
   </dict>
 </plist>

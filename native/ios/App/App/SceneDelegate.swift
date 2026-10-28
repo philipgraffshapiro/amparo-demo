@@ -7,8 +7,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
 
-        window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = CAPBridgeViewController()
+        // UIKit creates the storyboard window before this callback. Reuse it:
+        // creating another bridge here loses our plugin and leaves two WebViews.
+        if window == nil {
+            let appWindow = UIWindow(windowScene: windowScene)
+            appWindow.rootViewController = AmparoViewController()
+            window = appWindow
+        }
         window?.makeKeyAndVisible()
 
         SceneDelegateProxy.shared.scene(scene, willConnectTo: session, options: connectionOptions)

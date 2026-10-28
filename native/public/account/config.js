@@ -4,6 +4,8 @@ export const accountConfig = {
   passkeysEnabled: true,
   passkeyOrigin: 'https://philipgraffshapiro.github.io',
   googleEnabled: true,
+  nativeProvidersReady: false,
+  deletionEnabled: false,
   signupEnabled: false,
   billingEnabled: false,
 };

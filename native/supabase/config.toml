@@ -1,0 +1,4 @@
+project_id = "amparo"
+[functions.delete-account]
+verify_jwt = false
+# The handler verifies the bearer token with auth.getUser. It does not trust decoded JWT claims.
